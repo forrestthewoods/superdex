@@ -56,22 +56,57 @@ def strip_genex(items, platform):
 def split_list(s):
     return [x for x in s.split(';') if x] if s else []
 
+# clang-cl spellings -> clang driver spellings (Anubis drives clang, not
+# clang-cl, for Windows targets).
+CL_DROP = re.compile(r'^(/nologo|--target=.*|/O[12dx]|/Ob[0-3]|-MD|/MD|/MT|/EHsc|-TP|-TC|/Zc:.*|/Zi|/MP|/bigobj|/GS-?|/wd\d+|/W[0-4]|-W[0-4]|/WX-?|/utf-8|--)$')
+CL_MAP = {'/fp:fast': ['-ffast-math'], '/Gy': ['-ffunction-sections'], '/Gw': ['-fdata-sections'], '/GR-': ['-fno-rtti'],
+          '/W0': ['-w'],
+          # clang-cl's /arch:AVX2 implies these; spelled as mochi's Linux flags.
+          '/arch:AVX2': ['-mavx2', '-mfma', '-mbmi2', '-mlzcnt', '-mf16c', '-mpclmul']}
+# Defines the toolchain/mode sets globally; not per-target state.
+GLOBAL_DEFINES = {'_ITERATOR_DEBUG_LEVEL=0'}
+
 def parse_cmd(cmd):
     toks = shlex.split(cmd)
     defs, incs, flags = [], [], []
     i = 1
     while i < len(toks):
         t = toks[i]
-        if t in ('-o', '-MF', '-MT', '-MQ'):
+        if t in ('-o', '-MF', '-MT', '-MQ', '/imsvc', '-imsvc'):
+            # /imsvc <dir> is the MSVC/SDK sysroot; -imsvc<dir> (joined) is a
+            # dependency's SYSTEM include and handled below.
             i += 2; continue
+        if t.startswith(('/Fo', '/Fd')):
+            i += 1; continue
+        if t == '--':
+            break
         if t == '-c':
-            i += 2; continue
-        if t.startswith('-D'):
-            defs.append(t[2:] or toks[i + 1]); i += 1 if t[2:] else 2; continue
-        if t in ('-I', '-isystem'):
+            i += 1; continue
+        if not t.startswith(('-', '/')) or (t.startswith('/') and t.endswith(SRC_EXT_C + SRC_EXT_CPP)):
+            i += 1; continue  # the source file itself
+        if t.startswith(('-D', '/D')):
+            d = t[2:] or toks[i + 1]
+            if d not in GLOBAL_DEFINES:
+                defs.append(d)
+            i += 1 if t[2:] else 2; continue
+        if t in ('-I', '-isystem', '/I'):
             incs.append(toks[i + 1]); i += 2; continue
-        if t.startswith('-I'):
+        if t.startswith(('-I', '/I')):
             incs.append(t[2:]); i += 1; continue
+        if t.startswith('-imsvc'):
+            incs.append(t[6:]); i += 1; continue
+        if t.startswith('/FI'):
+            flags += ['-include', t[3:]]; i += 1; continue
+        if t.startswith('/clang:'):
+            flags.append(t[7:]); i += 1; continue
+        if t in ('-std:c++20', '/std:c++20', '/std:c++latest'):
+            flags.append('-std=c++20'); i += 1; continue
+        if t.startswith(('-std:', '/std:')):
+            flags.append('-std=' + t[5:]); i += 1; continue
+        if t in CL_MAP:
+            flags += CL_MAP[t]; i += 1; continue
+        if CL_DROP.match(t):
+            i += 1; continue
         if t in ('-MD', '-MMD', '-fPIC', '-fcolor-diagnostics', '-fdiagnostics-color=always') or re.match(r'-O[0-3sz]?$', t):
             i += 1; continue
         flags.append(t); i += 1
@@ -100,6 +135,8 @@ def main():
             'files': [],
         }
         for e in per_target.get(name, []):
+            if e['file'].endswith('.rc') or (platform == 'windows' and e['file'].endswith('.S')):
+                continue  # resource scripts; MASM (see extra_srcs)
             defs, incs, flags = parse_cmd(e['command'])
             info['files'].append({'file': os.path.realpath(e['file']), 'defines': defs, 'includes': incs, 'flags': flags})
         # OBJECT libraries folded in via $<TARGET_OBJECTS:x> become static deps.
@@ -130,6 +167,10 @@ def main():
 #   group_override: {cmake target: anubis_dir} where SOURCE_DIR misleads
 #   extra_deps: {platform: {cmake target: [anubis labels]}} for system
 #              dependencies CMake finds on the host (X11/GL headers)
+#   system_libs: {platform: [names]} CMake link items that are OS import
+#              libraries; emitted as public_libraries (`name.lib`)
+#   extra_srcs: {platform: {cmake target: [files]}} stand-ins for sources
+#              in languages Anubis has no rule for
 
 SYSTEM_LIBS = {'dl', 'm', 'rt', 'pthread', 'Threads::Threads', 'X11::X11'}
 
@@ -171,9 +212,17 @@ def load_platform(desc, cfg):
         tgts[name] = dict(type=t['type'], source_dir=os.path.relpath(os.path.realpath(t['source_dir']), root),
                           public_includes=[x for x in (mapdir(i) for i in t['public_includes']) if x],
                           public_defines=t['public_defines'], public_flags=t['public_flags'],
+                          syslibs=[d.lower() + '.lib' for d in t['deps']
+                                   if d.lower() in cfg.get('system_libs', {}).get(desc['platform'], [])],
                           deps=[d for d in t['deps'] if d not in SYSTEM_LIBS and not d.startswith(('-', '/'))
                                 and d not in cfg.get('ignore', [])],
                           files=files)
+    # Sources CMake builds with a language Anubis lacks (bluegl's MASM
+    # trampolines) swapped for an equivalent C/C++ file, compiled with the
+    # target's other flags.
+    for n, extra in cfg.get('extra_srcs', {}).get(desc['platform'], {}).items():
+        f0 = tgts[n]['files'][0]
+        tgts[n]['files'] += [dict(f0, file=x) for x in extra]
     return tgts
 
 def closure(tgts, roots, cfg):
@@ -313,6 +362,7 @@ def render(cfg_path):
                     ('deps', per_platform({p: deps_for(p) for p in present}, 4, lambda v, i: fmt_list(v, i, None, 'Targets'))),
                     ('public_include_dirs', per_platform(pub('public_includes'), 4, lambda v, i: fmt_list(v, i, g))),
                     ('public_defines', per_platform(pub('public_defines'), 4, lambda v, i: fmt_list(v, i, None, None))),
+                    ('public_libraries', per_platform(pub('syslibs'), 4, lambda v, i: fmt_list(v, i, None, None))),
                     ('public_compiler_flags', per_platform(pub('public_flags'), 4, lambda v, i: fmt_list(v, i, None, None))),
                     ('private_include_dirs', per_platform(field('private_includes'), 4, lambda v, i: fmt_list(v, i, g))),
                     ('private_defines', per_platform(field('private_defines'), 4, lambda v, i: fmt_list(v, i, None, None))),

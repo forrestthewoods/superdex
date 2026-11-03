@@ -10,6 +10,15 @@ cc_static_library(
     public_include_dirs = RelPaths([
         "glad/include",
     ]),
+    private_defines = select(
+        (target_platform) => {
+        (linux) = [],
+        (windows) = [
+            "WIN32",
+            "_WINDOWS",
+        ],
+        }
+    ),
     private_compiler_flags = [
         "-w",
     ],
@@ -18,48 +27,99 @@ cc_static_library(
 cc_static_library(
     name = "glfw",
     lang = "c",
-    srcs = RelPaths([
-        "glfw/src/context.c",
-        "glfw/src/egl_context.c",
-        "glfw/src/glx_context.c",
-        "glfw/src/init.c",
-        "glfw/src/input.c",
-        "glfw/src/linux_joystick.c",
-        "glfw/src/monitor.c",
-        "glfw/src/null_init.c",
-        "glfw/src/null_joystick.c",
-        "glfw/src/null_monitor.c",
-        "glfw/src/null_window.c",
-        "glfw/src/osmesa_context.c",
-        "glfw/src/platform.c",
-        "glfw/src/posix_module.c",
-        "glfw/src/posix_poll.c",
-        "glfw/src/posix_thread.c",
-        "glfw/src/posix_time.c",
-        "glfw/src/vulkan.c",
-        "glfw/src/window.c",
-        "glfw/src/x11_init.c",
-        "glfw/src/x11_monitor.c",
-        "glfw/src/x11_window.c",
-        "glfw/src/xkb_unicode.c",
-    ]),
-    deps = Targets([
-        "//anubis/sys:x11",
-    ]),
+    srcs = select(
+        (target_platform) => {
+        (linux) = RelPaths([
+            "glfw/src/context.c",
+            "glfw/src/egl_context.c",
+            "glfw/src/glx_context.c",
+            "glfw/src/init.c",
+            "glfw/src/input.c",
+            "glfw/src/linux_joystick.c",
+            "glfw/src/monitor.c",
+            "glfw/src/null_init.c",
+            "glfw/src/null_joystick.c",
+            "glfw/src/null_monitor.c",
+            "glfw/src/null_window.c",
+            "glfw/src/osmesa_context.c",
+            "glfw/src/platform.c",
+            "glfw/src/posix_module.c",
+            "glfw/src/posix_poll.c",
+            "glfw/src/posix_thread.c",
+            "glfw/src/posix_time.c",
+            "glfw/src/vulkan.c",
+            "glfw/src/window.c",
+            "glfw/src/x11_init.c",
+            "glfw/src/x11_monitor.c",
+            "glfw/src/x11_window.c",
+            "glfw/src/xkb_unicode.c",
+        ]),
+        (windows) = RelPaths([
+            "glfw/src/context.c",
+            "glfw/src/egl_context.c",
+            "glfw/src/init.c",
+            "glfw/src/input.c",
+            "glfw/src/monitor.c",
+            "glfw/src/null_init.c",
+            "glfw/src/null_joystick.c",
+            "glfw/src/null_monitor.c",
+            "glfw/src/null_window.c",
+            "glfw/src/osmesa_context.c",
+            "glfw/src/platform.c",
+            "glfw/src/vulkan.c",
+            "glfw/src/wgl_context.c",
+            "glfw/src/win32_init.c",
+            "glfw/src/win32_joystick.c",
+            "glfw/src/win32_module.c",
+            "glfw/src/win32_monitor.c",
+            "glfw/src/win32_thread.c",
+            "glfw/src/win32_time.c",
+            "glfw/src/win32_window.c",
+            "glfw/src/window.c",
+        ]),
+        }
+    ),
+    deps = select(
+        (target_platform) => {
+        (linux) = Targets([
+            "//anubis/sys:x11",
+        ]),
+        (windows) = [],
+        }
+    ),
     public_include_dirs = RelPaths([
         "glfw/include",
     ]),
     private_include_dirs = RelPaths([
         "glfw/src",
     ]),
-    private_defines = [
-        "_DEFAULT_SOURCE",
-        "_GLFW_X11",
-    ],
-    private_compiler_flags = [
-        "-w",
-        "-std=c99",
-    ],
+    private_defines = select(
+        (target_platform) => {
+        (linux) = [
+            "_DEFAULT_SOURCE",
+            "_GLFW_X11",
+        ],
+        (windows) = [
+            "UNICODE",
+            "_CRT_SECURE_NO_WARNINGS",
+            "_GLFW_WIN32",
+            "_UNICODE",
+            "WIN32",
+            "_WINDOWS",
+        ],
+        }
+    ),
+    private_compiler_flags = select(
+        (target_platform) => {
+        (linux) = [
+            "-w",
+            "-std=c99",
+        ],
+        (windows) = [
+            "-w",
+        ],
+        }
+    ),
 )
 
 cc_static_library(
@@ -82,10 +142,27 @@ cc_static_library(
         "imgui",
         "imgui/backends",
     ]),
-    private_compiler_flags = [
-        "-w",
-        "-std=gnu++20",
-    ],
+    private_defines = select(
+        (target_platform) => {
+        (linux) = [],
+        (windows) = [
+            "WIN32",
+            "_WINDOWS",
+        ],
+        }
+    ),
+    private_compiler_flags = select(
+        (target_platform) => {
+        (linux) = [
+            "-w",
+            "-std=gnu++20",
+        ],
+        (windows) = [
+            "-w",
+            "-std=c++20",
+        ],
+        }
+    ),
 )
 
 cc_static_library(
@@ -103,10 +180,27 @@ cc_static_library(
     public_include_dirs = RelPaths([
         "imguios_fonts/include",
     ]),
-    private_compiler_flags = [
-        "-w",
-        "-std=gnu++20",
-    ],
+    private_defines = select(
+        (target_platform) => {
+        (linux) = [],
+        (windows) = [
+            "WIN32",
+            "_WINDOWS",
+        ],
+        }
+    ),
+    private_compiler_flags = select(
+        (target_platform) => {
+        (linux) = [
+            "-w",
+            "-std=gnu++20",
+        ],
+        (windows) = [
+            "-w",
+            "-std=c++20",
+        ],
+        }
+    ),
 )
 
 cc_static_library(
@@ -123,8 +217,25 @@ cc_static_library(
     public_include_dirs = RelPaths([
         "implot",
     ]),
-    private_compiler_flags = [
-        "-w",
-        "-std=gnu++20",
-    ],
+    private_defines = select(
+        (target_platform) => {
+        (linux) = [],
+        (windows) = [
+            "WIN32",
+            "_WINDOWS",
+        ],
+        }
+    ),
+    private_compiler_flags = select(
+        (target_platform) => {
+        (linux) = [
+            "-w",
+            "-std=gnu++20",
+        ],
+        (windows) = [
+            "-w",
+            "-std=c++20",
+        ],
+        }
+    ),
 )

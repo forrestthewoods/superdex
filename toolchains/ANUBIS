@@ -152,9 +152,9 @@ toolchain(
                 # windows
                 (windows, _, _, _) = [
                     "_MT", # multi-threaded CRT
-                    "WIN32_LEAN_AND_MEAN",
-                    "UNICODE",
-                    "_UNICODE",
+                    # No UNICODE / WIN32_LEAN_AND_MEAN: superdex's CMake build
+                    # doesn't set them globally, and Filament's win32 code
+                    # assumes narrow TCHAR.
                 ],
 
                 # linux
@@ -334,9 +334,9 @@ toolchain(
                 # windows
                 (windows, _, _, _) = [
                     "_MT", # multi-threaded CRT
-                    "WIN32_LEAN_AND_MEAN",
-                    "UNICODE",
-                    "_UNICODE",
+                    # No UNICODE / WIN32_LEAN_AND_MEAN: superdex's CMake build
+                    # doesn't set them globally, and Filament's win32 code
+                    # assumes narrow TCHAR.
                 ],
 
                 # linux

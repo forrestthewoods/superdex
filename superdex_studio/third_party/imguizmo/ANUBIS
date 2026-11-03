@@ -16,8 +16,25 @@ cc_static_library(
     public_defines = [
         "IMGUI_DEFINE_MATH_OPERATORS",
     ],
-    private_compiler_flags = [
-        "-w",
-        "-std=gnu++20",
-    ],
+    private_defines = select(
+        (target_platform) => {
+        (linux) = [],
+        (windows) = [
+            "WIN32",
+            "_WINDOWS",
+        ],
+        }
+    ),
+    private_compiler_flags = select(
+        (target_platform) => {
+        (linux) = [
+            "-w",
+            "-std=gnu++20",
+        ],
+        (windows) = [
+            "-w",
+            "-std=c++20",
+        ],
+        }
+    ),
 )

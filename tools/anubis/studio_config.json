@@ -1,7 +1,8 @@
 {
   "superdex_root": ".",
   "descs": {
-    "linux": "/tmp/claude-0/-home-user/7417aae2-8276-53fe-997d-0f8546f18e8d/scratchpad/linux_desc.json"
+    "linux": "/tmp/claude-0/-home-user/7417aae2-8276-53fe-997d-0f8546f18e8d/scratchpad/linux_desc.json",
+    "windows": "/tmp/claude-0/-home-user/7417aae2-8276-53fe-997d-0f8546f18e8d/scratchpad/windows_desc.json"
   },
   "roots": [
     "camutils",
@@ -107,5 +108,24 @@
         "//anubis/sys:x11"
       ]
     }
+  },
+  "extra_srcs": {
+    "windows": {
+      "bluegl": [
+        "superdex_physics/libraries/mochi/third_party/filament/libs/bluegl/src/BlueGLCoreWindows32Impl.cpp"
+      ]
+    }
+  },
+  "system_libs": {
+    "windows": [
+      "comdlg32",
+      "ole32",
+      "shlwapi",
+      "opengl32",
+      "gdi32",
+      "wsock32",
+      "user32",
+      "ws2_32"
+    ]
   }
 }

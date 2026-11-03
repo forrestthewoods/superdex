@@ -26,7 +26,8 @@ cc_static_library(
     ],
     private_compiler_flags = select(
         (target_platform) => {
-            (windows) = ["-include", "superdex_physics/libraries/mochi/mochi_renderer/include/mochi_renderer/windows_compat.h"],
+            # CMake force-includes this on Windows (/FI) for every studio TU.
+            (windows) = ["-include", "mochi_renderer/windows_compat.h"],
             default = [],
         }
     ),
@@ -45,4 +46,10 @@ cc_binary(
         "IMGUI_DEFINE_MATH_OPERATORS",
         "MOCHI_USE_REFLECTION=1",
     ],
+    compiler_flags = select(
+        (target_platform) => {
+            (windows) = ["-include", "mochi_renderer/windows_compat.h"],
+            default = [],
+        }
+    ),
 )
