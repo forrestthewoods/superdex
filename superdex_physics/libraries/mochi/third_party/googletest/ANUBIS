@@ -1,0 +1,9 @@
+# GoogleTest, as one translation unit (gtest-all.cc).
+cc_static_library(
+    name = "gtest",
+    lang = "cpp",
+    srcs = RelPaths(["googletest/src/gtest-all.cc"]),
+    public_include_dirs = RelPaths(["googletest/include"]),
+    private_include_dirs = RelPaths(["googletest"]),
+    private_compiler_flags = ["-std=gnu++20", "-w"],
+)

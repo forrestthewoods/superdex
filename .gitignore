@@ -29,3 +29,11 @@ SuperDexStudio.ini
 audit_reports/
 default.profraw
 *.egg-info/
+
+# Anubis
+/toolchains/*
+!/toolchains/ANUBIS
+/.anubis-out
+/.anubis-cache
+/.anubis-temp
+.anubis_db

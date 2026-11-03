@@ -1,0 +1,46 @@
+cc_static_library(
+    name = "simple_reflection",
+    lang = "cpp",
+    srcs = RelPaths(["src/simple_reflection.cpp"]),
+    deps = Targets([":cityhash"]),
+    public_include_dirs = RelPaths([
+        "include",
+        "../mochi/third_party/picojson",
+    ]),
+    public_defines = ["SR_USE_NLOHMANN_JSON=0"],
+    # Same options as mochi_core's public_compiler_flags (superdex's
+    # mochi_set_compiler_options); Papyrus has no variables to share them.
+    private_compiler_flags = [
+        "-std=gnu++20",
+        "-ffunction-sections",
+        "-fdata-sections",
+        "-Wno-attributes",
+        "-fsized-deallocation",
+        "-fno-omit-frame-pointer",
+        "-ffp-contract=fast",
+        "-fno-trapping-math",
+        "-mavx2", "-mfma", "-mf16c", "-mbmi2", "-mlzcnt", "-mpclmul",
+        "-ftrivial-auto-var-init=zero",
+    ] + select(
+        (target_platform) => {
+            (linux) = ["-fstack-protector-strong", "-mno-omit-leaf-frame-pointer"],
+            # superdex's clang-cl settings: the MSVC CRT deprecates getenv etc.
+            (windows) = ["-Wno-deprecated-declarations"],
+        }
+    ),
+)
+
+cc_static_library(
+    name = "cityhash",
+    lang = "cpp",
+    srcs = RelPaths(["third-party/cityhash/src/city.cc"]),
+    public_include_dirs = RelPaths(["third-party/cityhash/include"]),
+    # city.cc tests WIN32, which CMake's MSVC defaults define (/DWIN32).
+    private_defines = select(
+        (target_platform) => {
+            (windows) = ["WIN32"],
+            default = [],
+        }
+    ),
+    private_compiler_flags = ["-std=gnu++20", "-w"],
+)

@@ -1,0 +1,8 @@
+cc_static_library(
+    name = "tiny_obj_loader",
+    lang = "cpp",
+    srcs = RelPaths(["tiny_obj_loader.cc"]),
+    public_include_dirs = RelPaths(["."]),
+    public_defines = ["TINYOBJLOADER_USE_DOUBLE"],
+    private_compiler_flags = ["-std=gnu++20", "-w"],
+)

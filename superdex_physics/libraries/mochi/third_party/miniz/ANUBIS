@@ -1,0 +1,7 @@
+cc_static_library(
+    name = "miniz",
+    lang = "c",
+    srcs = RelPaths(["miniz.c"]),
+    public_include_dirs = RelPaths(["."]),
+    private_compiler_flags = ["-w"],
+)

@@ -1,0 +1,76 @@
+# HDF5 1.14 (C library, C++ wrappers and high-level APIs), static.
+#
+# HDF5's CMake configure step generates H5pubconf.h by probing the target.
+# Anubis has no configure step, so the results are checked in per target
+# platform under anubis/<platform>/, plus a fixed anubis/H5build_settings.c.
+# Feature set matches superdex's CMake build: no MPI, threads, Fortran,
+# subfiling or S3; deflate via //.../third_party/zlib.
+
+cc_static_library(
+    name = "hdf5",
+    lang = "c",
+    srcs = glob(["src/*.c"]) + RelPaths(["anubis/H5build_settings.c"]),
+    deps = Targets(["//superdex_physics/libraries/mochi/third_party/zlib:zlib"]),
+    public_include_dirs = RelPaths(["src", "src/H5FDsubfiling"]) + select(
+        (target_platform) => {
+            (linux) = RelPaths(["anubis/linux"]),
+            (windows) = RelPaths(["anubis/windows"]),
+        }
+    ),
+    public_defines = select(
+        (target_platform) => {
+            (linux) = [
+                "_FILE_OFFSET_BITS=64",
+                "_LARGEFILE_SOURCE",
+                "_POSIX_C_SOURCE=200809L",
+            ],
+            (windows) = [],
+        }
+    ),
+    public_libraries = select(
+        (target_platform) => {
+            (windows) = ["ws2_32.lib", "shlwapi.lib"],
+            default = [],
+        }
+    ),
+    private_compiler_flags = ["-std=gnu99", "-w"],
+)
+
+cc_static_library(
+    name = "hdf5_hl",
+    lang = "c",
+    srcs = glob(["hl/src/*.c"]),
+    deps = Targets([":hdf5"]),
+    public_include_dirs = RelPaths(["hl/src"]),
+    private_compiler_flags = ["-std=gnu99", "-w"],
+)
+
+cc_static_library(
+    name = "hdf5_cpp",
+    lang = "cpp",
+    srcs = glob(["c++/src/*.cpp"]),
+    deps = Targets([":hdf5"]),
+    public_include_dirs = RelPaths(["c++/src"]),
+    # HDF5 asks for C++11; the MSVC STL needs at least C++14.
+    private_compiler_flags = ["-w"] + select(
+        (target_platform) => {
+            (windows) = ["-std=c++14"],
+            default = ["-std=c++11"],
+        }
+    ),
+)
+
+cc_static_library(
+    name = "hdf5_hl_cpp",
+    lang = "cpp",
+    srcs = glob(["hl/c++/src/*.cpp"]),
+    deps = Targets([":hdf5_hl", ":hdf5_cpp"]),
+    public_include_dirs = RelPaths(["hl/c++/src"]),
+    # HDF5 asks for C++11; the MSVC STL needs at least C++14.
+    private_compiler_flags = ["-w"] + select(
+        (target_platform) => {
+            (windows) = ["-std=c++14"],
+            default = ["-std=c++11"],
+        }
+    ),
+)

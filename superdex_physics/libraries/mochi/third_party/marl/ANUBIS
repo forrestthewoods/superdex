@@ -1,0 +1,41 @@
+# marl fiber scheduler. Anubis targets are single-language, so the
+# hand-written fiber switch (C + assembly, non-Windows only) is its own
+# library; Windows uses the OS fiber API from osfiber_windows.h instead.
+cc_static_library(
+    name = "marl",
+    lang = "cpp",
+    srcs = RelPaths([
+        "marl/src/debug.cpp",
+        "marl/src/memory.cpp",
+        "marl/src/scheduler.cpp",
+        "marl/src/thread.cpp",
+        "marl/src/trace.cpp",
+    ]),
+    public_include_dirs = RelPaths(["marl/include"]),
+    private_compiler_flags = ["-std=gnu++20", "-w"],
+    private_defines = select(
+        (target_platform) => {
+            (windows) = ["NOMINMAX"],
+            default = [],
+        }
+    ),
+    deps = select(
+        (target_platform) => {
+            (windows) = [],
+            default = Targets([":marl_fiber"]),
+        }
+    ),
+)
+
+cc_static_library(
+    name = "marl_fiber",
+    lang = "c",
+    srcs = select(
+        (target_arch) => {
+            (x64) = RelPaths(["marl/src/osfiber_x64.c", "marl/src/osfiber_asm_x64.S"]),
+            (arm64) = RelPaths(["marl/src/osfiber_aarch64.c", "marl/src/osfiber_asm_aarch64.S"]),
+        }
+    ),
+    private_include_dirs = RelPaths(["marl/include"]),
+    private_compiler_flags = ["-w"],
+)

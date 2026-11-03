@@ -1,0 +1,34 @@
+# mochi_physics, static (MOCHI_PHYSICS_DYNAMICALLY_LINKED=0).
+cc_static_library(
+    name = "mochi_physics",
+    lang = "cpp",
+    srcs = glob(
+        includes = ["src/**/*.cpp", "src/**/*.c"],
+        excludes = ["**/internal/**"],
+    ),
+    deps = Targets([
+        "//superdex_physics/libraries/mochi/mochi_core:mochi_core",
+        ":mochi_physics_dbg",
+    ]),
+    public_include_dirs = RelPaths(["include"]),
+    public_defines = ["MOCHI_PHYSICS_DYNAMICALLY_LINKED=0"],
+    private_include_dirs = RelPaths([
+        "src",
+        "private/diffsim/include",
+        "../third_party/entt/src",
+    ]),
+    private_defines = ["MOCHI_USE_REFLECTION=1", "ENTT_STANDARD_CPP"],
+)
+
+cc_static_library(
+    name = "mochi_physics_dbg",
+    lang = "cpp",
+    srcs = glob(
+        includes = ["dbg/src/**/*.cpp", "dbg/src/**/*.c"],
+        excludes = ["**/internal/**"],
+    ),
+    deps = Targets(["//superdex_physics/libraries/mochi/mochi_core:mochi_core"]),
+    public_include_dirs = RelPaths(["dbg/include", "include"]),
+    private_include_dirs = RelPaths(["dbg/src"]),
+    private_defines = ["MOCHI_USE_REFLECTION=1"],
+)

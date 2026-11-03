@@ -1,0 +1,38 @@
+# superdex_robotics, static, plus its gtest suite.
+cc_static_library(
+    name = "superdex_robotics",
+    lang = "cpp",
+    srcs = glob(
+        includes = ["src/**/*.cpp", "src/**/*.c"],
+        excludes = ["**/internal/**"],
+    ),
+    deps = Targets([
+        "//superdex_physics/libraries/mochi/mochi_core:mochi_core",
+        "//superdex_physics/libraries/mochi/mochi_physics:mochi_physics",
+        "//superdex_physics/libraries/mochi/third_party/miniz:miniz",
+        "//superdex_physics/libraries/mochi/third_party/tinyxml2:tinyxml2",
+    ]),
+    public_include_dirs = RelPaths(["include", "../superdex_physics/include"]),
+    private_include_dirs = RelPaths([
+        "src",
+        "../superdex_physics/libraries/mochi/third_party/xxhash",
+    ]),
+    private_defines = ["MOCHI_USE_REFLECTION=1"],
+)
+
+# Needs MOCHI_ASSETS_PATH=<superdex>/assets at run time (CMake sets it via
+# CTest), or run it from inside the source tree.
+cc_binary(
+    name = "superdex_robotics_test",
+    lang = "cpp",
+    srcs = glob(
+        includes = ["test/**/*.cpp", "test/**/*.c"],
+        excludes = ["**/internal/**"],
+    ),
+    deps = Targets([
+        ":superdex_robotics",
+        "//superdex_physics/libraries/mochi/third_party/googletest:gtest",
+    ]),
+    include_dirs = RelPaths(["src", "../superdex_physics/libraries/mochi/third_party/xxhash"]),
+    compiler_defines = ["MOCHI_USE_REFLECTION=1"],
+)
