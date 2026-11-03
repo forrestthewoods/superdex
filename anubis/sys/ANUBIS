@@ -1,0 +1,11 @@
+# INTERIM, NOT HERMETIC: X11/GL/xcb headers and libX11 from the build host,
+# until a hermetic source is decided (Natron package or vendored headers +
+# a generated libX11 stub). linux_include/ and lib/ are copies from an Ubuntu 24.04 host.
+cc_static_library(
+    name = "x11",
+    lang = "c",
+    srcs = [],
+    public_include_dirs = RelPaths(["linux_include"]),
+    public_libraries = ["X11"],
+    public_library_dirs = RelPaths(["lib"]),
+)

@@ -1,0 +1,48 @@
+# superdex_studio: the GUI app. Run-time helpers (superdex_mesh_cli, the
+# debugger) are separate executables and not built here.
+cc_static_library(
+    name = "superdex_studio_static",
+    lang = "cpp",
+    srcs = glob(
+        includes = ["src/**/*.cpp", "src/**/*.c"],
+        excludes = ["**/internal/**", "src/app/main.cpp"],
+    ),
+    deps = Targets([
+        "//superdex_physics/libraries/mochi/mochi_core:mochi_core",
+        "//superdex_physics/libraries/mochi/mochi_physics:mochi_physics",
+        "//superdex_physics/libraries/mochi/mochi_renderer:mochi_renderer",
+        "//superdex_robotics:superdex_robotics",
+        "//superdex_physics/libraries/mochi/mochi_mesh:mochi_mesh",
+        "//superdex_studio/third_party/imguizmo:imguizmo",
+        "//superdex_physics/libraries/mochi/third_party/tinyfiledialogs:tinyfiledialogs",
+        "//superdex_physics/libraries/imguios:imguios",
+    ]),
+    public_include_dirs = RelPaths(["src", "third_party"]),
+    private_include_dirs = RelPaths(["."]),
+    private_defines = [
+        "FILAMENT_DISABLE_MATOPT=0",
+        "IMGUI_DEFINE_MATH_OPERATORS",
+        "MOCHI_USE_REFLECTION=1",
+    ],
+    private_compiler_flags = select(
+        (target_platform) => {
+            (windows) = ["-include", "superdex_physics/libraries/mochi/mochi_renderer/include/mochi_renderer/windows_compat.h"],
+            default = [],
+        }
+    ),
+)
+
+# Needs assets/ and processing_presets/ next to it at run time (CMake copies
+# them post-build).
+cc_binary(
+    name = "superdex_studio",
+    lang = "cpp",
+    srcs = RelPaths(["src/app/main.cpp"]),
+    deps = Targets([":superdex_studio_static"]),
+    include_dirs = RelPaths([".", "src"]),
+    compiler_defines = [
+        "FILAMENT_DISABLE_MATOPT=0",
+        "IMGUI_DEFINE_MATH_OPERATORS",
+        "MOCHI_USE_REFLECTION=1",
+    ],
+)

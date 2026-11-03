@@ -1,0 +1,26 @@
+# mochi_mesh: the in-process side of the mesh tools. The heavy lifting runs
+# in superdex_mesh_cli (CGAL/OpenCascade), a separate executable spawned at
+# run time and not built here.
+cc_static_library(
+    name = "mochi_mesh",
+    lang = "cpp",
+    srcs = glob(
+        includes = ["src/**/*.cpp", "src/**/*.c"],
+        excludes = ["**/internal/**"],
+    ),
+    deps = Targets([
+        "//superdex_physics/libraries/mochi/mochi_core:mochi_core",
+        ":mochi_mesh_protocol_private",
+    ]),
+    public_include_dirs = RelPaths(["include", "protocol/public"]),
+    private_include_dirs = RelPaths(["src"]),
+    private_defines = ["MOCHI_USE_REFLECTION=1"],
+)
+
+cc_static_library(
+    name = "mochi_mesh_protocol_private",
+    lang = "cpp",
+    srcs = glob(["protocol/private/src/*.cpp"]),
+    public_include_dirs = RelPaths(["protocol/private", "protocol/public"]),
+    private_compiler_flags = ["-std=gnu++20"],
+)

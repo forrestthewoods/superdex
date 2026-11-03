@@ -1,0 +1,36 @@
+cc_static_library(
+    name = "imguios",
+    lang = "cpp",
+    srcs = glob(["src/*.cpp"]),
+    deps = Targets([
+        "//superdex_physics/libraries/imguios/third-party:imgui",
+        "//superdex_physics/libraries/imguios/third-party:implot",
+        "//superdex_physics/libraries/imguios/third-party:glad",
+        "//superdex_physics/libraries/imguios/third-party:glfw",
+        "//superdex_physics/libraries/imguios/third-party:imguios_fonts",
+    ]) + select(
+        (target_platform) => {
+            # imguios_window.cpp calls XSetErrorHandler directly.
+            (linux) = Targets(["//anubis/sys:x11"]),
+            default = [],
+        }
+    ),
+    public_include_dirs = RelPaths(["include"]),
+    private_compiler_flags = [
+        "-std=gnu++20",
+        "-ffunction-sections",
+        "-fdata-sections",
+        "-Wno-attributes",
+        "-fsized-deallocation",
+        "-fno-omit-frame-pointer",
+        "-ffp-contract=fast",
+        "-fno-trapping-math",
+        "-mavx2", "-mfma", "-mf16c", "-mbmi2", "-mlzcnt", "-mpclmul",
+        "-ftrivial-auto-var-init=zero",
+    ] + select(
+        (target_platform) => {
+            (linux) = ["-fstack-protector-strong", "-mno-omit-leaf-frame-pointer"],
+            (windows) = ["-Wno-deprecated-declarations"],
+        }
+    ),
+)

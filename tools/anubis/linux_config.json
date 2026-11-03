@@ -1,0 +1,111 @@
+{
+  "superdex_root": ".",
+  "descs": {
+    "linux": "/tmp/claude-0/-home-user/7417aae2-8276-53fe-997d-0f8546f18e8d/scratchpad/linux_desc.json"
+  },
+  "roots": [
+    "camutils",
+    "cgltf",
+    "dracodec",
+    "filament",
+    "filament-iblprefilter",
+    "filameshio",
+    "gltfio_core",
+    "image",
+    "imageio",
+    "ktxreader",
+    "math",
+    "meshoptimizer",
+    "uberarchive",
+    "utils",
+    "imgui",
+    "implot",
+    "glad",
+    "glfw",
+    "imguios_fonts",
+    "tinyfiledialogs",
+    "imguizmo"
+  ],
+  "groups": {
+    "superdex_physics/libraries/mochi/third_party/filament": [
+      "superdex_physics/libraries/mochi/third_party/filament"
+    ],
+    "superdex_physics/libraries/imguios/third-party": [
+      "superdex_physics/libraries/imguios/third-party"
+    ],
+    "superdex_studio/third_party/imguizmo": [
+      "superdex_studio"
+    ]
+  },
+  "group_override": {
+    "zstd": "superdex_physics/libraries/mochi/third_party/filament",
+    "uberarchive": "superdex_physics/libraries/mochi/third_party/filament",
+    "getopt": "superdex_physics/libraries/mochi/third_party/filament",
+    "tinyfiledialogs": "superdex_physics/libraries/mochi/third_party/tinyfiledialogs",
+    "_mochi_filament_filament_bloom_resource": "superdex_physics/libraries/mochi/third_party/filament",
+    "_mochi_filament_filament_colorGrading_resource": "superdex_physics/libraries/mochi/third_party/filament",
+    "_mochi_filament_filament_dfg_resource": "superdex_physics/libraries/mochi/third_party/filament",
+    "_mochi_filament_filament_dof_resource": "superdex_physics/libraries/mochi/third_party/filament",
+    "_mochi_filament_filament_evsm_resource": "superdex_physics/libraries/mochi/third_party/filament",
+    "_mochi_filament_filament_flare_resource": "superdex_physics/libraries/mochi/third_party/filament",
+    "_mochi_filament_filament_fog_resource": "superdex_physics/libraries/mochi/third_party/filament",
+    "_mochi_filament_filament_fsr_resource": "superdex_physics/libraries/mochi/third_party/filament",
+    "_mochi_filament_filament_fxaa_resource": "superdex_physics/libraries/mochi/third_party/filament",
+    "_mochi_filament_filament_materials_resource": "superdex_physics/libraries/mochi/third_party/filament",
+    "_mochi_filament_filament_sgsr_resource": "superdex_physics/libraries/mochi/third_party/filament",
+    "_mochi_filament_filament_ssao_resource": "superdex_physics/libraries/mochi/third_party/filament",
+    "_mochi_filament_filament_taa_resource": "superdex_physics/libraries/mochi/third_party/filament",
+    "_mochi_filament_filament-iblprefilter_iblprefilter_materials_resource": "superdex_physics/libraries/mochi/third_party/filament"
+  },
+  "external": {
+    "zlibstatic": "//superdex_physics/libraries/mochi/third_party/zlib:zlib",
+    "z": "//superdex_physics/libraries/mochi/third_party/zlib:zlib",
+    "tinyxml2": "//superdex_physics/libraries/mochi/third_party/tinyxml2:tinyxml2",
+    "mochi_core": "//superdex_physics/libraries/mochi/mochi_core:mochi_core"
+  },
+  "ignore": [],
+  "remap": {
+    "_deps/filament/filament": "superdex_physics/libraries/mochi/third_party/filament/filament/src/buck_generated",
+    "_deps/filament/libs/iblprefilter": "superdex_physics/libraries/mochi/third_party/filament/libs/iblprefilter/src/buck_generated",
+    "_deps/filament/libs/gltfio": "superdex_physics/libraries/mochi/third_party/filament/libs/gltfio/src/buck_generated/generated",
+    "_deps/filament/third_party/draco/tnt": "superdex_physics/libraries/mochi/third_party/filament/anubis/draco"
+  },
+  "resources": {
+    "_mochi_filament_filament_bloom_resource": "superdex_physics/libraries/mochi/third_party/filament/anubis/resources/bloom.c",
+    "_mochi_filament_filament_colorGrading_resource": "superdex_physics/libraries/mochi/third_party/filament/anubis/resources/colorGrading.c",
+    "_mochi_filament_filament_dfg_resource": "superdex_physics/libraries/mochi/third_party/filament/anubis/resources/dfg.c",
+    "_mochi_filament_filament_dof_resource": "superdex_physics/libraries/mochi/third_party/filament/anubis/resources/dof.c",
+    "_mochi_filament_filament_evsm_resource": "superdex_physics/libraries/mochi/third_party/filament/anubis/resources/evsm.c",
+    "_mochi_filament_filament_flare_resource": "superdex_physics/libraries/mochi/third_party/filament/anubis/resources/flare.c",
+    "_mochi_filament_filament_fog_resource": "superdex_physics/libraries/mochi/third_party/filament/anubis/resources/fog.c",
+    "_mochi_filament_filament_fsr_resource": "superdex_physics/libraries/mochi/third_party/filament/anubis/resources/fsr.c",
+    "_mochi_filament_filament_fxaa_resource": "superdex_physics/libraries/mochi/third_party/filament/anubis/resources/fxaa.c",
+    "_mochi_filament_filament_materials_resource": "superdex_physics/libraries/mochi/third_party/filament/anubis/resources/materials.c",
+    "_mochi_filament_filament_sgsr_resource": "superdex_physics/libraries/mochi/third_party/filament/anubis/resources/sgsr.c",
+    "_mochi_filament_filament_ssao_resource": "superdex_physics/libraries/mochi/third_party/filament/anubis/resources/ssao.c",
+    "_mochi_filament_filament_taa_resource": "superdex_physics/libraries/mochi/third_party/filament/anubis/resources/taa.c",
+    "_mochi_filament_filament-iblprefilter_iblprefilter_materials_resource": "superdex_physics/libraries/mochi/third_party/filament/anubis/resources/iblprefilter_materials.c",
+    "uberarchive": {
+      "c": "superdex_physics/libraries/mochi/third_party/filament/anubis/resources/uberarchive.c",
+      "public_includes": [
+        "superdex_physics/libraries/mochi/third_party/filament/libs/gltfio/src/buck_generated/generated"
+      ]
+    }
+  },
+  "extra_deps": {
+    "linux": {
+      "glfw": [
+        "//anubis/sys:x11"
+      ],
+      "backend": [
+        "//anubis/sys:x11"
+      ],
+      "bluegl": [
+        "//anubis/sys:x11"
+      ],
+      "bluevk": [
+        "//anubis/sys:x11"
+      ]
+    }
+  }
+}
