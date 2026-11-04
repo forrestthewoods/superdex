@@ -78,3 +78,27 @@ deploy_dir = "windows_kits"
 provider   = "windows_sdk"
 [toolchain.options]
 sdk_version = "26100"
+
+# === Linux system headers (X11 / xcb / GL) ==================================
+# Headers only, from pinned Debian trixie packages; nothing is installed on
+# the host. Link-time stand-ins for the libraries are .ifs stubs built by
+# Anubis (see anubis/sys). Same on every host.
+[[toolchain]]
+name       = "x11_headers"
+deploy_dir = "x11"
+provider   = "deb"
+[toolchain.options]
+packages = [
+  { path = "pool/main/libx/libx11/libx11-dev_1.8.12-1_amd64.deb", sha256 = "530de60c9c6dadd997ae7d74eca2a41b25e849373a5ad5dcdb619aa05713d6e0" },
+  { path = "pool/main/x/xorgproto/x11proto-dev_2024.1-1_all.deb", sha256 = "6a6764500eb8171d3cd6d793c09902974f8ea87bd20c68d9eac5f1eeaf3fc407" },
+  { path = "pool/main/libx/libxcb/libxcb1-dev_1.17.0-2+b1_amd64.deb", sha256 = "669949f8d5dff76616630d839b9047b76af553c62c376458094bd759f8fdb903" },
+  { path = "pool/main/libx/libxcursor/libxcursor-dev_1.2.3-1_amd64.deb", sha256 = "57f2fc575496edc9f3dd286423494499d231a8b1cdb417bb8401f6b66b584a26" },
+  { path = "pool/main/libx/libxext/libxext-dev_1.3.4-1+b3_amd64.deb", sha256 = "e6bd898976d762a6955ec465870e7f12a3b149f4c5b231b0687e293ed5726532" },
+  { path = "pool/main/libx/libxfixes/libxfixes-dev_6.0.0-2+b4_amd64.deb", sha256 = "1070e0721765992c5355a9585f6eae9e0d11437a7d2b4a2c28123e6e5b0c0b2f" },
+  { path = "pool/main/libx/libxi/libxi-dev_1.8.2-1_amd64.deb", sha256 = "be3ca6202327858845aa0a8d70374b08dae5c89250ad8997256e02b2833501d3" },
+  { path = "pool/main/libx/libxinerama/libxinerama-dev_1.1.4-3+b4_amd64.deb", sha256 = "711206b2a759461fe27b86099c4b593cb80c1f558fa64dd92239706f8c2a43b3" },
+  { path = "pool/main/libx/libxrandr/libxrandr-dev_1.5.4-1+b3_amd64.deb", sha256 = "e408e4f8c77135725e9055d445635587225839a929d348c04b85adfa84bdefb1" },
+  { path = "pool/main/libx/libxrender/libxrender-dev_0.9.12-1_amd64.deb", sha256 = "55121741c44e03cbeb03dabb5721ded1341c987f055d7cae991de7431c9edfa6" },
+  { path = "pool/main/libg/libglvnd/libgl-dev_1.7.0-1+b2_amd64.deb", sha256 = "2c5044a44bc7cd7a196d554ca6ff78ae0358fbb98b7d2cce49176bdc6a816fe4" },
+  { path = "pool/main/libg/libglvnd/libglx-dev_1.7.0-1+b2_amd64.deb", sha256 = "93d456321c07009491b942783db8c57065b616db713ef5f6a0c629ca078c4ea0" },
+]

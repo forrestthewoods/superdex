@@ -1,0 +1,1383 @@
+--- !ifs-v1
+IfsVersion:      3.0
+SoName:          libX11.so.6
+Target:          { ObjectFormat: ELF, Arch: x86_64, Endianness: little, BitWidth: 64 }
+NeededLibs:
+  - libxcb.so.1
+  - libc.so.6
+Symbols:
+  - { Name: KeySymToUcs4, Type: Func }
+  - { Name: XActivateScreenSaver, Type: Func }
+  - { Name: XAddConnectionWatch, Type: Func }
+  - { Name: XAddExtension, Type: Func }
+  - { Name: XAddHost, Type: Func }
+  - { Name: XAddHosts, Type: Func }
+  - { Name: XAddPixel, Type: Func }
+  - { Name: XAddToExtensionList, Type: Func }
+  - { Name: XAddToSaveSet, Type: Func }
+  - { Name: XAllPlanes, Type: Func }
+  - { Name: XAllocClassHint, Type: Func }
+  - { Name: XAllocColor, Type: Func }
+  - { Name: XAllocColorCells, Type: Func }
+  - { Name: XAllocColorPlanes, Type: Func }
+  - { Name: XAllocIconSize, Type: Func }
+  - { Name: XAllocNamedColor, Type: Func }
+  - { Name: XAllocSizeHints, Type: Func }
+  - { Name: XAllocStandardColormap, Type: Func }
+  - { Name: XAllocWMHints, Type: Func }
+  - { Name: XAllowEvents, Type: Func }
+  - { Name: XAutoRepeatOff, Type: Func }
+  - { Name: XAutoRepeatOn, Type: Func }
+  - { Name: XBaseFontNameListOfFontSet, Type: Func }
+  - { Name: XBell, Type: Func }
+  - { Name: XBitmapBitOrder, Type: Func }
+  - { Name: XBitmapPad, Type: Func }
+  - { Name: XBitmapUnit, Type: Func }
+  - { Name: XBlackPixel, Type: Func }
+  - { Name: XBlackPixelOfScreen, Type: Func }
+  - { Name: XCellsOfScreen, Type: Func }
+  - { Name: XChangeActivePointerGrab, Type: Func }
+  - { Name: XChangeGC, Type: Func }
+  - { Name: XChangeKeyboardControl, Type: Func }
+  - { Name: XChangeKeyboardMapping, Type: Func }
+  - { Name: XChangePointerControl, Type: Func }
+  - { Name: XChangeProperty, Type: Func }
+  - { Name: XChangeSaveSet, Type: Func }
+  - { Name: XChangeWindowAttributes, Type: Func }
+  - { Name: XCheckIfEvent, Type: Func }
+  - { Name: XCheckMaskEvent, Type: Func }
+  - { Name: XCheckTypedEvent, Type: Func }
+  - { Name: XCheckTypedWindowEvent, Type: Func }
+  - { Name: XCheckWindowEvent, Type: Func }
+  - { Name: XCirculateSubwindows, Type: Func }
+  - { Name: XCirculateSubwindowsDown, Type: Func }
+  - { Name: XCirculateSubwindowsUp, Type: Func }
+  - { Name: XClearArea, Type: Func }
+  - { Name: XClearWindow, Type: Func }
+  - { Name: XClipBox, Type: Func }
+  - { Name: XCloseDisplay, Type: Func }
+  - { Name: XCloseIM, Type: Func }
+  - { Name: XCloseOM, Type: Func }
+  - { Name: XConfigureWindow, Type: Func }
+  - { Name: XConnectionNumber, Type: Func }
+  - { Name: XContextDependentDrawing, Type: Func }
+  - { Name: XContextualDrawing, Type: Func }
+  - { Name: XConvertCase, Type: Func }
+  - { Name: XConvertSelection, Type: Func }
+  - { Name: XCopyArea, Type: Func }
+  - { Name: XCopyColormapAndFree, Type: Func }
+  - { Name: XCopyGC, Type: Func }
+  - { Name: XCopyPlane, Type: Func }
+  - { Name: XCreateBitmapFromData, Type: Func }
+  - { Name: XCreateColormap, Type: Func }
+  - { Name: XCreateFontCursor, Type: Func }
+  - { Name: XCreateFontSet, Type: Func }
+  - { Name: XCreateGC, Type: Func }
+  - { Name: XCreateGlyphCursor, Type: Func }
+  - { Name: XCreateIC, Type: Func }
+  - { Name: XCreateImage, Type: Func }
+  - { Name: XCreateOC, Type: Func }
+  - { Name: XCreatePixmap, Type: Func }
+  - { Name: XCreatePixmapCursor, Type: Func }
+  - { Name: XCreatePixmapFromBitmapData, Type: Func }
+  - { Name: XCreateRegion, Type: Func }
+  - { Name: XCreateSimpleWindow, Type: Func }
+  - { Name: XCreateWindow, Type: Func }
+  - { Name: XDefaultColormap, Type: Func }
+  - { Name: XDefaultColormapOfScreen, Type: Func }
+  - { Name: XDefaultDepth, Type: Func }
+  - { Name: XDefaultDepthOfScreen, Type: Func }
+  - { Name: XDefaultGC, Type: Func }
+  - { Name: XDefaultGCOfScreen, Type: Func }
+  - { Name: XDefaultRootWindow, Type: Func }
+  - { Name: XDefaultScreen, Type: Func }
+  - { Name: XDefaultScreenOfDisplay, Type: Func }
+  - { Name: XDefaultString, Type: Func }
+  - { Name: XDefaultVisual, Type: Func }
+  - { Name: XDefaultVisualOfScreen, Type: Func }
+  - { Name: XDefineCursor, Type: Func }
+  - { Name: XDeleteContext, Type: Func }
+  - { Name: XDeleteModifiermapEntry, Type: Func }
+  - { Name: XDeleteProperty, Type: Func }
+  - { Name: XDestroyIC, Type: Func }
+  - { Name: XDestroyImage, Type: Func }
+  - { Name: XDestroyOC, Type: Func }
+  - { Name: XDestroyRegion, Type: Func }
+  - { Name: XDestroySubwindows, Type: Func }
+  - { Name: XDestroyWindow, Type: Func }
+  - { Name: XDirectionalDependentDrawing, Type: Func }
+  - { Name: XDisableAccessControl, Type: Func }
+  - { Name: XDisplayCells, Type: Func }
+  - { Name: XDisplayHeight, Type: Func }
+  - { Name: XDisplayHeightMM, Type: Func }
+  - { Name: XDisplayKeycodes, Type: Func }
+  - { Name: XDisplayMotionBufferSize, Type: Func }
+  - { Name: XDisplayName, Type: Func }
+  - { Name: XDisplayOfIM, Type: Func }
+  - { Name: XDisplayOfOM, Type: Func }
+  - { Name: XDisplayOfScreen, Type: Func }
+  - { Name: XDisplayPlanes, Type: Func }
+  - { Name: XDisplayString, Type: Func }
+  - { Name: XDisplayWidth, Type: Func }
+  - { Name: XDisplayWidthMM, Type: Func }
+  - { Name: XDoesBackingStore, Type: Func }
+  - { Name: XDoesSaveUnders, Type: Func }
+  - { Name: XDrawArc, Type: Func }
+  - { Name: XDrawArcs, Type: Func }
+  - { Name: XDrawImageString, Type: Func }
+  - { Name: XDrawImageString16, Type: Func }
+  - { Name: XDrawLine, Type: Func }
+  - { Name: XDrawLines, Type: Func }
+  - { Name: XDrawPoint, Type: Func }
+  - { Name: XDrawPoints, Type: Func }
+  - { Name: XDrawRectangle, Type: Func }
+  - { Name: XDrawRectangles, Type: Func }
+  - { Name: XDrawSegments, Type: Func }
+  - { Name: XDrawString, Type: Func }
+  - { Name: XDrawString16, Type: Func }
+  - { Name: XDrawText, Type: Func }
+  - { Name: XDrawText16, Type: Func }
+  - { Name: XEHeadOfExtensionList, Type: Func }
+  - { Name: XESetBeforeFlush, Type: Func }
+  - { Name: XESetCloseDisplay, Type: Func }
+  - { Name: XESetCopyEventCookie, Type: Func }
+  - { Name: XESetCopyGC, Type: Func }
+  - { Name: XESetCreateFont, Type: Func }
+  - { Name: XESetCreateGC, Type: Func }
+  - { Name: XESetError, Type: Func }
+  - { Name: XESetErrorString, Type: Func }
+  - { Name: XESetEventToWire, Type: Func }
+  - { Name: XESetFlushGC, Type: Func }
+  - { Name: XESetFreeFont, Type: Func }
+  - { Name: XESetFreeGC, Type: Func }
+  - { Name: XESetPrintErrorValues, Type: Func }
+  - { Name: XESetWireToError, Type: Func }
+  - { Name: XESetWireToEvent, Type: Func }
+  - { Name: XESetWireToEventCookie, Type: Func }
+  - { Name: XEmptyRegion, Type: Func }
+  - { Name: XEnableAccessControl, Type: Func }
+  - { Name: XEqualRegion, Type: Func }
+  - { Name: XEventMaskOfScreen, Type: Func }
+  - { Name: XEventsQueued, Type: Func }
+  - { Name: XExtendedMaxRequestSize, Type: Func }
+  - { Name: XExtentsOfFontSet, Type: Func }
+  - { Name: XFetchBuffer, Type: Func }
+  - { Name: XFetchBytes, Type: Func }
+  - { Name: XFetchName, Type: Func }
+  - { Name: XFillArc, Type: Func }
+  - { Name: XFillArcs, Type: Func }
+  - { Name: XFillPolygon, Type: Func }
+  - { Name: XFillRectangle, Type: Func }
+  - { Name: XFillRectangles, Type: Func }
+  - { Name: XFilterEvent, Type: Func }
+  - { Name: XFindContext, Type: Func }
+  - { Name: XFindOnExtensionList, Type: Func }
+  - { Name: XFlush, Type: Func }
+  - { Name: XFlushGC, Type: Func }
+  - { Name: XFontsOfFontSet, Type: Func }
+  - { Name: XForceScreenSaver, Type: Func }
+  - { Name: XFree, Type: Func }
+  - { Name: XFreeColormap, Type: Func }
+  - { Name: XFreeColors, Type: Func }
+  - { Name: XFreeCursor, Type: Func }
+  - { Name: XFreeEventData, Type: Func }
+  - { Name: XFreeExtensionList, Type: Func }
+  - { Name: XFreeFont, Type: Func }
+  - { Name: XFreeFontInfo, Type: Func }
+  - { Name: XFreeFontNames, Type: Func }
+  - { Name: XFreeFontPath, Type: Func }
+  - { Name: XFreeFontSet, Type: Func }
+  - { Name: XFreeGC, Type: Func }
+  - { Name: XFreeModifiermap, Type: Func }
+  - { Name: XFreePixmap, Type: Func }
+  - { Name: XFreeStringList, Type: Func }
+  - { Name: XFreeThreads, Type: Func }
+  - { Name: XGContextFromGC, Type: Func }
+  - { Name: XGeometry, Type: Func }
+  - { Name: XGetAtomName, Type: Func }
+  - { Name: XGetAtomNames, Type: Func }
+  - { Name: XGetClassHint, Type: Func }
+  - { Name: XGetCommand, Type: Func }
+  - { Name: XGetDefault, Type: Func }
+  - { Name: XGetErrorDatabaseText, Type: Func }
+  - { Name: XGetErrorText, Type: Func }
+  - { Name: XGetEventData, Type: Func }
+  - { Name: XGetFontPath, Type: Func }
+  - { Name: XGetFontProperty, Type: Func }
+  - { Name: XGetGCValues, Type: Func }
+  - { Name: XGetGeometry, Type: Func }
+  - { Name: XGetICValues, Type: Func }
+  - { Name: XGetIMValues, Type: Func }
+  - { Name: XGetIconName, Type: Func }
+  - { Name: XGetIconSizes, Type: Func }
+  - { Name: XGetImage, Type: Func }
+  - { Name: XGetInputFocus, Type: Func }
+  - { Name: XGetKeyboardControl, Type: Func }
+  - { Name: XGetKeyboardMapping, Type: Func }
+  - { Name: XGetModifierMapping, Type: Func }
+  - { Name: XGetMotionEvents, Type: Func }
+  - { Name: XGetNormalHints, Type: Func }
+  - { Name: XGetOCValues, Type: Func }
+  - { Name: XGetOMValues, Type: Func }
+  - { Name: XGetPixel, Type: Func }
+  - { Name: XGetPointerControl, Type: Func }
+  - { Name: XGetPointerMapping, Type: Func }
+  - { Name: XGetRGBColormaps, Type: Func }
+  - { Name: XGetScreenSaver, Type: Func }
+  - { Name: XGetSelectionOwner, Type: Func }
+  - { Name: XGetSizeHints, Type: Func }
+  - { Name: XGetStandardColormap, Type: Func }
+  - { Name: XGetSubImage, Type: Func }
+  - { Name: XGetTextProperty, Type: Func }
+  - { Name: XGetTransientForHint, Type: Func }
+  - { Name: XGetVisualInfo, Type: Func }
+  - { Name: XGetWMClientMachine, Type: Func }
+  - { Name: XGetWMColormapWindows, Type: Func }
+  - { Name: XGetWMHints, Type: Func }
+  - { Name: XGetWMIconName, Type: Func }
+  - { Name: XGetWMName, Type: Func }
+  - { Name: XGetWMNormalHints, Type: Func }
+  - { Name: XGetWMProtocols, Type: Func }
+  - { Name: XGetWMSizeHints, Type: Func }
+  - { Name: XGetWindowAttributes, Type: Func }
+  - { Name: XGetWindowProperty, Type: Func }
+  - { Name: XGetZoomHints, Type: Func }
+  - { Name: XGrabButton, Type: Func }
+  - { Name: XGrabKey, Type: Func }
+  - { Name: XGrabKeyboard, Type: Func }
+  - { Name: XGrabPointer, Type: Func }
+  - { Name: XGrabServer, Type: Func }
+  - { Name: XHeightMMOfScreen, Type: Func }
+  - { Name: XHeightOfScreen, Type: Func }
+  - { Name: XIMOfIC, Type: Func }
+  - { Name: XIconifyWindow, Type: Func }
+  - { Name: XIfEvent, Type: Func }
+  - { Name: XImageByteOrder, Type: Func }
+  - { Name: XInitExtension, Type: Func }
+  - { Name: XInitImage, Type: Func }
+  - { Name: XInitThreads, Type: Func }
+  - { Name: XInsertModifiermapEntry, Type: Func }
+  - { Name: XInstallColormap, Type: Func }
+  - { Name: XInternAtom, Type: Func }
+  - { Name: XInternAtoms, Type: Func }
+  - { Name: XInternalConnectionNumbers, Type: Func }
+  - { Name: XIntersectRegion, Type: Func }
+  - { Name: XKeycodeToKeysym, Type: Func }
+  - { Name: XKeysymToKeycode, Type: Func }
+  - { Name: XKeysymToString, Type: Func }
+  - { Name: XKillClient, Type: Func }
+  - { Name: XLastKnownRequestProcessed, Type: Func }
+  - { Name: XListDepths, Type: Func }
+  - { Name: XListExtensions, Type: Func }
+  - { Name: XListFonts, Type: Func }
+  - { Name: XListFontsWithInfo, Type: Func }
+  - { Name: XListHosts, Type: Func }
+  - { Name: XListInstalledColormaps, Type: Func }
+  - { Name: XListPixmapFormats, Type: Func }
+  - { Name: XListProperties, Type: Func }
+  - { Name: XLoadFont, Type: Func }
+  - { Name: XLoadQueryFont, Type: Func }
+  - { Name: XLocaleOfFontSet, Type: Func }
+  - { Name: XLocaleOfIM, Type: Func }
+  - { Name: XLocaleOfOM, Type: Func }
+  - { Name: XLockDisplay, Type: Func }
+  - { Name: XLookupColor, Type: Func }
+  - { Name: XLookupKeysym, Type: Func }
+  - { Name: XLookupString, Type: Func }
+  - { Name: XLowerWindow, Type: Func }
+  - { Name: XMapRaised, Type: Func }
+  - { Name: XMapSubwindows, Type: Func }
+  - { Name: XMapWindow, Type: Func }
+  - { Name: XMaskEvent, Type: Func }
+  - { Name: XMatchVisualInfo, Type: Func }
+  - { Name: XMaxCmapsOfScreen, Type: Func }
+  - { Name: XMaxRequestSize, Type: Func }
+  - { Name: XMinCmapsOfScreen, Type: Func }
+  - { Name: XMoveResizeWindow, Type: Func }
+  - { Name: XMoveWindow, Type: Func }
+  - { Name: XNewModifiermap, Type: Func }
+  - { Name: XNextEvent, Type: Func }
+  - { Name: XNextRequest, Type: Func }
+  - { Name: XNoOp, Type: Func }
+  - { Name: XOMOfOC, Type: Func }
+  - { Name: XOffsetRegion, Type: Func }
+  - { Name: XOpenDisplay, Type: Func }
+  - { Name: XOpenIM, Type: Func }
+  - { Name: XOpenOM, Type: Func }
+  - { Name: XParseColor, Type: Func }
+  - { Name: XParseGeometry, Type: Func }
+  - { Name: XPeekEvent, Type: Func }
+  - { Name: XPeekIfEvent, Type: Func }
+  - { Name: XPending, Type: Func }
+  - { Name: XPlanesOfScreen, Type: Func }
+  - { Name: XPointInRegion, Type: Func }
+  - { Name: XPolygonRegion, Type: Func }
+  - { Name: XProcessInternalConnection, Type: Func }
+  - { Name: XProtocolRevision, Type: Func }
+  - { Name: XProtocolVersion, Type: Func }
+  - { Name: XPutBackEvent, Type: Func }
+  - { Name: XPutImage, Type: Func }
+  - { Name: XPutPixel, Type: Func }
+  - { Name: XQLength, Type: Func }
+  - { Name: XQueryBestCursor, Type: Func }
+  - { Name: XQueryBestSize, Type: Func }
+  - { Name: XQueryBestStipple, Type: Func }
+  - { Name: XQueryBestTile, Type: Func }
+  - { Name: XQueryColor, Type: Func }
+  - { Name: XQueryColors, Type: Func }
+  - { Name: XQueryExtension, Type: Func }
+  - { Name: XQueryFont, Type: Func }
+  - { Name: XQueryKeymap, Type: Func }
+  - { Name: XQueryPointer, Type: Func }
+  - { Name: XQueryTextExtents, Type: Func }
+  - { Name: XQueryTextExtents16, Type: Func }
+  - { Name: XQueryTree, Type: Func }
+  - { Name: XRaiseWindow, Type: Func }
+  - { Name: XReadBitmapFile, Type: Func }
+  - { Name: XReadBitmapFileData, Type: Func }
+  - { Name: XRebindKeysym, Type: Func }
+  - { Name: XRecolorCursor, Type: Func }
+  - { Name: XReconfigureWMWindow, Type: Func }
+  - { Name: XRectInRegion, Type: Func }
+  - { Name: XRefreshKeyboardMapping, Type: Func }
+  - { Name: XRegisterIMInstantiateCallback, Type: Func }
+  - { Name: XRemoveConnectionWatch, Type: Func }
+  - { Name: XRemoveFromSaveSet, Type: Func }
+  - { Name: XRemoveHost, Type: Func }
+  - { Name: XRemoveHosts, Type: Func }
+  - { Name: XReparentWindow, Type: Func }
+  - { Name: XResetScreenSaver, Type: Func }
+  - { Name: XResizeWindow, Type: Func }
+  - { Name: XResourceManagerString, Type: Func }
+  - { Name: XRestackWindows, Type: Func }
+  - { Name: XRootWindow, Type: Func }
+  - { Name: XRootWindowOfScreen, Type: Func }
+  - { Name: XRotateBuffers, Type: Func }
+  - { Name: XRotateWindowProperties, Type: Func }
+  - { Name: XSaveContext, Type: Func }
+  - { Name: XScreenCount, Type: Func }
+  - { Name: XScreenNumberOfScreen, Type: Func }
+  - { Name: XScreenOfDisplay, Type: Func }
+  - { Name: XScreenResourceString, Type: Func }
+  - { Name: XSelectInput, Type: Func }
+  - { Name: XSendEvent, Type: Func }
+  - { Name: XServerVendor, Type: Func }
+  - { Name: XSetAccessControl, Type: Func }
+  - { Name: XSetAfterFunction, Type: Func }
+  - { Name: XSetArcMode, Type: Func }
+  - { Name: XSetAuthorization, Type: Func }
+  - { Name: XSetBackground, Type: Func }
+  - { Name: XSetClassHint, Type: Func }
+  - { Name: XSetClipMask, Type: Func }
+  - { Name: XSetClipOrigin, Type: Func }
+  - { Name: XSetClipRectangles, Type: Func }
+  - { Name: XSetCloseDownMode, Type: Func }
+  - { Name: XSetCommand, Type: Func }
+  - { Name: XSetDashes, Type: Func }
+  - { Name: XSetErrorHandler, Type: Func }
+  - { Name: XSetFillRule, Type: Func }
+  - { Name: XSetFillStyle, Type: Func }
+  - { Name: XSetFont, Type: Func }
+  - { Name: XSetFontPath, Type: Func }
+  - { Name: XSetForeground, Type: Func }
+  - { Name: XSetFunction, Type: Func }
+  - { Name: XSetGraphicsExposures, Type: Func }
+  - { Name: XSetICFocus, Type: Func }
+  - { Name: XSetICValues, Type: Func }
+  - { Name: XSetIMValues, Type: Func }
+  - { Name: XSetIOErrorExitHandler, Type: Func }
+  - { Name: XSetIOErrorHandler, Type: Func }
+  - { Name: XSetIconName, Type: Func }
+  - { Name: XSetIconSizes, Type: Func }
+  - { Name: XSetInputFocus, Type: Func }
+  - { Name: XSetLineAttributes, Type: Func }
+  - { Name: XSetLocaleModifiers, Type: Func }
+  - { Name: XSetModifierMapping, Type: Func }
+  - { Name: XSetNormalHints, Type: Func }
+  - { Name: XSetOCValues, Type: Func }
+  - { Name: XSetOMValues, Type: Func }
+  - { Name: XSetPlaneMask, Type: Func }
+  - { Name: XSetPointerMapping, Type: Func }
+  - { Name: XSetRGBColormaps, Type: Func }
+  - { Name: XSetRegion, Type: Func }
+  - { Name: XSetScreenSaver, Type: Func }
+  - { Name: XSetSelectionOwner, Type: Func }
+  - { Name: XSetSizeHints, Type: Func }
+  - { Name: XSetStandardColormap, Type: Func }
+  - { Name: XSetStandardProperties, Type: Func }
+  - { Name: XSetState, Type: Func }
+  - { Name: XSetStipple, Type: Func }
+  - { Name: XSetSubwindowMode, Type: Func }
+  - { Name: XSetTSOrigin, Type: Func }
+  - { Name: XSetTextProperty, Type: Func }
+  - { Name: XSetTile, Type: Func }
+  - { Name: XSetTransientForHint, Type: Func }
+  - { Name: XSetWMClientMachine, Type: Func }
+  - { Name: XSetWMColormapWindows, Type: Func }
+  - { Name: XSetWMHints, Type: Func }
+  - { Name: XSetWMIconName, Type: Func }
+  - { Name: XSetWMName, Type: Func }
+  - { Name: XSetWMNormalHints, Type: Func }
+  - { Name: XSetWMProperties, Type: Func }
+  - { Name: XSetWMProtocols, Type: Func }
+  - { Name: XSetWMSizeHints, Type: Func }
+  - { Name: XSetWindowBackground, Type: Func }
+  - { Name: XSetWindowBackgroundPixmap, Type: Func }
+  - { Name: XSetWindowBorder, Type: Func }
+  - { Name: XSetWindowBorderPixmap, Type: Func }
+  - { Name: XSetWindowBorderWidth, Type: Func }
+  - { Name: XSetWindowColormap, Type: Func }
+  - { Name: XSetZoomHints, Type: Func }
+  - { Name: XShrinkRegion, Type: Func }
+  - { Name: XStoreBuffer, Type: Func }
+  - { Name: XStoreBytes, Type: Func }
+  - { Name: XStoreColor, Type: Func }
+  - { Name: XStoreColors, Type: Func }
+  - { Name: XStoreName, Type: Func }
+  - { Name: XStoreNamedColor, Type: Func }
+  - { Name: XStringListToTextProperty, Type: Func }
+  - { Name: XStringToKeysym, Type: Func }
+  - { Name: XSubImage, Type: Func }
+  - { Name: XSubtractRegion, Type: Func }
+  - { Name: XSupportsLocale, Type: Func }
+  - { Name: XSync, Type: Func }
+  - { Name: XSynchronize, Type: Func }
+  - { Name: XTextExtents, Type: Func }
+  - { Name: XTextExtents16, Type: Func }
+  - { Name: XTextPropertyToStringList, Type: Func }
+  - { Name: XTextWidth, Type: Func }
+  - { Name: XTextWidth16, Type: Func }
+  - { Name: XTranslateCoordinates, Type: Func }
+  - { Name: XUndefineCursor, Type: Func }
+  - { Name: XUngrabButton, Type: Func }
+  - { Name: XUngrabKey, Type: Func }
+  - { Name: XUngrabKeyboard, Type: Func }
+  - { Name: XUngrabPointer, Type: Func }
+  - { Name: XUngrabServer, Type: Func }
+  - { Name: XUninstallColormap, Type: Func }
+  - { Name: XUnionRectWithRegion, Type: Func }
+  - { Name: XUnionRegion, Type: Func }
+  - { Name: XUnloadFont, Type: Func }
+  - { Name: XUnlockDisplay, Type: Func }
+  - { Name: XUnmapSubwindows, Type: Func }
+  - { Name: XUnmapWindow, Type: Func }
+  - { Name: XUnregisterIMInstantiateCallback, Type: Func }
+  - { Name: XUnsetICFocus, Type: Func }
+  - { Name: XVaCreateNestedList, Type: Func }
+  - { Name: XVendorRelease, Type: Func }
+  - { Name: XVisualIDFromVisual, Type: Func }
+  - { Name: XWMGeometry, Type: Func }
+  - { Name: XWarpPointer, Type: Func }
+  - { Name: XWhitePixel, Type: Func }
+  - { Name: XWhitePixelOfScreen, Type: Func }
+  - { Name: XWidthMMOfScreen, Type: Func }
+  - { Name: XWidthOfScreen, Type: Func }
+  - { Name: XWindowEvent, Type: Func }
+  - { Name: XWithdrawWindow, Type: Func }
+  - { Name: XWriteBitmapFile, Type: Func }
+  - { Name: XXorRegion, Type: Func }
+  - { Name: XcmsAddColorSpace, Type: Func }
+  - { Name: XcmsAddFunctionSet, Type: Func }
+  - { Name: XcmsAllocColor, Type: Func }
+  - { Name: XcmsAllocNamedColor, Type: Func }
+  - { Name: XcmsCCCOfColormap, Type: Func }
+  - { Name: XcmsCIELabClipL, Type: Func }
+  - { Name: XcmsCIELabClipLab, Type: Func }
+  - { Name: XcmsCIELabClipab, Type: Func }
+  - { Name: XcmsCIELabColorSpace, Type: Object, Size: 48 }
+  - { Name: XcmsCIELabQueryMaxC, Type: Func }
+  - { Name: XcmsCIELabQueryMaxL, Type: Func }
+  - { Name: XcmsCIELabQueryMaxLC, Type: Func }
+  - { Name: XcmsCIELabQueryMinL, Type: Func }
+  - { Name: XcmsCIELabToCIEXYZ, Type: Func }
+  - { Name: XcmsCIELabWhiteShiftColors, Type: Func }
+  - { Name: XcmsCIELuvClipL, Type: Func }
+  - { Name: XcmsCIELuvClipLuv, Type: Func }
+  - { Name: XcmsCIELuvClipuv, Type: Func }
+  - { Name: XcmsCIELuvColorSpace, Type: Object, Size: 48 }
+  - { Name: XcmsCIELuvQueryMaxC, Type: Func }
+  - { Name: XcmsCIELuvQueryMaxL, Type: Func }
+  - { Name: XcmsCIELuvQueryMaxLC, Type: Func }
+  - { Name: XcmsCIELuvQueryMinL, Type: Func }
+  - { Name: XcmsCIELuvToCIEuvY, Type: Func }
+  - { Name: XcmsCIELuvWhiteShiftColors, Type: Func }
+  - { Name: XcmsCIEXYZColorSpace, Type: Object, Size: 48 }
+  - { Name: XcmsCIEXYZToCIELab, Type: Func }
+  - { Name: XcmsCIEXYZToCIEuvY, Type: Func }
+  - { Name: XcmsCIEXYZToCIExyY, Type: Func }
+  - { Name: XcmsCIEXYZToRGBi, Type: Func }
+  - { Name: XcmsCIEuvYColorSpace, Type: Object, Size: 48 }
+  - { Name: XcmsCIEuvYToCIELuv, Type: Func }
+  - { Name: XcmsCIEuvYToCIEXYZ, Type: Func }
+  - { Name: XcmsCIEuvYToTekHVC, Type: Func }
+  - { Name: XcmsCIExyYColorSpace, Type: Object, Size: 48 }
+  - { Name: XcmsCIExyYToCIEXYZ, Type: Func }
+  - { Name: XcmsClientWhitePointOfCCC, Type: Func }
+  - { Name: XcmsConvertColors, Type: Func }
+  - { Name: XcmsCreateCCC, Type: Func }
+  - { Name: XcmsDefaultCCC, Type: Func }
+  - { Name: XcmsDisplayOfCCC, Type: Func }
+  - { Name: XcmsFormatOfPrefix, Type: Func }
+  - { Name: XcmsFreeCCC, Type: Func }
+  - { Name: XcmsLinearRGBFunctionSet, Type: Object, Size: 24 }
+  - { Name: XcmsLookupColor, Type: Func }
+  - { Name: XcmsPrefixOfFormat, Type: Func }
+  - { Name: XcmsQueryBlack, Type: Func }
+  - { Name: XcmsQueryBlue, Type: Func }
+  - { Name: XcmsQueryColor, Type: Func }
+  - { Name: XcmsQueryColors, Type: Func }
+  - { Name: XcmsQueryGreen, Type: Func }
+  - { Name: XcmsQueryRed, Type: Func }
+  - { Name: XcmsQueryWhite, Type: Func }
+  - { Name: XcmsRGBColorSpace, Type: Object, Size: 48 }
+  - { Name: XcmsRGBToRGBi, Type: Func }
+  - { Name: XcmsRGBiColorSpace, Type: Object, Size: 48 }
+  - { Name: XcmsRGBiToCIEXYZ, Type: Func }
+  - { Name: XcmsRGBiToRGB, Type: Func }
+  - { Name: XcmsScreenNumberOfCCC, Type: Func }
+  - { Name: XcmsScreenWhitePointOfCCC, Type: Func }
+  - { Name: XcmsSetCCCOfColormap, Type: Func }
+  - { Name: XcmsSetCompressionProc, Type: Func }
+  - { Name: XcmsSetWhiteAdjustProc, Type: Func }
+  - { Name: XcmsSetWhitePoint, Type: Func }
+  - { Name: XcmsStoreColor, Type: Func }
+  - { Name: XcmsStoreColors, Type: Func }
+  - { Name: XcmsTekHVCClipC, Type: Func }
+  - { Name: XcmsTekHVCClipV, Type: Func }
+  - { Name: XcmsTekHVCClipVC, Type: Func }
+  - { Name: XcmsTekHVCColorSpace, Type: Object, Size: 48 }
+  - { Name: XcmsTekHVCQueryMaxC, Type: Func }
+  - { Name: XcmsTekHVCQueryMaxV, Type: Func }
+  - { Name: XcmsTekHVCQueryMaxVC, Type: Func }
+  - { Name: XcmsTekHVCQueryMaxVSamples, Type: Func }
+  - { Name: XcmsTekHVCQueryMinV, Type: Func }
+  - { Name: XcmsTekHVCToCIEuvY, Type: Func }
+  - { Name: XcmsTekHVCWhiteShiftColors, Type: Func }
+  - { Name: XcmsUNDEFINEDColorSpace, Type: Object, Size: 48 }
+  - { Name: XcmsVisualOfCCC, Type: Func }
+  - { Name: XkbAddDeviceLedInfo, Type: Func }
+  - { Name: XkbAddGeomColor, Type: Func }
+  - { Name: XkbAddGeomDoodad, Type: Func }
+  - { Name: XkbAddGeomKey, Type: Func }
+  - { Name: XkbAddGeomKeyAlias, Type: Func }
+  - { Name: XkbAddGeomOutline, Type: Func }
+  - { Name: XkbAddGeomOverlay, Type: Func }
+  - { Name: XkbAddGeomOverlayKey, Type: Func }
+  - { Name: XkbAddGeomOverlayRow, Type: Func }
+  - { Name: XkbAddGeomProperty, Type: Func }
+  - { Name: XkbAddGeomRow, Type: Func }
+  - { Name: XkbAddGeomSection, Type: Func }
+  - { Name: XkbAddGeomShape, Type: Func }
+  - { Name: XkbAddKeyType, Type: Func }
+  - { Name: XkbAllocClientMap, Type: Func }
+  - { Name: XkbAllocCompatMap, Type: Func }
+  - { Name: XkbAllocControls, Type: Func }
+  - { Name: XkbAllocDeviceInfo, Type: Func }
+  - { Name: XkbAllocGeomColors, Type: Func }
+  - { Name: XkbAllocGeomDoodads, Type: Func }
+  - { Name: XkbAllocGeomKeyAliases, Type: Func }
+  - { Name: XkbAllocGeomKeys, Type: Func }
+  - { Name: XkbAllocGeomOutlines, Type: Func }
+  - { Name: XkbAllocGeomOverlayKeys, Type: Func }
+  - { Name: XkbAllocGeomOverlayRows, Type: Func }
+  - { Name: XkbAllocGeomOverlays, Type: Func }
+  - { Name: XkbAllocGeomPoints, Type: Func }
+  - { Name: XkbAllocGeomProps, Type: Func }
+  - { Name: XkbAllocGeomRows, Type: Func }
+  - { Name: XkbAllocGeomSectionDoodads, Type: Func }
+  - { Name: XkbAllocGeomSections, Type: Func }
+  - { Name: XkbAllocGeomShapes, Type: Func }
+  - { Name: XkbAllocGeometry, Type: Func }
+  - { Name: XkbAllocIndicatorMaps, Type: Func }
+  - { Name: XkbAllocKeyboard, Type: Func }
+  - { Name: XkbAllocNames, Type: Func }
+  - { Name: XkbAllocServerMap, Type: Func }
+  - { Name: XkbApplyCompatMapToKey, Type: Func }
+  - { Name: XkbApplyVirtualModChanges, Type: Func }
+  - { Name: XkbBell, Type: Func }
+  - { Name: XkbBellEvent, Type: Func }
+  - { Name: XkbChangeDeviceInfo, Type: Func }
+  - { Name: XkbChangeEnabledControls, Type: Func }
+  - { Name: XkbChangeKeycodeRange, Type: Func }
+  - { Name: XkbChangeMap, Type: Func }
+  - { Name: XkbChangeNames, Type: Func }
+  - { Name: XkbChangeTypesOfKey, Type: Func }
+  - { Name: XkbComputeEffectiveMap, Type: Func }
+  - { Name: XkbComputeRowBounds, Type: Func }
+  - { Name: XkbComputeSectionBounds, Type: Func }
+  - { Name: XkbComputeShapeBounds, Type: Func }
+  - { Name: XkbComputeShapeTop, Type: Func }
+  - { Name: XkbCopyKeyType, Type: Func }
+  - { Name: XkbCopyKeyTypes, Type: Func }
+  - { Name: XkbDeviceBell, Type: Func }
+  - { Name: XkbDeviceBellEvent, Type: Func }
+  - { Name: XkbFindOverlayForKey, Type: Func }
+  - { Name: XkbForceBell, Type: Func }
+  - { Name: XkbForceDeviceBell, Type: Func }
+  - { Name: XkbFreeClientMap, Type: Func }
+  - { Name: XkbFreeCompatMap, Type: Func }
+  - { Name: XkbFreeComponentList, Type: Func }
+  - { Name: XkbFreeControls, Type: Func }
+  - { Name: XkbFreeDeviceInfo, Type: Func }
+  - { Name: XkbFreeGeomColors, Type: Func }
+  - { Name: XkbFreeGeomDoodads, Type: Func }
+  - { Name: XkbFreeGeomKeyAliases, Type: Func }
+  - { Name: XkbFreeGeomKeys, Type: Func }
+  - { Name: XkbFreeGeomOutlines, Type: Func }
+  - { Name: XkbFreeGeomOverlayKeys, Type: Func }
+  - { Name: XkbFreeGeomOverlayRows, Type: Func }
+  - { Name: XkbFreeGeomOverlays, Type: Func }
+  - { Name: XkbFreeGeomPoints, Type: Func }
+  - { Name: XkbFreeGeomProperties, Type: Func }
+  - { Name: XkbFreeGeomRows, Type: Func }
+  - { Name: XkbFreeGeomSections, Type: Func }
+  - { Name: XkbFreeGeomShapes, Type: Func }
+  - { Name: XkbFreeGeometry, Type: Func }
+  - { Name: XkbFreeIndicatorMaps, Type: Func }
+  - { Name: XkbFreeKeyboard, Type: Func }
+  - { Name: XkbFreeNames, Type: Func }
+  - { Name: XkbFreeServerMap, Type: Func }
+  - { Name: XkbGetAutoRepeatRate, Type: Func }
+  - { Name: XkbGetAutoResetControls, Type: Func }
+  - { Name: XkbGetCompatMap, Type: Func }
+  - { Name: XkbGetControls, Type: Func }
+  - { Name: XkbGetDetectableAutoRepeat, Type: Func }
+  - { Name: XkbGetDeviceButtonActions, Type: Func }
+  - { Name: XkbGetDeviceInfo, Type: Func }
+  - { Name: XkbGetDeviceInfoChanges, Type: Func }
+  - { Name: XkbGetDeviceLedInfo, Type: Func }
+  - { Name: XkbGetGeometry, Type: Func }
+  - { Name: XkbGetIndicatorMap, Type: Func }
+  - { Name: XkbGetIndicatorState, Type: Func }
+  - { Name: XkbGetKeyActions, Type: Func }
+  - { Name: XkbGetKeyBehaviors, Type: Func }
+  - { Name: XkbGetKeyExplicitComponents, Type: Func }
+  - { Name: XkbGetKeyModifierMap, Type: Func }
+  - { Name: XkbGetKeySyms, Type: Func }
+  - { Name: XkbGetKeyTypes, Type: Func }
+  - { Name: XkbGetKeyVirtualModMap, Type: Func }
+  - { Name: XkbGetKeyboard, Type: Func }
+  - { Name: XkbGetKeyboardByName, Type: Func }
+  - { Name: XkbGetMap, Type: Func }
+  - { Name: XkbGetMapChanges, Type: Func }
+  - { Name: XkbGetNamedDeviceIndicator, Type: Func }
+  - { Name: XkbGetNamedGeometry, Type: Func }
+  - { Name: XkbGetNamedIndicator, Type: Func }
+  - { Name: XkbGetNames, Type: Func }
+  - { Name: XkbGetPerClientControls, Type: Func }
+  - { Name: XkbGetState, Type: Func }
+  - { Name: XkbGetUpdatedMap, Type: Func }
+  - { Name: XkbGetVirtualMods, Type: Func }
+  - { Name: XkbGetXlibControls, Type: Func }
+  - { Name: XkbIgnoreExtension, Type: Func }
+  - { Name: XkbInitCanonicalKeyTypes, Type: Func }
+  - { Name: XkbKeyTypesForCoreSymbols, Type: Func }
+  - { Name: XkbKeycodeToKeysym, Type: Func }
+  - { Name: XkbKeysymToModifiers, Type: Func }
+  - { Name: XkbLatchGroup, Type: Func }
+  - { Name: XkbLatchModifiers, Type: Func }
+  - { Name: XkbLibraryVersion, Type: Func }
+  - { Name: XkbListComponents, Type: Func }
+  - { Name: XkbLockGroup, Type: Func }
+  - { Name: XkbLockModifiers, Type: Func }
+  - { Name: XkbLookupKeyBinding, Type: Func }
+  - { Name: XkbLookupKeySym, Type: Func }
+  - { Name: XkbNoteControlsChanges, Type: Func }
+  - { Name: XkbNoteDeviceChanges, Type: Func }
+  - { Name: XkbNoteMapChanges, Type: Func }
+  - { Name: XkbNoteNameChanges, Type: Func }
+  - { Name: XkbOpenDisplay, Type: Func }
+  - { Name: XkbQueryExtension, Type: Func }
+  - { Name: XkbRefreshKeyboardMapping, Type: Func }
+  - { Name: XkbResizeDeviceButtonActions, Type: Func }
+  - { Name: XkbResizeKeyActions, Type: Func }
+  - { Name: XkbResizeKeySyms, Type: Func }
+  - { Name: XkbResizeKeyType, Type: Func }
+  - { Name: XkbSelectEventDetails, Type: Func }
+  - { Name: XkbSelectEvents, Type: Func }
+  - { Name: XkbSetAtomFuncs, Type: Func }
+  - { Name: XkbSetAutoRepeatRate, Type: Func }
+  - { Name: XkbSetAutoResetControls, Type: Func }
+  - { Name: XkbSetCompatMap, Type: Func }
+  - { Name: XkbSetControls, Type: Func }
+  - { Name: XkbSetDebuggingFlags, Type: Func }
+  - { Name: XkbSetDetectableAutoRepeat, Type: Func }
+  - { Name: XkbSetDeviceButtonActions, Type: Func }
+  - { Name: XkbSetDeviceInfo, Type: Func }
+  - { Name: XkbSetDeviceLedInfo, Type: Func }
+  - { Name: XkbSetGeometry, Type: Func }
+  - { Name: XkbSetIgnoreLockMods, Type: Func }
+  - { Name: XkbSetIndicatorMap, Type: Func }
+  - { Name: XkbSetMap, Type: Func }
+  - { Name: XkbSetNamedDeviceIndicator, Type: Func }
+  - { Name: XkbSetNamedIndicator, Type: Func }
+  - { Name: XkbSetNames, Type: Func }
+  - { Name: XkbSetPerClientControls, Type: Func }
+  - { Name: XkbSetServerInternalMods, Type: Func }
+  - { Name: XkbSetXlibControls, Type: Func }
+  - { Name: XkbToControl, Type: Func }
+  - { Name: XkbTranslateKey, Type: Func }
+  - { Name: XkbTranslateKeyCode, Type: Func }
+  - { Name: XkbTranslateKeySym, Type: Func }
+  - { Name: XkbUpdateActionVirtualMods, Type: Func }
+  - { Name: XkbUpdateKeyTypeVirtualMods, Type: Func }
+  - { Name: XkbUpdateMapFromCore, Type: Func }
+  - { Name: XkbUseExtension, Type: Func }
+  - { Name: XkbVirtualModsToReal, Type: Func }
+  - { Name: XkbXlibControlsImplemented, Type: Func }
+  - { Name: XmbDrawImageString, Type: Func }
+  - { Name: XmbDrawString, Type: Func }
+  - { Name: XmbDrawText, Type: Func }
+  - { Name: XmbLookupString, Type: Func }
+  - { Name: XmbResetIC, Type: Func }
+  - { Name: XmbSetWMProperties, Type: Func }
+  - { Name: XmbTextEscapement, Type: Func }
+  - { Name: XmbTextExtents, Type: Func }
+  - { Name: XmbTextListToTextProperty, Type: Func }
+  - { Name: XmbTextPerCharExtents, Type: Func }
+  - { Name: XmbTextPropertyToTextList, Type: Func }
+  - { Name: Xpermalloc, Type: Func }
+  - { Name: XrmCombineDatabase, Type: Func }
+  - { Name: XrmCombineFileDatabase, Type: Func }
+  - { Name: XrmDestroyDatabase, Type: Func }
+  - { Name: XrmEnumerateDatabase, Type: Func }
+  - { Name: XrmGetDatabase, Type: Func }
+  - { Name: XrmGetFileDatabase, Type: Func }
+  - { Name: XrmGetResource, Type: Func }
+  - { Name: XrmGetStringDatabase, Type: Func }
+  - { Name: XrmInitialize, Type: Func }
+  - { Name: XrmLocaleOfDatabase, Type: Func }
+  - { Name: XrmMergeDatabases, Type: Func }
+  - { Name: XrmParseCommand, Type: Func }
+  - { Name: XrmPermStringToQuark, Type: Func }
+  - { Name: XrmPutFileDatabase, Type: Func }
+  - { Name: XrmPutLineResource, Type: Func }
+  - { Name: XrmPutResource, Type: Func }
+  - { Name: XrmPutStringResource, Type: Func }
+  - { Name: XrmQGetResource, Type: Func }
+  - { Name: XrmQGetSearchList, Type: Func }
+  - { Name: XrmQGetSearchResource, Type: Func }
+  - { Name: XrmQPutResource, Type: Func }
+  - { Name: XrmQPutStringResource, Type: Func }
+  - { Name: XrmQuarkToString, Type: Func }
+  - { Name: XrmSetDatabase, Type: Func }
+  - { Name: XrmStringToBindingQuarkList, Type: Func }
+  - { Name: XrmStringToQuark, Type: Func }
+  - { Name: XrmStringToQuarkList, Type: Func }
+  - { Name: XrmUniqueQuark, Type: Func }
+  - { Name: Xutf8DrawImageString, Type: Func }
+  - { Name: Xutf8DrawString, Type: Func }
+  - { Name: Xutf8DrawText, Type: Func }
+  - { Name: Xutf8LookupString, Type: Func }
+  - { Name: Xutf8ResetIC, Type: Func }
+  - { Name: Xutf8SetWMProperties, Type: Func }
+  - { Name: Xutf8TextEscapement, Type: Func }
+  - { Name: Xutf8TextExtents, Type: Func }
+  - { Name: Xutf8TextListToTextProperty, Type: Func }
+  - { Name: Xutf8TextPerCharExtents, Type: Func }
+  - { Name: Xutf8TextPropertyToTextList, Type: Func }
+  - { Name: XwcDrawImageString, Type: Func }
+  - { Name: XwcDrawString, Type: Func }
+  - { Name: XwcDrawText, Type: Func }
+  - { Name: XwcFreeStringList, Type: Func }
+  - { Name: XwcLookupString, Type: Func }
+  - { Name: XwcResetIC, Type: Func }
+  - { Name: XwcTextEscapement, Type: Func }
+  - { Name: XwcTextExtents, Type: Func }
+  - { Name: XwcTextListToTextProperty, Type: Func }
+  - { Name: XwcTextPerCharExtents, Type: Func }
+  - { Name: XwcTextPropertyToTextList, Type: Func }
+  - { Name: _ITM_deregisterTMCloneTable, Type: NoType, Undefined: true, Weak: true }
+  - { Name: _ITM_registerTMCloneTable, Type: NoType, Undefined: true, Weak: true }
+  - { Name: _Utf8GetConvByName, Type: Func }
+  - { Name: _XAllocID, Type: Func }
+  - { Name: _XAllocIDs, Type: Func }
+  - { Name: _XAllocScratch, Type: Func }
+  - { Name: _XAllocTemp, Type: Func }
+  - { Name: _XAsyncErrorHandler, Type: Func }
+  - { Name: _XCloseLC, Type: Func }
+  - { Name: _XColor_to_XcmsRGB, Type: Func }
+  - { Name: _XConnectXCB, Type: Func }
+  - { Name: _XCopyEventCookie, Type: Func }
+  - { Name: _XCopyToArg, Type: Func }
+  - { Name: _XCreateMutex_fn, Type: Object, Size: 8 }
+  - { Name: _XData32, Type: Func }
+  - { Name: _XDefaultError, Type: Func }
+  - { Name: _XDefaultIOError, Type: Func }
+  - { Name: _XDefaultIOErrorExit, Type: Func }
+  - { Name: _XDefaultOpenIM, Type: Func }
+  - { Name: _XDefaultOpenOM, Type: Func }
+  - { Name: _XDefaultWireError, Type: Func }
+  - { Name: _XDeq, Type: Func }
+  - { Name: _XDeqAsyncHandler, Type: Func }
+  - { Name: _XEatData, Type: Func }
+  - { Name: _XEatDataWords, Type: Func }
+  - { Name: _XEnq, Type: Func }
+  - { Name: _XError, Type: Func }
+  - { Name: _XErrorFunction, Type: Object, Size: 8 }
+  - { Name: _XEventToWire, Type: Func }
+  - { Name: _XEventsQueued, Type: Func }
+  - { Name: _XF86BigfontFreeFontMetrics, Type: Func }
+  - { Name: _XF86LoadQueryLocaleFont, Type: Func }
+  - { Name: _XFetchEventCookie, Type: Func }
+  - { Name: _XFlush, Type: Func }
+  - { Name: _XFlushGCCache, Type: Func }
+  - { Name: _XFreeAtomTable, Type: Func }
+  - { Name: _XFreeDisplayLock_fn, Type: Object, Size: 8 }
+  - { Name: _XFreeDisplayStructure, Type: Func }
+  - { Name: _XFreeEventCookies, Type: Func }
+  - { Name: _XFreeExtData, Type: Func }
+  - { Name: _XFreeMutex_fn, Type: Object, Size: 8 }
+  - { Name: _XFreeTemp, Type: Func }
+  - { Name: _XFreeX11XCBStructure, Type: Func }
+  - { Name: _XGetAsyncData, Type: Func }
+  - { Name: _XGetAsyncReply, Type: Func }
+  - { Name: _XGetBitsPerPixel, Type: Func }
+  - { Name: _XGetHostname, Type: Func }
+  - { Name: _XGetLCValues, Type: Func }
+  - { Name: _XGetRequest, Type: Func }
+  - { Name: _XGetScanlinePad, Type: Func }
+  - { Name: _XGetWindowAttributes, Type: Func }
+  - { Name: _XHeadOfDisplayList, Type: Object, Size: 8 }
+  - { Name: _XIMCompileResourceList, Type: Func }
+  - { Name: _XIOError, Type: Func }
+  - { Name: _XIOErrorFunction, Type: Object, Size: 8 }
+  - { Name: _XInitDisplayLock_fn, Type: Object, Size: 8 }
+  - { Name: _XInitIM, Type: Func }
+  - { Name: _XInitImageFuncPtrs, Type: Func }
+  - { Name: _XInitKeysymDB, Type: Func }
+  - { Name: _XInitOM, Type: Func }
+  - { Name: _XIsEventCookie, Type: Func }
+  - { Name: _XKeyInitialize, Type: Func }
+  - { Name: _XKeycodeToKeysym, Type: Func }
+  - { Name: _XKeysymToKeycode, Type: Func }
+  - { Name: _XKeysymToModifiers, Type: Func }
+  - { Name: _XLockMutex_fn, Type: Object, Size: 8 }
+  - { Name: _XLookupKeysym, Type: Func }
+  - { Name: _XLookupString, Type: Func }
+  - { Name: _XNoticeCreateBitmap, Type: Func }
+  - { Name: _XNoticePutBitmap, Type: Func }
+  - { Name: _XOpenLC, Type: Func }
+  - { Name: _XParseBaseFontNameList, Type: Func }
+  - { Name: _XPollfdCacheAdd, Type: Func }
+  - { Name: _XPollfdCacheDel, Type: Func }
+  - { Name: _XPollfdCacheInit, Type: Func }
+  - { Name: _XProcessInternalConnection, Type: Func }
+  - { Name: _XProcessWindowAttributes, Type: Func }
+  - { Name: _XPutBackEvent, Type: Func }
+  - { Name: _XRead, Type: Func }
+  - { Name: _XRead32, Type: Func }
+  - { Name: _XReadEvents, Type: Func }
+  - { Name: _XReadPad, Type: Func }
+  - { Name: _XRefreshKeyboardMapping, Type: Func }
+  - { Name: _XRegisterFilterByMask, Type: Func }
+  - { Name: _XRegisterFilterByType, Type: Func }
+  - { Name: _XRegisterInternalConnection, Type: Func }
+  - { Name: _XReply, Type: Func }
+  - { Name: _XReverse_Bytes, Type: Func }
+  - { Name: _XScreenOfWindow, Type: Func }
+  - { Name: _XSend, Type: Func }
+  - { Name: _XSetClipRectangles, Type: Func }
+  - { Name: _XSetImage, Type: Func }
+  - { Name: _XSetLastRequestRead, Type: Func }
+  - { Name: _XStoreEventCookie, Type: Func }
+  - { Name: _XTextHeight, Type: Func }
+  - { Name: _XTextHeight16, Type: Func }
+  - { Name: _XTranslateKey, Type: Func }
+  - { Name: _XTranslateKeySym, Type: Func }
+  - { Name: _XTryShapeBitmapCursor, Type: Func }
+  - { Name: _XUnknownCopyEventCookie, Type: Func }
+  - { Name: _XUnknownNativeEvent, Type: Func }
+  - { Name: _XUnknownWireEvent, Type: Func }
+  - { Name: _XUnknownWireEventCookie, Type: Func }
+  - { Name: _XUnlockMutex_fn, Type: Object, Size: 8 }
+  - { Name: _XUnregisterFilter, Type: Func }
+  - { Name: _XUnregisterInternalConnection, Type: Func }
+  - { Name: _XUnresolveColor, Type: Func }
+  - { Name: _XUpdateAtomCache, Type: Func }
+  - { Name: _XUpdateGCCache, Type: Func }
+  - { Name: _XVIDtoVisual, Type: Func }
+  - { Name: _XWireToEvent, Type: Func }
+  - { Name: _XcmsAddCmapRec, Type: Func }
+  - { Name: _XcmsArcTangent, Type: Func }
+  - { Name: _XcmsCIELabQueryMaxLCRGB, Type: Func }
+  - { Name: _XcmsCIELab_prefix, Type: Object, Size: 7 }
+  - { Name: _XcmsCIELuvQueryMaxLCRGB, Type: Func }
+  - { Name: _XcmsCIELuv_prefix, Type: Object, Size: 7 }
+  - { Name: _XcmsCIEXYZ_ValidSpec, Type: Func }
+  - { Name: _XcmsCIEXYZ_prefix, Type: Object, Size: 7 }
+  - { Name: _XcmsCIEuvY_ValidSpec, Type: Func }
+  - { Name: _XcmsCIEuvY_prefix, Type: Object, Size: 7 }
+  - { Name: _XcmsCIExyY_prefix, Type: Object, Size: 7 }
+  - { Name: _XcmsConvertColorsWithWhitePt, Type: Func }
+  - { Name: _XcmsCopyCmapRecAndFree, Type: Func }
+  - { Name: _XcmsCopyISOLatin1Lowered, Type: Func }
+  - { Name: _XcmsCopyPointerArray, Type: Func }
+  - { Name: _XcmsCosine, Type: Func }
+  - { Name: _XcmsCubeRoot, Type: Func }
+  - { Name: _XcmsDDColorSpaces, Type: Object, Size: 8 }
+  - { Name: _XcmsDDColorSpacesInit, Type: Object, Size: 24 }
+  - { Name: _XcmsDDConvertColors, Type: Func }
+  - { Name: _XcmsDIColorSpaces, Type: Object, Size: 8 }
+  - { Name: _XcmsDIColorSpacesInit, Type: Object, Size: 64 }
+  - { Name: _XcmsDIConvertColors, Type: Func }
+  - { Name: _XcmsDeleteCmapRec, Type: Func }
+  - { Name: _XcmsEqualWhitePts, Type: Func }
+  - { Name: _XcmsFreeIntensityMaps, Type: Func }
+  - { Name: _XcmsFreePointerArray, Type: Func }
+  - { Name: _XcmsGetElement, Type: Func }
+  - { Name: _XcmsGetIntensityMap, Type: Func }
+  - { Name: _XcmsGetProperty, Type: Func }
+  - { Name: _XcmsInitDefaultCCCs, Type: Func }
+  - { Name: _XcmsInitScrnInfo, Type: Func }
+  - { Name: _XcmsLRGB_InitScrnDefault, Type: Func }
+  - { Name: _XcmsPushPointerArray, Type: Func }
+  - { Name: _XcmsRGB_prefix, Type: Object, Size: 4 }
+  - { Name: _XcmsRGB_to_XColor, Type: Func }
+  - { Name: _XcmsRGBi_prefix, Type: Object, Size: 5 }
+  - { Name: _XcmsRegColorSpaces, Type: Object, Size: 144 }
+  - { Name: _XcmsRegFormatOfPrefix, Type: Func }
+  - { Name: _XcmsResolveColor, Type: Func }
+  - { Name: _XcmsResolveColorString, Type: Func }
+  - { Name: _XcmsSCCFuncSets, Type: Object, Size: 8 }
+  - { Name: _XcmsSCCFuncSetsInit, Type: Object, Size: 16 }
+  - { Name: _XcmsSetGetColor, Type: Func }
+  - { Name: _XcmsSetGetColors, Type: Func }
+  - { Name: _XcmsSine, Type: Func }
+  - { Name: _XcmsSquareRoot, Type: Func }
+  - { Name: _XcmsTekHVCQueryMaxVCRGB, Type: Func }
+  - { Name: _XcmsTekHVC_CheckModify, Type: Func }
+  - { Name: _XcmsTekHVC_prefix, Type: Object, Size: 7 }
+  - { Name: _XcmsUnresolveColor, Type: Func }
+  - { Name: _Xdebug, Type: Object, Size: 4 }
+  - { Name: _Xevent_to_mask, Type: Object, Size: 288 }
+  - { Name: _Xglobal_lock, Type: Object, Size: 8 }
+  - { Name: _Xi18n_lock, Type: Object, Size: 8 }
+  - { Name: _XimCbDispatch, Type: Func }
+  - { Name: _XimCheckCreateICValues, Type: Func }
+  - { Name: _XimCheckDataSize, Type: Func }
+  - { Name: _XimCheckICMode, Type: Func }
+  - { Name: _XimCheckIMMode, Type: Func }
+  - { Name: _XimCheckIfLocalProcessing, Type: Func }
+  - { Name: _XimCheckIfThaiProcessing, Type: Func }
+  - { Name: _XimCheckLocalInputStyle, Type: Func }
+  - { Name: _XimCommitCallback, Type: Func }
+  - { Name: _XimConnect, Type: Func }
+  - { Name: _XimDecodeICATTRIBUTE, Type: Func }
+  - { Name: _XimDecodeIMATTRIBUTE, Type: Func }
+  - { Name: _XimDecodeLocalICAttr, Type: Func }
+  - { Name: _XimDecodeLocalIMAttr, Type: Func }
+  - { Name: _XimDestroyIMStructureList, Type: Func }
+  - { Name: _XimDispatchInit, Type: Func }
+  - { Name: _XimEncodeICATTRIBUTE, Type: Func }
+  - { Name: _XimEncodeIMATTRIBUTE, Type: Func }
+  - { Name: _XimEncodeLocalICAttr, Type: Func }
+  - { Name: _XimEncodeLocalIMAttr, Type: Func }
+  - { Name: _XimError, Type: Func }
+  - { Name: _XimErrorCallback, Type: Func }
+  - { Name: _XimExtension, Type: Func }
+  - { Name: _XimFilterWaitEvent, Type: Func }
+  - { Name: _XimFlush, Type: Func }
+  - { Name: _XimForwardEvent, Type: Func }
+  - { Name: _XimForwardEventCallback, Type: Func }
+  - { Name: _XimFreeCommitInfo, Type: Func }
+  - { Name: _XimFreeProtoIntrCallback, Type: Func }
+  - { Name: _XimFreeTransIntrCallback, Type: Func }
+  - { Name: _XimGetAttributeID, Type: Func }
+  - { Name: _XimGetCharCode, Type: Func }
+  - { Name: _XimGetCurrentICValues, Type: Func }
+  - { Name: _XimGetCurrentIMValues, Type: Func }
+  - { Name: _XimGetICValueData, Type: Func }
+  - { Name: _XimGetIMValueData, Type: Func }
+  - { Name: _XimGetLocaleCode, Type: Func }
+  - { Name: _XimGetMyEndian, Type: Func }
+  - { Name: _XimGetResourceListRec, Type: Func }
+  - { Name: _XimGetResourceListRecByQuark, Type: Func }
+  - { Name: _XimGetWindowEventmask, Type: Func }
+  - { Name: _XimICOfXICID, Type: Func }
+  - { Name: _XimImSportRec, Type: Object, Size: 96 }
+  - { Name: _XimInitialResourceInfo, Type: Func }
+  - { Name: _XimLcctstombs, Type: Func }
+  - { Name: _XimLcctstoutf8, Type: Func }
+  - { Name: _XimLcctstowcs, Type: Func }
+  - { Name: _XimLocalCreateIC, Type: Func }
+  - { Name: _XimLocalFilter, Type: Func }
+  - { Name: _XimLocalGetICValues, Type: Func }
+  - { Name: _XimLocalGetIMValues, Type: Func }
+  - { Name: _XimLocalIMFree, Type: Func }
+  - { Name: _XimLocalMbLookupString, Type: Func }
+  - { Name: _XimLocalOpenIM, Type: Func }
+  - { Name: _XimLocalSetICValues, Type: Func }
+  - { Name: _XimLocalSetIMValues, Type: Func }
+  - { Name: _XimLocalUtf8LookupString, Type: Func }
+  - { Name: _XimLocalWcLookupString, Type: Func }
+  - { Name: _XimLookupMBText, Type: Func }
+  - { Name: _XimLookupUTF8Text, Type: Func }
+  - { Name: _XimLookupWCText, Type: Func }
+  - { Name: _XimMakeICAttrIDList, Type: Func }
+  - { Name: _XimMakeIMAttrIDList, Type: Func }
+  - { Name: _XimOpenIM, Type: Func }
+  - { Name: _XimParseStringFile, Type: Func }
+  - { Name: _XimProcError, Type: Func }
+  - { Name: _XimProcSyncReply, Type: Func }
+  - { Name: _XimProtoCreateIC, Type: Func }
+  - { Name: _XimProtoEventToWire, Type: Func }
+  - { Name: _XimProtoIMFree, Type: Func }
+  - { Name: _XimProtoMbLookupString, Type: Func }
+  - { Name: _XimProtoOpenIM, Type: Func }
+  - { Name: _XimProtoUtf8LookupString, Type: Func }
+  - { Name: _XimProtoWcLookupString, Type: Func }
+  - { Name: _XimProtoWireToEvent, Type: Func }
+  - { Name: _XimRead, Type: Func }
+  - { Name: _XimRegProtoIntrCallback, Type: Func }
+  - { Name: _XimRegisterDispatcher, Type: Func }
+  - { Name: _XimRegisterFilter, Type: Func }
+  - { Name: _XimRegisterIMInstantiateCallback, Type: Func }
+  - { Name: _XimRegisterServerFilter, Type: Func }
+  - { Name: _XimRegisterTriggerKeysCallback, Type: Func }
+  - { Name: _XimReregisterFilter, Type: Func }
+  - { Name: _XimResetIMInstantiateCallback, Type: Func }
+  - { Name: _XimRespSyncReply, Type: Func }
+  - { Name: _XimServerDestroy, Type: Func }
+  - { Name: _XimSetCurrentICValues, Type: Func }
+  - { Name: _XimSetCurrentIMValues, Type: Func }
+  - { Name: _XimSetEventMaskCallback, Type: Func }
+  - { Name: _XimSetHeader, Type: Func }
+  - { Name: _XimSetICDefaults, Type: Func }
+  - { Name: _XimSetICMode, Type: Func }
+  - { Name: _XimSetICResourceList, Type: Func }
+  - { Name: _XimSetICValueData, Type: Func }
+  - { Name: _XimSetIMMode, Type: Func }
+  - { Name: _XimSetIMResourceList, Type: Func }
+  - { Name: _XimSetIMValueData, Type: Func }
+  - { Name: _XimSetInnerICResourceList, Type: Func }
+  - { Name: _XimSetInnerIMResourceList, Type: Func }
+  - { Name: _XimSetLocalIMDefaults, Type: Func }
+  - { Name: _XimShutdown, Type: Func }
+  - { Name: _XimSync, Type: Func }
+  - { Name: _XimSyncCallback, Type: Func }
+  - { Name: _XimThaiCloseIM, Type: Func }
+  - { Name: _XimThaiCreateIC, Type: Func }
+  - { Name: _XimThaiFilter, Type: Func }
+  - { Name: _XimThaiIMFree, Type: Func }
+  - { Name: _XimThaiOpenIM, Type: Func }
+  - { Name: _XimTransCallDispatcher, Type: Func }
+  - { Name: _XimTransConf, Type: Func }
+  - { Name: _XimTransFilterWaitEvent, Type: Func }
+  - { Name: _XimTransFlush, Type: Func }
+  - { Name: _XimTransInternalConnection, Type: Func }
+  - { Name: _XimTransRead, Type: Func }
+  - { Name: _XimTransRegisterDispatcher, Type: Func }
+  - { Name: _XimTransWrite, Type: Func }
+  - { Name: _XimTransportRec, Type: Object, Size: 64 }
+  - { Name: _XimTriggerNotify, Type: Func }
+  - { Name: _XimUnRegisterIMInstantiateCallback, Type: Func }
+  - { Name: _XimUnregisterFilter, Type: Func }
+  - { Name: _XimUnregisterServerFilter, Type: Func }
+  - { Name: _XimWrite, Type: Func }
+  - { Name: _XimXConf, Type: Func }
+  - { Name: _XimXTransBytesReadable, Type: Func }
+  - { Name: _XimXTransClose, Type: Func }
+  - { Name: _XimXTransCloseForCloning, Type: Func }
+  - { Name: _XimXTransConnect, Type: Func }
+  - { Name: _XimXTransDisconnect, Type: Func }
+  - { Name: _XimXTransFreeConnInfo, Type: Func }
+  - { Name: _XimXTransGetConnectionNumber, Type: Func }
+  - { Name: _XimXTransGetHostname, Type: Func }
+  - { Name: _XimXTransGetPeerAddr, Type: Func }
+  - { Name: _XimXTransIsLocal, Type: Func }
+  - { Name: _XimXTransOpenCOTSClient, Type: Func }
+  - { Name: _XimXTransRead, Type: Func }
+  - { Name: _XimXTransReadv, Type: Func }
+  - { Name: _XimXTransSetOption, Type: Func }
+  - { Name: _XimXTransSocketINET6Funcs, Type: Object, Size: 104 }
+  - { Name: _XimXTransSocketINETFuncs, Type: Object, Size: 104 }
+  - { Name: _XimXTransSocketLocalFuncs, Type: Object, Size: 104 }
+  - { Name: _XimXTransSocketTCPFuncs, Type: Object, Size: 104 }
+  - { Name: _XimXTransSocketUNIXFuncs, Type: Object, Size: 104 }
+  - { Name: _XimXTransWrite, Type: Func }
+  - { Name: _XimXTransWritev, Type: Func }
+  - { Name: _Ximctstombs, Type: Func }
+  - { Name: _Ximctstoutf8, Type: Func }
+  - { Name: _Ximctstowcs, Type: Func }
+  - { Name: _XkbCopyFromReadBuffer, Type: Func }
+  - { Name: _XkbFreeReadBuffer, Type: Func }
+  - { Name: _XkbGetAtomNameFunc, Type: Object, Size: 8 }
+  - { Name: _XkbGetCharset, Type: Func }
+  - { Name: _XkbGetConverters, Type: Func }
+  - { Name: _XkbGetReadBufferCountedString, Type: Func }
+  - { Name: _XkbGetReadBufferPtr, Type: Func }
+  - { Name: _XkbInitReadBuffer, Type: Func }
+  - { Name: _XkbInternAtomFunc, Type: Object, Size: 8 }
+  - { Name: _XkbNoteCoreMapChanges, Type: Func }
+  - { Name: _XkbPeekAtReadBuffer, Type: Func }
+  - { Name: _XkbReadBufferCopy32, Type: Func }
+  - { Name: _XkbReadBufferCopyKeySyms, Type: Func }
+  - { Name: _XkbReadCopyData32, Type: Func }
+  - { Name: _XkbReadCopyKeySyms, Type: Func }
+  - { Name: _XkbReadGetCompatMapReply, Type: Func }
+  - { Name: _XkbReadGetGeometryReply, Type: Func }
+  - { Name: _XkbReadGetIndicatorMapReply, Type: Func }
+  - { Name: _XkbReadGetMapReply, Type: Func }
+  - { Name: _XkbReadGetNamesReply, Type: Func }
+  - { Name: _XkbReloadDpy, Type: Func }
+  - { Name: _XkbSkipReadBufferData, Type: Func }
+  - { Name: _XkbWriteCopyData32, Type: Func }
+  - { Name: _XkbWriteCopyKeySyms, Type: Func }
+  - { Name: _XkeyTable, Type: Object, Size: 46782 }
+  - { Name: _XlcAddCT, Type: Func }
+  - { Name: _XlcAddCharSet, Type: Func }
+  - { Name: _XlcAddGB18030LocaleConverters, Type: Func }
+  - { Name: _XlcAddLoader, Type: Func }
+  - { Name: _XlcAddUtf8Converters, Type: Func }
+  - { Name: _XlcAddUtf8LocaleConverters, Type: Func }
+  - { Name: _XlcCloseConverter, Type: Func }
+  - { Name: _XlcCompareISOLatin1, Type: Func }
+  - { Name: _XlcCompileResourceList, Type: Func }
+  - { Name: _XlcConvert, Type: Func }
+  - { Name: _XlcCopyFromArg, Type: Func }
+  - { Name: _XlcCopyToArg, Type: Func }
+  - { Name: _XlcCountVaList, Type: Func }
+  - { Name: _XlcCreateDefaultCharSet, Type: Func }
+  - { Name: _XlcCreateLC, Type: Func }
+  - { Name: _XlcCreateLocaleDataBase, Type: Func }
+  - { Name: _XlcCurrentLC, Type: Func }
+  - { Name: _XlcDbg_printValue, Type: Func }
+  - { Name: _XlcDeInitLoader, Type: Func }
+  - { Name: _XlcDefaultLoader, Type: Func }
+  - { Name: _XlcDefaultMapModifiers, Type: Func }
+  - { Name: _XlcDestroyLC, Type: Func }
+  - { Name: _XlcDestroyLocaleDataBase, Type: Func }
+  - { Name: _XlcFileName, Type: Func }
+  - { Name: _XlcGenericLoader, Type: Func }
+  - { Name: _XlcGenericMethods, Type: Object, Size: 8 }
+  - { Name: _XlcGetCSValues, Type: Func }
+  - { Name: _XlcGetCharSet, Type: Func }
+  - { Name: _XlcGetCharSetWithSide, Type: Func }
+  - { Name: _XlcGetLocaleDataBase, Type: Func }
+  - { Name: _XlcGetResource, Type: Func }
+  - { Name: _XlcGetValues, Type: Func }
+  - { Name: _XlcInitCTInfo, Type: Func }
+  - { Name: _XlcInitLoader, Type: Func }
+  - { Name: _XlcLocaleDirName, Type: Func }
+  - { Name: _XlcLocaleLibDirName, Type: Func }
+  - { Name: _XlcMapOSLocaleName, Type: Func }
+  - { Name: _XlcNCompareISOLatin1, Type: Func }
+  - { Name: _XlcOpenConverter, Type: Func }
+  - { Name: _XlcParseCharSet, Type: Func }
+  - { Name: _XlcParse_scopemaps, Type: Func }
+  - { Name: _XlcPublicMethods, Type: Object, Size: 8 }
+  - { Name: _XlcRemoveLoader, Type: Func }
+  - { Name: _XlcResetConverter, Type: Func }
+  - { Name: _XlcResolveI18NPath, Type: Func }
+  - { Name: _XlcResolveLocaleName, Type: Func }
+  - { Name: _XlcSetConverter, Type: Func }
+  - { Name: _XlcSetValues, Type: Func }
+  - { Name: _XlcUtf8Loader, Type: Func }
+  - { Name: _XlcVaToArgList, Type: Func }
+  - { Name: _XlcValidModSyntax, Type: Func }
+  - { Name: _Xlcmbstoutf8, Type: Func }
+  - { Name: _Xlcmbstowcs, Type: Func }
+  - { Name: _Xlcmbtowc, Type: Func }
+  - { Name: _Xlcwcstombs, Type: Func }
+  - { Name: _Xlcwctomb, Type: Func }
+  - { Name: _XmbDefaultDrawImageString, Type: Func }
+  - { Name: _XmbDefaultDrawString, Type: Func }
+  - { Name: _XmbDefaultTextEscapement, Type: Func }
+  - { Name: _XmbDefaultTextExtents, Type: Func }
+  - { Name: _XmbDefaultTextPerCharExtents, Type: Func }
+  - { Name: _XmbGenericDrawImageString, Type: Func }
+  - { Name: _XmbGenericDrawString, Type: Func }
+  - { Name: _XmbGenericTextEscapement, Type: Func }
+  - { Name: _XmbGenericTextExtents, Type: Func }
+  - { Name: _XmbGenericTextPerCharExtents, Type: Func }
+  - { Name: _XmbTextListToTextProperty, Type: Func }
+  - { Name: _XmbTextPropertyToTextList, Type: Func }
+  - { Name: _Xmblen, Type: Func }
+  - { Name: _Xmbstoutf8, Type: Func }
+  - { Name: _Xmbstowcs, Type: Func }
+  - { Name: _Xmbtowc, Type: Func }
+  - { Name: _XomConvert, Type: Func }
+  - { Name: _XomGenericDrawString, Type: Func }
+  - { Name: _XomGenericOpenOM, Type: Func }
+  - { Name: _XomGenericTextExtents, Type: Func }
+  - { Name: _XomGetFontDataFromFontSet, Type: Func }
+  - { Name: _XomInitConverter, Type: Func }
+  - { Name: _XrmDefaultInitParseInfo, Type: Func }
+  - { Name: _XrmInitParseInfo, Type: Func }
+  - { Name: _XrmInternalStringToQuark, Type: Func }
+  - { Name: _Xthread_self_fn, Type: Object, Size: 8 }
+  - { Name: _Xutf8DefaultDrawImageString, Type: Func }
+  - { Name: _Xutf8DefaultDrawString, Type: Func }
+  - { Name: _Xutf8DefaultTextEscapement, Type: Func }
+  - { Name: _Xutf8DefaultTextExtents, Type: Func }
+  - { Name: _Xutf8DefaultTextPerCharExtents, Type: Func }
+  - { Name: _Xutf8GenericDrawImageString, Type: Func }
+  - { Name: _Xutf8GenericDrawString, Type: Func }
+  - { Name: _Xutf8GenericTextEscapement, Type: Func }
+  - { Name: _Xutf8GenericTextExtents, Type: Func }
+  - { Name: _Xutf8GenericTextPerCharExtents, Type: Func }
+  - { Name: _Xutf8TextListToTextProperty, Type: Func }
+  - { Name: _Xutf8TextPropertyToTextList, Type: Func }
+  - { Name: _XwcDefaultDrawImageString, Type: Func }
+  - { Name: _XwcDefaultDrawString, Type: Func }
+  - { Name: _XwcDefaultTextEscapement, Type: Func }
+  - { Name: _XwcDefaultTextExtents, Type: Func }
+  - { Name: _XwcDefaultTextPerCharExtents, Type: Func }
+  - { Name: _XwcFreeStringList, Type: Func }
+  - { Name: _XwcGenericDrawImageString, Type: Func }
+  - { Name: _XwcGenericDrawString, Type: Func }
+  - { Name: _XwcGenericTextEscapement, Type: Func }
+  - { Name: _XwcGenericTextExtents, Type: Func }
+  - { Name: _XwcGenericTextPerCharExtents, Type: Func }
+  - { Name: _XwcTextListToTextProperty, Type: Func }
+  - { Name: _XwcTextPropertyToTextList, Type: Func }
+  - { Name: _Xwcscmp, Type: Func }
+  - { Name: _Xwcscpy, Type: Func }
+  - { Name: _Xwcslen, Type: Func }
+  - { Name: _Xwcsncmp, Type: Func }
+  - { Name: _Xwcsncpy, Type: Func }
+  - { Name: _Xwcstombs, Type: Func }
+  - { Name: _Xwctomb, Type: Func }
+  - { Name: __assert_fail, Type: Func, Undefined: true }
+  - { Name: __ctype_b_loc, Type: Func, Undefined: true }
+  - { Name: __ctype_get_mb_cur_max, Type: Func, Undefined: true }
+  - { Name: __ctype_toupper_loc, Type: Func, Undefined: true }
+  - { Name: __cxa_finalize, Type: Func, Undefined: true, Weak: true }
+  - { Name: __errno_location, Type: Func, Undefined: true }
+  - { Name: __fdelt_chk, Type: Func, Undefined: true }
+  - { Name: __fprintf_chk, Type: Func, Undefined: true }
+  - { Name: __gmon_start__, Type: NoType, Undefined: true, Weak: true }
+  - { Name: __isoc23_sscanf, Type: Func, Undefined: true }
+  - { Name: __isoc23_strtol, Type: Func, Undefined: true }
+  - { Name: __isoc23_strtoul, Type: Func, Undefined: true }
+  - { Name: __memcpy_chk, Type: Func, Undefined: true }
+  - { Name: __memmove_chk, Type: Func, Undefined: true }
+  - { Name: __memset_chk, Type: Func, Undefined: true }
+  - { Name: __read_chk, Type: Func, Undefined: true }
+  - { Name: __snprintf_chk, Type: Func, Undefined: true }
+  - { Name: __sprintf_chk, Type: Func, Undefined: true }
+  - { Name: __stack_chk_fail, Type: Func, Undefined: true }
+  - { Name: __strcat_chk, Type: Func, Undefined: true }
+  - { Name: __strcpy_chk, Type: Func, Undefined: true }
+  - { Name: __strncpy_chk, Type: Func, Undefined: true }
+  - { Name: __vfprintf_chk, Type: Func, Undefined: true }
+  - { Name: _conv_lock, Type: Object, Size: 8 }
+  - { Name: _qfree, Type: Object, Size: 8 }
+  - { Name: abort, Type: Func, Undefined: true }
+  - { Name: access, Type: Func, Undefined: true }
+  - { Name: calloc, Type: Func, Undefined: true }
+  - { Name: close, Type: Func, Undefined: true }
+  - { Name: connect, Type: Func, Undefined: true }
+  - { Name: dlopen, Type: Func, Undefined: true }
+  - { Name: dlsym, Type: Func, Undefined: true }
+  - { Name: exit, Type: Func, Undefined: true }
+  - { Name: fclose, Type: Func, Undefined: true }
+  - { Name: fcntl, Type: Func, Undefined: true }
+  - { Name: fdopen, Type: Func, Undefined: true }
+  - { Name: ferror, Type: Func, Undefined: true }
+  - { Name: fflush, Type: Func, Undefined: true }
+  - { Name: fgets, Type: Func, Undefined: true }
+  - { Name: fileno, Type: Func, Undefined: true }
+  - { Name: fopen, Type: Func, Undefined: true }
+  - { Name: fputc, Type: Func, Undefined: true }
+  - { Name: fputs, Type: Func, Undefined: true }
+  - { Name: free, Type: Func, Undefined: true }
+  - { Name: freeaddrinfo, Type: Func, Undefined: true }
+  - { Name: fstat, Type: Func, Undefined: true }
+  - { Name: fwrite, Type: Func, Undefined: true }
+  - { Name: gai_strerror, Type: Func, Undefined: true }
+  - { Name: getaddrinfo, Type: Func, Undefined: true }
+  - { Name: getc, Type: Func, Undefined: true }
+  - { Name: getegid, Type: Func, Undefined: true }
+  - { Name: getenv, Type: Func, Undefined: true }
+  - { Name: geteuid, Type: Func, Undefined: true }
+  - { Name: getgid, Type: Func, Undefined: true }
+  - { Name: getpeername, Type: Func, Undefined: true }
+  - { Name: getpwnam_r, Type: Func, Undefined: true }
+  - { Name: getpwuid_r, Type: Func, Undefined: true }
+  - { Name: getresgid, Type: Func, Undefined: true }
+  - { Name: getresuid, Type: Func, Undefined: true }
+  - { Name: getsockname, Type: Func, Undefined: true }
+  - { Name: getsockopt, Type: Func, Undefined: true }
+  - { Name: getuid, Type: Func, Undefined: true }
+  - { Name: inet_ntop, Type: Func, Undefined: true }
+  - { Name: inet_pton, Type: Func, Undefined: true }
+  - { Name: ioctl, Type: Func, Undefined: true }
+  - { Name: malloc, Type: Func, Undefined: true }
+  - { Name: mblen, Type: Func, Undefined: true }
+  - { Name: mbstowcs, Type: Func, Undefined: true }
+  - { Name: mbtowc, Type: Func, Undefined: true }
+  - { Name: memchr, Type: Func, Undefined: true }
+  - { Name: memcmp, Type: Func, Undefined: true }
+  - { Name: memcpy, Type: Func, Undefined: true }
+  - { Name: memmove, Type: Func, Undefined: true }
+  - { Name: memset, Type: Func, Undefined: true }
+  - { Name: mmap, Type: Func, Undefined: true }
+  - { Name: munmap, Type: Func, Undefined: true }
+  - { Name: nl_langinfo, Type: Func, Undefined: true }
+  - { Name: open, Type: Func, Undefined: true }
+  - { Name: pthread_cond_broadcast, Type: Func, Undefined: true }
+  - { Name: pthread_cond_destroy, Type: Func, Undefined: true }
+  - { Name: pthread_cond_init, Type: Func, Undefined: true }
+  - { Name: pthread_cond_signal, Type: Func, Undefined: true }
+  - { Name: pthread_cond_wait, Type: Func, Undefined: true }
+  - { Name: pthread_mutex_destroy, Type: Func, Undefined: true }
+  - { Name: pthread_mutex_init, Type: Func, Undefined: true }
+  - { Name: pthread_mutex_lock, Type: Func, Undefined: true }
+  - { Name: pthread_mutex_unlock, Type: Func, Undefined: true }
+  - { Name: pthread_self, Type: Func, Undefined: true }
+  - { Name: putc, Type: Func, Undefined: true }
+  - { Name: qsort, Type: Func, Undefined: true }
+  - { Name: read, Type: Func, Undefined: true }
+  - { Name: read_EncodingInfo, Type: Func }
+  - { Name: readv, Type: Func, Undefined: true }
+  - { Name: realloc, Type: Func, Undefined: true }
+  - { Name: reallocarray, Type: Func, Undefined: true }
+  - { Name: rewind, Type: Func, Undefined: true }
+  - { Name: select, Type: Func, Undefined: true }
+  - { Name: setlocale, Type: Func, Undefined: true }
+  - { Name: setsockopt, Type: Func, Undefined: true }
+  - { Name: shmat, Type: Func, Undefined: true }
+  - { Name: shmctl, Type: Func, Undefined: true }
+  - { Name: shmdt, Type: Func, Undefined: true }
+  - { Name: shutdown, Type: Func, Undefined: true }
+  - { Name: socket, Type: Func, Undefined: true }
+  - { Name: stat, Type: Func, Undefined: true }
+  - { Name: stderr, Type: Object, Size: 0, Undefined: true }
+  - { Name: strcasecmp, Type: Func, Undefined: true }
+  - { Name: strchr, Type: Func, Undefined: true }
+  - { Name: strcmp, Type: Func, Undefined: true }
+  - { Name: strcpy, Type: Func, Undefined: true }
+  - { Name: strdup, Type: Func, Undefined: true }
+  - { Name: strerror, Type: Func, Undefined: true }
+  - { Name: strlen, Type: Func, Undefined: true }
+  - { Name: strncmp, Type: Func, Undefined: true }
+  - { Name: strncpy, Type: Func, Undefined: true }
+  - { Name: strrchr, Type: Func, Undefined: true }
+  - { Name: strstr, Type: Func, Undefined: true }
+  - { Name: time, Type: Func, Undefined: true }
+  - { Name: uname, Type: Func, Undefined: true }
+  - { Name: ungetc, Type: Func, Undefined: true }
+  - { Name: unlink, Type: Func, Undefined: true }
+  - { Name: wctomb, Type: Func, Undefined: true }
+  - { Name: write, Type: Func, Undefined: true }
+  - { Name: writev, Type: Func, Undefined: true }
+  - { Name: xcb_connect, Type: Func, Undefined: true }
+  - { Name: xcb_connect_to_display_with_auth_info, Type: Func, Undefined: true }
+  - { Name: xcb_connection_has_error, Type: Func, Undefined: true }
+  - { Name: xcb_disconnect, Type: Func, Undefined: true }
+  - { Name: xcb_generate_id, Type: Func, Undefined: true }
+  - { Name: xcb_get_file_descriptor, Type: Func, Undefined: true }
+  - { Name: xcb_get_maximum_request_length, Type: Func, Undefined: true }
+  - { Name: xcb_get_setup, Type: Func, Undefined: true }
+  - { Name: xcb_parse_display, Type: Func, Undefined: true }
+  - { Name: xcb_poll_for_event, Type: Func, Undefined: true }
+  - { Name: xcb_poll_for_queued_event, Type: Func, Undefined: true }
+  - { Name: xcb_poll_for_reply64, Type: Func, Undefined: true }
+  - { Name: xcb_take_socket, Type: Func, Undefined: true }
+  - { Name: xcb_wait_for_event, Type: Func, Undefined: true }
+  - { Name: xcb_wait_for_reply64, Type: Func, Undefined: true }
+  - { Name: xcb_writev, Type: Func, Undefined: true }
+  - { Name: xlocaledir, Type: Func }
+...

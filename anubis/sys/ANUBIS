@@ -1,11 +1,22 @@
-# INTERIM, NOT HERMETIC: X11/GL/xcb headers and libX11 from the build host,
-# until a hermetic source is decided (Natron package or vendored headers +
-# a generated libX11 stub). linux_include/ and lib/ are copies from an Ubuntu 24.04 host.
+# Linux system libraries the studio uses but no toolchain ships.
+#
+# Headers: Debian -dev packages fetched by Natron into toolchains/x11 (see
+# natron.toml). Libraries: link-only stubs built from checked-in .ifs files
+# (Anubis `ifs_stub_library`); the real libX11.so.6 is loaded at run time.
+#
+# libX11.ifs was made once with:
+#   llvm-ifs --input-format=ELF --output-ifs=libX11.ifs /usr/lib/x86_64-linux-gnu/libX11.so.6
+# from Ubuntu 24.04's libx11-6 1.8.7. Only XSetErrorHandler is linked directly
+# today (imguios); glfw and Filament dlopen libX11/libGL themselves.
+ifs_stub_library(
+    name = "libX11",
+    ifs = RelPath("libX11.ifs"),
+)
+
 cc_static_library(
     name = "x11",
     lang = "c",
     srcs = [],
-    public_include_dirs = RelPaths(["linux_include"]),
-    public_libraries = ["X11"],
-    public_library_dirs = RelPaths(["lib"]),
+    deps = Targets([":libX11"]),
+    public_include_dirs = RelPaths(["../../toolchains/x11"]),
 )

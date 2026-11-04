@@ -206,6 +206,8 @@ def load_platform(desc, cfg):
     for name, t in desc['targets'].items():
         files = []
         for f in t['files']:
+            if not os.path.realpath(f['file']).startswith(root + '/'):
+                continue  # generated into the CMake build dir (draco_dummy.cc)
             files.append(dict(file=os.path.relpath(f['file'], root), defines=f['defines'],
                               includes=[x for x in (mapdir(i) for i in f['includes']) if x],
                               flags=f['flags']))

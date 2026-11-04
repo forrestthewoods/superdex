@@ -1214,57 +1214,7 @@ cc_static_library(
 cc_static_library(
     name = "draco_dec_config",
     lang = "cpp",
-    srcs = select(
-        (target_platform) => {
-        (linux) = RelPaths([
-            "../../../../../../superdex-cmake-studio/_deps/filament/third_party/draco/tnt/draco_dummy.cc",
-        ]),
-        (windows) = RelPaths([
-            "../../../../../../superdex-cmake-win/_deps/filament/third_party/draco/tnt/draco_dummy.cc",
-        ]),
-        }
-    ),
-    private_include_dirs = RelPaths([
-        "third_party/draco/src",
-        "anubis/draco",
-    ]),
-    private_defines = select(
-        (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
-        }
-    ),
-    private_compiler_flags = select(
-        (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
-        }
-    ),
+    srcs = [],
 )
 
 cc_static_library(
