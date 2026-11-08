@@ -13,12 +13,12 @@ cc_static_library(
         "//superdex_physics/libraries/mochi/third_party/tiny_obj_loader:tiny_obj_loader",
         "//superdex_physics/libraries/mochi/third_party/hdf5:hdf5_hl_cpp",
         "//superdex_physics/libraries/mochi/third_party/zlib:zlib",
+        "//superdex_physics/libraries/mochi/third_party/happly:happly",
+        "//superdex_physics/libraries/mochi/third_party/eigen:eigen",
     ]),
     public_include_dirs = RelPaths([
         "include",
         "vs",
-        "../third_party/happly",
-        "../third_party/eigen",
     ]),
     public_defines = [
         "MOCHI_CORE_STATIC_LINKING=1",

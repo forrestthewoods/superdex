@@ -33,6 +33,15 @@ cc_static_library(
             default = [],
         }
     ),
+    # HDF5's configure adds _GNU_SOURCE on Linux (vasprintf, realpath,
+    # tm_gmtoff). Stated here, not left to the toolchain, so the CMake
+    # export gets it too.
+    private_defines = select(
+        (target_platform) => {
+            (linux) = ["_GNU_SOURCE"],
+            default = [],
+        }
+    ),
     private_compiler_flags = ["-std=gnu99", "-w"],
 )
 

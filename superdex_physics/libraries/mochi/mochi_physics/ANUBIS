@@ -9,13 +9,13 @@ cc_static_library(
     deps = Targets([
         "//superdex_physics/libraries/mochi/mochi_core:mochi_core",
         ":mochi_physics_dbg",
+        "//superdex_physics/libraries/mochi/third_party/entt:entt",
     ]),
     public_include_dirs = RelPaths(["include"]),
     public_defines = ["MOCHI_PHYSICS_DYNAMICALLY_LINKED=0"],
     private_include_dirs = RelPaths([
         "src",
         "private/diffsim/include",
-        "../third_party/entt/src",
     ]),
     private_defines = ["MOCHI_USE_REFLECTION=1", "ENTT_STANDARD_CPP"],
 )

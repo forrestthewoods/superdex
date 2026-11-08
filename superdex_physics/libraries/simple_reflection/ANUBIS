@@ -2,10 +2,9 @@ cc_static_library(
     name = "simple_reflection",
     lang = "cpp",
     srcs = RelPaths(["src/simple_reflection.cpp"]),
-    deps = Targets([":cityhash"]),
+    deps = Targets([":cityhash", "//superdex_physics/libraries/mochi/third_party/picojson:picojson"]),
     public_include_dirs = RelPaths([
         "include",
-        "../mochi/third_party/picojson",
     ]),
     public_defines = ["SR_USE_NLOHMANN_JSON=0"],
     # Same options as mochi_core's public_compiler_flags (superdex's

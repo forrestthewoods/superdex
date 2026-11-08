@@ -1,0 +1,8 @@
+
+# Header-only: include dir for dependents.
+cc_static_library(
+    name = "eigen",
+    lang = "cpp",
+    srcs = [],
+    public_include_dirs = RelPaths(["."]),
+)

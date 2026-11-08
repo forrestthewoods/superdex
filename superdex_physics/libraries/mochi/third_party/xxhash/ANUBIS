@@ -1,0 +1,8 @@
+
+# Header-only: include dir for dependents.
+cc_static_library(
+    name = "xxhash",
+    lang = "cpp",
+    srcs = [],
+    public_include_dirs = RelPaths(["."]),
+)
