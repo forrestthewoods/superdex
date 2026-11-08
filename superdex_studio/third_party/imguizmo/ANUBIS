@@ -18,23 +18,23 @@ cc_static_library(
     ],
     private_defines = select(
         (target_platform) => {
-        (linux) = [],
-        (windows) = [
-            "WIN32",
-            "_WINDOWS",
-        ],
+            (linux) = [],
+            (windows) = [
+                "WIN32",
+                "_WINDOWS",
+            ],
         }
     ),
     private_compiler_flags = select(
         (target_platform) => {
-        (linux) = [
-            "-w",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
+            (linux) = [
+                "-w",
+                "-std=gnu++20",
+            ],
+            (windows) = [
+                "-w",
+                "-std=c++20",
+            ],
         }
     ),
 )

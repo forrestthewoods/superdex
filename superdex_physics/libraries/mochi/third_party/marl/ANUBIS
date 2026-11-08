@@ -11,18 +11,18 @@ cc_static_library(
         "marl/src/thread.cpp",
         "marl/src/trace.cpp",
     ]),
-    public_include_dirs = RelPaths(["marl/include"]),
-    private_compiler_flags = ["-std=gnu++20", "-w"],
+    public_include_dirs = RelPaths([ "marl/include" ]),
+    private_compiler_flags = [ "-std=gnu++20", "-w" ],
     private_defines = select(
         (target_platform) => {
-            (windows) = ["NOMINMAX"],
+            (windows) = [ "NOMINMAX" ],
             default = [],
         }
     ),
     deps = select(
         (target_platform) => {
             (windows) = [],
-            default = Targets([":marl_fiber"]),
+            default = Targets([ ":marl_fiber" ]),
         }
     ),
 )
@@ -32,10 +32,10 @@ cc_static_library(
     lang = "c",
     srcs = select(
         (target_arch) => {
-            (x64) = RelPaths(["marl/src/osfiber_x64.c", "marl/src/osfiber_asm_x64.S"]),
-            (arm64) = RelPaths(["marl/src/osfiber_aarch64.c", "marl/src/osfiber_asm_aarch64.S"]),
+            (x64) = RelPaths([ "marl/src/osfiber_x64.c", "marl/src/osfiber_asm_x64.S" ]),
+            (arm64) = RelPaths([ "marl/src/osfiber_aarch64.c", "marl/src/osfiber_asm_aarch64.S" ]),
         }
     ),
-    private_include_dirs = RelPaths(["marl/include"]),
-    private_compiler_flags = ["-w"],
+    private_include_dirs = RelPaths([ "marl/include" ]),
+    private_compiler_flags = [ "-w" ],
 )

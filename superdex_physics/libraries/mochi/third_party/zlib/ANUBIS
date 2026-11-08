@@ -2,13 +2,13 @@
 cc_static_library(
     name = "zlib",
     lang = "c",
-    srcs = glob(["*.c"]),
-    public_include_dirs = RelPaths([".", "anubis"]),
+    srcs = glob([ "*.c" ]),
+    public_include_dirs = RelPaths([ ".", "anubis" ]),
     private_defines = select(
         (target_platform) => {
-            (linux) = ["_LARGEFILE64_SOURCE=1"],
-            (windows) = ["_CRT_SECURE_NO_DEPRECATE", "_CRT_NONSTDC_NO_DEPRECATE"],
+            (linux) = [ "_LARGEFILE64_SOURCE=1" ],
+            (windows) = [ "_CRT_SECURE_NO_DEPRECATE", "_CRT_NONSTDC_NO_DEPRECATE" ],
         }
     ),
-    private_compiler_flags = ["-w"],
+    private_compiler_flags = [ "-w" ],
 )

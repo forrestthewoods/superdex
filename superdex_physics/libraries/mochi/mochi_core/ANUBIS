@@ -4,17 +4,17 @@ cc_static_library(
     name = "mochi_core",
     lang = "cpp",
     srcs = glob(
-        includes = ["src/**/*.cpp", "src/**/*.c"],
-        excludes = ["**/internal/**"],
+        includes = [ "src/**/*.cpp", "src/**/*.c" ],
+        excludes = [ "**/internal/**" ],
     ),
     deps = Targets([
-        "//superdex_physics/libraries/mochi/third_party/marl:marl",
-        "//superdex_physics/libraries/simple_reflection:simple_reflection",
-        "//superdex_physics/libraries/mochi/third_party/tiny_obj_loader:tiny_obj_loader",
-        "//superdex_physics/libraries/mochi/third_party/hdf5:hdf5_hl_cpp",
-        "//superdex_physics/libraries/mochi/third_party/zlib:zlib",
-        "//superdex_physics/libraries/mochi/third_party/happly:happly",
         "//superdex_physics/libraries/mochi/third_party/eigen:eigen",
+        "//superdex_physics/libraries/mochi/third_party/happly:happly",
+        "//superdex_physics/libraries/mochi/third_party/hdf5:hdf5_hl_cpp",
+        "//superdex_physics/libraries/mochi/third_party/marl:marl",
+        "//superdex_physics/libraries/mochi/third_party/tiny_obj_loader:tiny_obj_loader",
+        "//superdex_physics/libraries/mochi/third_party/zlib:zlib",
+        "//superdex_physics/libraries/simple_reflection:simple_reflection",
     ]),
     public_include_dirs = RelPaths([
         "include",
@@ -28,7 +28,7 @@ cc_static_library(
     ],
     public_libraries = select(
         (target_platform) => {
-            (windows) = ["ws2_32.lib"],
+            (windows) = [ "ws2_32.lib" ],
             default = [],
         }
     ),
@@ -48,12 +48,12 @@ cc_static_library(
         "-ftrivial-auto-var-init=zero",
     ] + select(
         (target_platform) => {
-            (linux) = ["-fstack-protector-strong", "-mno-omit-leaf-frame-pointer"],
+            (linux) = [ "-fstack-protector-strong", "-mno-omit-leaf-frame-pointer" ],
             # superdex's clang-cl settings: the MSVC CRT deprecates getenv etc.
-            (windows) = ["-Wno-deprecated-declarations"],
+            (windows) = [ "-Wno-deprecated-declarations" ],
         }
     ),
-    private_include_dirs = RelPaths(["src"]),
+    private_include_dirs = RelPaths([ "src" ]),
     private_defines = [
         "MOCHI_USE_REFLECTION=1",
         "MOCHI_WARN_IF_NOT_OPTIMIZED=1",
@@ -64,12 +64,26 @@ cc_binary(
     name = "mochi_core_test",
     lang = "cpp",
     srcs = glob(
-        includes = ["test/**/*.cpp", "test/**/*.c"],
-        excludes = ["**/internal/**"],
+        includes = [ "test/**/*.cpp", "test/**/*.c" ],
+        excludes = [ "**/internal/**" ],
     ),
     deps = Targets([
-        ":mochi_core",
         "//superdex_physics/libraries/mochi/third_party/googletest:gtest",
+        ":mochi_core",
     ]),
-    compiler_defines = ["MOCHI_USE_REFLECTION=1"],
+    compiler_defines = [ "MOCHI_USE_REFLECTION=1" ],
+)
+
+cc_binary(
+    name = "mochi_core_benchmark",
+    lang = "cpp",
+    srcs = glob(
+        includes = [ "benchmark/**/*.cpp", "benchmark/**/*.c" ],
+        excludes = [ "**/internal/**" ],
+    ),
+    deps = Targets([
+        "//superdex_physics/libraries/mochi/third_party/benchmark:benchmark",
+        ":mochi_core",
+    ]),
+    compiler_defines = [ "MOCHI_USE_REFLECTION=1" ],
 )

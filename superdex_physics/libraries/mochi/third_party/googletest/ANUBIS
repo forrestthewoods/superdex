@@ -2,8 +2,16 @@
 cc_static_library(
     name = "gtest",
     lang = "cpp",
-    srcs = RelPaths(["googletest/src/gtest-all.cc"]),
-    public_include_dirs = RelPaths(["googletest/include"]),
-    private_include_dirs = RelPaths(["googletest"]),
-    private_compiler_flags = ["-std=gnu++20", "-w"],
+    srcs = RelPaths([ "googletest/src/gtest-all.cc" ]),
+    public_include_dirs = RelPaths([ "googletest/include" ]),
+    private_include_dirs = RelPaths([ "googletest" ]),
+    private_compiler_flags = [ "-std=gnu++20", "-w" ],
+)
+
+cc_static_library(
+    name = "gtest_main",
+    lang = "cpp",
+    srcs = RelPaths([ "googletest/src/gtest_main.cc" ]),
+    deps = Targets([ ":gtest" ]),
+    private_compiler_flags = [ "-std=gnu++20", "-w" ],
 )

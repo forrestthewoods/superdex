@@ -3,41 +3,41 @@ cc_static_library(
     name = "mochi_renderer",
     lang = "cpp",
     srcs = glob(
-        includes = ["src/**/*.cpp", "src/**/*.c"],
+        includes = [ "src/**/*.cpp", "src/**/*.c" ],
         # cgltf_impl.cpp: gltfio's Utility.cpp already defines cgltf
         # (CMake removes it the same way).
-        excludes = ["**/internal/**", "src/third_party/cgltf_impl.cpp"],
+        excludes = [ "**/internal/**", "src/third_party/cgltf_impl.cpp" ],
     ),
     deps = Targets([
         "//superdex_physics/libraries/mochi/mochi_core:mochi_core",
-        ":mochi_renderer_materials",
-        "//superdex_physics/libraries/mochi/third_party/filament:filament",
-        "//superdex_physics/libraries/mochi/third_party/filament:gltfio_core",
-        "//superdex_physics/libraries/mochi/third_party/filament:math",
-        "//superdex_physics/libraries/mochi/third_party/filament:utils",
         "//superdex_physics/libraries/mochi/third_party/filament:camutils",
-        "//superdex_physics/libraries/mochi/third_party/filament:filameshio",
+        "//superdex_physics/libraries/mochi/third_party/filament:cgltf",
+        "//superdex_physics/libraries/mochi/third_party/filament:dracodec",
+        "//superdex_physics/libraries/mochi/third_party/filament:filament",
         "//superdex_physics/libraries/mochi/third_party/filament:filament_iblprefilter",
+        "//superdex_physics/libraries/mochi/third_party/filament:filameshio",
+        "//superdex_physics/libraries/mochi/third_party/filament:gltfio_core",
         "//superdex_physics/libraries/mochi/third_party/filament:image",
         "//superdex_physics/libraries/mochi/third_party/filament:imageio",
         "//superdex_physics/libraries/mochi/third_party/filament:ktxreader",
-        "//superdex_physics/libraries/mochi/third_party/filament:cgltf",
-        "//superdex_physics/libraries/mochi/third_party/filament:dracodec",
+        "//superdex_physics/libraries/mochi/third_party/filament:math",
         "//superdex_physics/libraries/mochi/third_party/filament:meshoptimizer",
         "//superdex_physics/libraries/mochi/third_party/filament:uberarchive",
+        "//superdex_physics/libraries/mochi/third_party/filament:utils",
         "//superdex_physics/libraries/mochi/third_party/tinyxml2:tinyxml2",
+        ":mochi_renderer_materials",
     ]),
-    public_include_dirs = RelPaths(["include"]),
-    private_include_dirs = RelPaths(["src", "resources"]),
-    private_defines = ["MOCHI_USE_REFLECTION=1"] + select(
+    public_include_dirs = RelPaths([ "include" ]),
+    private_include_dirs = RelPaths([ "src", "resources" ]),
+    private_defines = [ "MOCHI_USE_REFLECTION=1" ] + select(
         (target_platform) => {
-            (windows) = ["WIN32_LEAN_AND_MEAN", "NOMINMAX"],
+            (windows) = [ "WIN32_LEAN_AND_MEAN", "NOMINMAX" ],
             default = [],
         }
     ),
     public_libraries = select(
         (target_platform) => {
-            (windows) = ["user32.lib", "gdi32.lib", "opengl32.lib"],
+            (windows) = [ "user32.lib", "gdi32.lib", "opengl32.lib" ],
             default = [],
         }
     ),
@@ -48,6 +48,23 @@ cc_static_library(
 cc_static_library(
     name = "mochi_renderer_materials",
     lang = "c",
-    srcs = glob(["anubis/*.c"]),
-    private_compiler_flags = ["-std=c23", "-w"],
+    srcs = glob([ "anubis/*.c" ]),
+    private_compiler_flags = [ "-std=c23", "-w" ],
+)
+
+cc_binary(
+    name = "mochi_renderer_test",
+    lang = "cpp",
+    srcs = glob(
+        includes = [ "test/**/*.cpp", "test/**/*.c" ],
+        excludes = [ "**/internal/**" ],
+    ),
+    deps = Targets([
+        "//superdex_physics/libraries/mochi/third_party/filament:meshoptimizer",
+        "//superdex_physics/libraries/mochi/third_party/googletest:gtest",
+        "//superdex_physics/libraries/mochi/third_party/tinyxml2:tinyxml2",
+        ":mochi_renderer",
+    ]),
+    include_dirs = RelPaths([ "src" ]),
+    compiler_defines = [ "MOCHI_USE_REFLECTION=1" ],
 )

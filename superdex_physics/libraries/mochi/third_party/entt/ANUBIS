@@ -1,8 +1,9 @@
-
 # Header-only: include dir for dependents.
 cc_static_library(
     name = "entt",
     lang = "cpp",
     srcs = [],
-    public_include_dirs = RelPaths(["src"]),
+    public_include_dirs = RelPaths([ "src" ]),
+    # Portable type hashes across translation units (as CMake sets it).
+    public_defines = [ "ENTT_STANDARD_CPP" ],
 )

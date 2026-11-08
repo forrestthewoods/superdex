@@ -12,20 +12,20 @@ cc_static_library(
     ]),
     public_libraries = select(
         (target_platform) => {
-        (linux) = [],
-        (windows) = [
-            "comdlg32.lib",
-            "ole32.lib",
-        ],
+            (linux) = [],
+            (windows) = [
+                "comdlg32.lib",
+                "ole32.lib",
+            ],
         }
     ),
     private_defines = select(
         (target_platform) => {
-        (linux) = [],
-        (windows) = [
-            "WIN32",
-            "_WINDOWS",
-        ],
+            (linux) = [],
+            (windows) = [
+                "WIN32",
+                "_WINDOWS",
+            ],
         }
     ),
     private_compiler_flags = [

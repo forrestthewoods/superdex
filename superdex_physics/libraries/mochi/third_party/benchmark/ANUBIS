@@ -1,0 +1,25 @@
+# Google Benchmark, static. Defines are what its CMake feature checks find
+# on every platform we target.
+cc_static_library(
+    name = "benchmark",
+    lang = "cpp",
+    srcs = glob(
+        includes = [ "src/*.cc" ],
+        excludes = [ "src/benchmark_main.cc" ],
+    ),
+    public_include_dirs = RelPaths([ "include" ]),
+    public_defines = [ "BENCHMARK_STATIC_DEFINE" ],
+    private_defines = [ "HAVE_STD_REGEX", "HAVE_STEADY_CLOCK" ] + select(
+        (target_platform) => {
+            (linux) = [ "_GNU_SOURCE=1" ],
+            (windows) = [ "_CRT_SECURE_NO_WARNINGS" ],
+        }
+    ),
+    public_libraries = select(
+        (target_platform) => {
+            (windows) = [ "shlwapi.lib" ],
+            default = [],
+        }
+    ),
+    private_compiler_flags = [ "-std=gnu++20", "-w" ],
+)

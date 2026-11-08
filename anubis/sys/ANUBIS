@@ -1,7 +1,7 @@
 # Linux system libraries the studio uses but no toolchain ships.
 #
 # Headers: Debian -dev packages fetched by Natron into toolchains/x11 (see
-# natron.toml). Libraries: link-only stubs built from checked-in .ifs files
+# natron.toml; target //toolchains:x11_headers). Libraries: link-only stubs built from checked-in .ifs files
 # (Anubis `ifs_stub_library`); the real libX11.so.6 is loaded at run time.
 #
 # libX11.ifs was made once with:
@@ -17,6 +17,5 @@ cc_static_library(
     name = "x11",
     lang = "c",
     srcs = [],
-    deps = Targets([":libX11"]),
-    public_include_dirs = RelPaths(["../../toolchains/x11"]),
+    deps = Targets([ "//toolchains:x11_headers", ":libX11" ]),
 )

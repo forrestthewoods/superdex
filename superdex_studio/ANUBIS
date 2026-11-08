@@ -4,21 +4,21 @@ cc_static_library(
     name = "superdex_studio_static",
     lang = "cpp",
     srcs = glob(
-        includes = ["src/**/*.cpp", "src/**/*.c"],
-        excludes = ["**/internal/**", "src/app/main.cpp"],
+        includes = [ "src/**/*.cpp", "src/**/*.c" ],
+        excludes = [ "**/internal/**", "src/app/main.cpp" ],
     ),
     deps = Targets([
+        "//superdex_physics/libraries/imguios:imguios",
         "//superdex_physics/libraries/mochi/mochi_core:mochi_core",
+        "//superdex_physics/libraries/mochi/mochi_mesh:mochi_mesh",
         "//superdex_physics/libraries/mochi/mochi_physics:mochi_physics",
         "//superdex_physics/libraries/mochi/mochi_renderer:mochi_renderer",
-        "//superdex_robotics:superdex_robotics",
-        "//superdex_physics/libraries/mochi/mochi_mesh:mochi_mesh",
-        "//superdex_studio/third_party/imguizmo:imguizmo",
         "//superdex_physics/libraries/mochi/third_party/tinyfiledialogs:tinyfiledialogs",
-        "//superdex_physics/libraries/imguios:imguios",
+        "//superdex_robotics:superdex_robotics",
+        "//superdex_studio/third_party/imguizmo:imguizmo",
     ]),
-    public_include_dirs = RelPaths(["src", "third_party"]),
-    private_include_dirs = RelPaths(["."]),
+    public_include_dirs = RelPaths([ "src", "third_party" ]),
+    private_include_dirs = RelPaths([ "." ]),
     private_defines = [
         "FILAMENT_DISABLE_MATOPT=0",
         "IMGUI_DEFINE_MATH_OPERATORS",
@@ -27,7 +27,7 @@ cc_static_library(
     private_compiler_flags = select(
         (target_platform) => {
             # CMake force-includes this on Windows (/FI) for every studio TU.
-            (windows) = ["-include", "mochi_renderer/windows_compat.h"],
+            (windows) = [ "-include", "mochi_renderer/windows_compat.h" ],
             default = [],
         }
     ),
@@ -38,9 +38,9 @@ cc_static_library(
 cc_binary(
     name = "superdex_studio",
     lang = "cpp",
-    srcs = RelPaths(["src/app/main.cpp"]),
-    deps = Targets([":superdex_studio_static"]),
-    include_dirs = RelPaths([".", "src"]),
+    srcs = RelPaths([ "src/app/main.cpp" ]),
+    deps = Targets([ ":superdex_studio_static" ]),
+    include_dirs = RelPaths([ ".", "src" ]),
     compiler_defines = [
         "FILAMENT_DISABLE_MATOPT=0",
         "IMGUI_DEFINE_MATH_OPERATORS",
@@ -48,7 +48,7 @@ cc_binary(
     ],
     compiler_flags = select(
         (target_platform) => {
-            (windows) = ["-include", "mochi_renderer/windows_compat.h"],
+            (windows) = [ "-include", "mochi_renderer/windows_compat.h" ],
             default = [],
         }
     ),

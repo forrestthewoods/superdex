@@ -5,22 +5,74 @@ cc_static_library(
     name = "mochi_mesh",
     lang = "cpp",
     srcs = glob(
-        includes = ["src/**/*.cpp", "src/**/*.c"],
-        excludes = ["**/internal/**"],
+        includes = [ "src/**/*.cpp", "src/**/*.c" ],
+        excludes = [ "**/internal/**" ],
     ),
     deps = Targets([
         "//superdex_physics/libraries/mochi/mochi_core:mochi_core",
         ":mochi_mesh_protocol_private",
     ]),
-    public_include_dirs = RelPaths(["include", "protocol/public"]),
-    private_include_dirs = RelPaths(["src"]),
-    private_defines = ["MOCHI_USE_REFLECTION=1"],
+    public_include_dirs = RelPaths([ "include", "protocol/public" ]),
+    private_include_dirs = RelPaths([ "src" ]),
+    private_defines = [ "MOCHI_USE_REFLECTION=1" ],
 )
 
 cc_static_library(
     name = "mochi_mesh_protocol_private",
     lang = "cpp",
-    srcs = glob(["protocol/private/src/*.cpp"]),
-    public_include_dirs = RelPaths(["protocol/private", "protocol/public"]),
-    private_compiler_flags = ["-std=gnu++20"],
+    srcs = glob([ "protocol/private/src/*.cpp" ]),
+    public_include_dirs = RelPaths([ "protocol/private", "protocol/public" ]),
+    private_compiler_flags = [ "-std=gnu++20" ],
+)
+
+cc_binary(
+    name = "mochi_mesh_test",
+    lang = "cpp",
+    srcs = glob(
+        includes = [ "test/**/*.cpp", "test/**/*.c" ],
+        excludes = [ "**/internal/**" ],
+    ),
+    deps = Targets([
+        "//superdex_physics/libraries/mochi/third_party/googletest:gtest",
+        ":mochi_mesh",
+        ":mochi_mesh_protocol_private",
+    ]),
+    include_dirs = RelPaths([ "src", "test" ]),
+    compiler_defines = [ "MOCHI_USE_REFLECTION=1" ],
+)
+
+cc_binary(
+    name = "mochi_mesh_protocol_test",
+    lang = "cpp",
+    srcs = glob([ "protocol/private/test/*.cpp" ]),
+    deps = Targets([
+        "//superdex_physics/libraries/mochi/third_party/googletest:gtest_main",
+        ":mochi_mesh_protocol_private",
+    ]),
+    compiler_defines = [ "MOCHI_USE_REFLECTION=1" ],
+    compiler_flags = [ "-std=gnu++20" ],
+)
+
+cc_binary(
+    name = "mochi_mesh_cli_concurrency_helper",
+    lang = "cpp",
+    srcs = RelPaths([ "test_tools/concurrency/mesh_cli_concurrency_helper.cpp" ]),
+    deps = Targets([
+        "//superdex_physics/libraries/mochi/mochi_core:mochi_core",
+        ":mochi_mesh_protocol_private",
+    ]),
+    compiler_defines = [ "MOCHI_USE_REFLECTION=1" ],
+)
+
+cc_binary(
+    name = "mochi_mesh_cli_concurrency_test",
+    lang = "cpp",
+    srcs = RelPaths([ "test_tools/concurrency/mesh_cli_client_concurrency_test.cpp" ]),
+    deps = Targets([
+        "//superdex_physics/libraries/mochi/third_party/googletest:gtest_main",
+        ":mochi_mesh",
+        ":mochi_mesh_protocol_private",
+    ]),
+    include_dirs = RelPaths([ "src" ]),
+    compiler_defines = [ "MOCHI_USE_REFLECTION=1" ],
 )

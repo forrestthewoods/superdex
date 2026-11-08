@@ -1,0 +1,66 @@
+# mochi_debugger: library, CLI (mdb), GUI app and tests.
+cc_static_library(
+    name = "mochi_debugger_lib",
+    lang = "cpp",
+    srcs = glob(
+        includes = [ "lib/src/**/*.cpp", "lib/src/**/*.c" ],
+        excludes = [ "**/internal/**" ],
+    ),
+    deps = Targets([
+        "//superdex_physics/libraries/mochi/mochi_core:mochi_core",
+        "//superdex_physics/libraries/mochi/mochi_physics:mochi_physics_dbg",
+    ]),
+    public_include_dirs = RelPaths([ "lib/include" ]),
+    private_include_dirs = RelPaths([ "lib/src" ]),
+    private_defines = [ "MOCHI_USE_REFLECTION=1" ],
+)
+
+cc_binary(
+    name = "mdb",
+    lang = "cpp",
+    srcs = glob(
+        includes = [ "mdb/**/*.cpp", "mdb/**/*.c" ],
+        excludes = [ "**/internal/**" ],
+    ),
+    deps = Targets([
+        "//superdex_physics/libraries/mochi/mochi_core:mochi_core",
+        ":mochi_debugger_lib",
+    ]),
+    compiler_defines = [ "MOCHI_USE_REFLECTION=1" ],
+)
+
+cc_binary(
+    name = "mochi_debugger",
+    lang = "cpp",
+    srcs = glob(
+        includes = [ "app/**/*.cpp", "app/**/*.c" ],
+        excludes = [ "**/internal/**" ],
+    ),
+    deps = Targets([
+        "//superdex_physics/libraries/imguios:imguios",
+        "//superdex_physics/libraries/mochi/mochi_core:mochi_core",
+        "//superdex_physics/libraries/mochi/mochi_renderer:mochi_renderer",
+        ":mochi_debugger_lib",
+    ]),
+    include_dirs = RelPaths([ "app" ]),
+    compiler_defines = [ "MOCHI_USE_REFLECTION=1", "FILAMENT_DISABLE_MATOPT=0", "IMGUI_DEFINE_MATH_OPERATORS" ],
+)
+
+cc_binary(
+    name = "mochi_debugger_test",
+    lang = "cpp",
+    srcs = glob(
+        includes = [ "test/**/*.cpp", "test/**/*.c" ],
+        excludes = [ "**/internal/**" ],
+    ),
+    deps = Targets([
+        "//superdex_physics/libraries/mochi/mochi_core:mochi_core",
+        "//superdex_physics/libraries/mochi/mochi_physics:mochi_physics",
+        "//superdex_physics/libraries/mochi/mochi_physics:mochi_physics_dbg",
+        "//superdex_physics/libraries/mochi/third_party/entt:entt",
+        "//superdex_physics/libraries/mochi/third_party/googletest:gtest",
+        "//superdex_physics/libraries/mochi:mochi_root",
+        ":mochi_debugger_lib",
+    ]),
+    compiler_defines = [ "MOCHI_USE_REFLECTION=1" ],
+)

@@ -21,6 +21,7 @@ tag          = "llvmorg-21.1.6"
 version      = "21.1.6"
 asset        = "clang+llvm-21.1.6-x86_64-pc-windows-msvc.tar.xz"
 strip_prefix = "clang+llvm-21.1.6-x86_64-pc-windows-msvc"
+sha256       = "6fd57e4461f4f30913c6a345dd093d71df963aaf94f1ec80bb5cfb24ebb047a1"
 
 [[toolchain]]
 name       = "llvm_linux"
@@ -33,6 +34,7 @@ tag          = "llvmorg-21.1.6"
 version      = "21.1.6"
 asset        = "LLVM-21.1.6-Linux-X64.tar.xz"
 strip_prefix = "LLVM-21.1.6-Linux-X64"
+sha256       = "8ac1aadfa96b87b8747f7383d06ed9579f9d5c32a1af7af947b0cfe29d88ac87"
 
 # === Zig (bundled glibc + libc++ for Linux targets) =======================
 [[toolchain]]

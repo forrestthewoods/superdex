@@ -1,12 +1,12 @@
 cc_static_library(
     name = "simple_reflection",
     lang = "cpp",
-    srcs = RelPaths(["src/simple_reflection.cpp"]),
-    deps = Targets([":cityhash", "//superdex_physics/libraries/mochi/third_party/picojson:picojson"]),
+    srcs = RelPaths([ "src/simple_reflection.cpp" ]),
+    deps = Targets([ "//superdex_physics/libraries/mochi/third_party/picojson:picojson", ":cityhash" ]),
     public_include_dirs = RelPaths([
         "include",
     ]),
-    public_defines = ["SR_USE_NLOHMANN_JSON=0"],
+    public_defines = [ "SR_USE_NLOHMANN_JSON=0" ],
     # Same options as mochi_core's public_compiler_flags (superdex's
     # mochi_set_compiler_options); Papyrus has no variables to share them.
     private_compiler_flags = [
@@ -22,9 +22,9 @@ cc_static_library(
         "-ftrivial-auto-var-init=zero",
     ] + select(
         (target_platform) => {
-            (linux) = ["-fstack-protector-strong", "-mno-omit-leaf-frame-pointer"],
+            (linux) = [ "-fstack-protector-strong", "-mno-omit-leaf-frame-pointer" ],
             # superdex's clang-cl settings: the MSVC CRT deprecates getenv etc.
-            (windows) = ["-Wno-deprecated-declarations"],
+            (windows) = [ "-Wno-deprecated-declarations" ],
         }
     ),
 )
@@ -32,14 +32,25 @@ cc_static_library(
 cc_static_library(
     name = "cityhash",
     lang = "cpp",
-    srcs = RelPaths(["third-party/cityhash/src/city.cc"]),
-    public_include_dirs = RelPaths(["third-party/cityhash/include"]),
+    srcs = RelPaths([ "third-party/cityhash/src/city.cc" ]),
+    public_include_dirs = RelPaths([ "third-party/cityhash/include" ]),
     # city.cc tests WIN32, which CMake's MSVC defaults define (/DWIN32).
     private_defines = select(
         (target_platform) => {
-            (windows) = ["WIN32"],
+            (windows) = [ "WIN32" ],
             default = [],
         }
     ),
-    private_compiler_flags = ["-std=gnu++20", "-w"],
+    private_compiler_flags = [ "-std=gnu++20", "-w" ],
+)
+
+cc_binary(
+    name = "simple_reflection_test",
+    lang = "cpp",
+    srcs = RelPaths([ "test/simple_reflection_test.cpp", "test/type_definitions.cpp" ]),
+    deps = Targets([
+        "//superdex_physics/libraries/mochi/third_party/googletest:gtest_main",
+        ":simple_reflection",
+    ]),
+    compiler_flags = [ "-std=gnu++20" ],
 )

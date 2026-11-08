@@ -1,0 +1,8 @@
+# The mochi directory itself as an include dir: tests include
+# "mochi_physics/test/..." style paths (CMake: PROJECT_SOURCE_DIR).
+cc_static_library(
+    name = "mochi_root",
+    lang = "cpp",
+    srcs = [],
+    public_include_dirs = RelPaths([ "." ]),
+)

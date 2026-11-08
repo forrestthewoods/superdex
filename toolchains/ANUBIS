@@ -50,14 +50,13 @@ toolchain(
             "-msse4.1",
             "-msse4.2",
             "-mavx",
-
         ] + select(
             (target_platform, target_arch) => {
                 (windows, x64) = [
                     "-target", "x86_64-pc-windows-msvc",
                 ],
                 (linux, x64) = [
-                    "-target",  "x86_64-linux-gnu",
+                    "-target", "x86_64-linux-gnu",
                     "-mlong-double-80",         # Linux x86-64 ABI uses 80-bit long double
                 ],
             }
@@ -97,7 +96,7 @@ toolchain(
                     RelPath("windows_kits/Lib/10.0.26100.0/ucrt/x64"),
                 ],
                 (linux, x64) = [
-                ]
+                ],
             }
         ),
         libraries = select(
@@ -106,8 +105,8 @@ toolchain(
                 # MSVC links by default and much C code expects.
                 (windows, x64) = select(
                     (build_type) => {
-                        (debug) =  ["libcmtd", "oldnames"],
-                        (release) =  ["libcmt", "oldnames"],
+                        (debug) = [ "libcmtd", "oldnames" ],
+                        (release) = [ "libcmt", "oldnames" ],
                     }
                 )
                 (linux, x64) = [],
@@ -146,8 +145,8 @@ toolchain(
         defines = multi_select(
             (target_platform, target_arch, build_platform, build_type) => {
                 # debug/release
-                (_, _, _, debug) = ["_DEBUG"],
-                (_, _, _, release) = ["NDEBUG"],
+                (_, _, _, debug) = [ "_DEBUG" ],
+                (_, _, _, release) = [ "NDEBUG" ],
 
                 # windows
                 (windows, _, _, _) = [
@@ -168,15 +167,15 @@ toolchain(
                 # cross-compile
                 (linux, _, windows, _) = [
                     "_ISOMAC", # ISO C conformance mode for glibc headers
-                ]
+                ],
             }
         ),
         exe_deps = select(
             (target_platform, target_arch) => {
-                (linux, x64) = Targets(["//toolchains:glibc_c"]),
+                (linux, x64) = Targets([ "//toolchains:glibc_c" ]),
                 default = [],
             }
-        )
+        ),
     ),
     cpp = CcToolchain(
         compiler = select(
@@ -225,14 +224,13 @@ toolchain(
 
             # toggles for debugging
             # "-H", # show all includes
-
         ] + select(
             (target_platform, target_arch) => {
                 (windows, x64) = [
                     "-target", "x86_64-pc-windows-msvc",
                 ],
                 (linux, x64) = [
-                    "-target",  "x86_64-linux-gnu",
+                    "-target", "x86_64-linux-gnu",
                     "-mlong-double-80",         # Linux x86-64 ABI uses 80-bit long double
                 ],
             }
@@ -272,7 +270,7 @@ toolchain(
                     RelPath("windows_kits/Lib/10.0.26100.0/ucrt/x64"),
                 ],
                 (linux, x64) = [
-                ]
+                ],
             }
         ),
         libraries = select(
@@ -281,11 +279,11 @@ toolchain(
                 # MSVC links by default and much C code expects.
                 (windows, x64) = select(
                     (build_type) => {
-                        (debug) =  ["libcmtd", "oldnames"],
-                        (release) =  ["libcmt", "oldnames"],
+                        (debug) = [ "libcmtd", "oldnames" ],
+                        (release) = [ "libcmt", "oldnames" ],
                     }
                 ),
-                default = []
+                default = [],
             }
         ),
         system_include_dirs = select(
@@ -328,8 +326,8 @@ toolchain(
         defines = multi_select(
             (target_platform, target_arch, build_platform, build_type) => {
                 # debug/release
-                (_, _, _, debug) = ["_DEBUG"],
-                (_, _, _, release) = ["NDEBUG"],
+                (_, _, _, debug) = [ "_DEBUG" ],
+                (_, _, _, release) = [ "NDEBUG" ],
 
                 # windows
                 (windows, _, _, _) = [
@@ -370,18 +368,18 @@ toolchain(
                     "SHARED",
                 ]
 
-                # cross-compile 
+                # cross-compile
                 (linux, _, windows, _) = [
                     "_ISOMAC", # ISO C conformance mode for glibc headers
-                ]
+                ],
             }
         ),
         exe_deps = select(
             (target_platform, target_arch) => {
-                (linux, x64) = Targets(["//toolchains:glibc_cpp"]),
+                (linux, x64) = Targets([ "//toolchains:glibc_cpp" ]),
                 default = [],
             }
-        )
+        ),
     ),
     nasm = NasmToolchain(
         assembler = select(
@@ -399,7 +397,7 @@ toolchain(
         output_format = select(
             (target_platform, target_arch) => {
                 (windows, x64) = "win64",
-                (linux, x64) = "elf64"
+                (linux, x64) = "elf64",
             }
         ),
     ),
@@ -465,4 +463,14 @@ zig_glibc(
         "libc_nonshared.a",
         "libcompiler_rt.a",
     ],
+)
+
+# X11 / xcb / GL headers from Debian -dev packages (natron.toml: x11_headers).
+# A CMake export drops everything under toolchains/: there the consumer's
+# system provides these headers.
+cc_static_library(
+    name = "x11_headers",
+    lang = "c",
+    srcs = [],
+    public_include_dirs = RelPaths([ "x11" ]),
 )

@@ -13,99 +13,99 @@ cc_static_library(
 cc_static_library(
     name = "_mochi_filament_filament_iblprefilter_iblprefilter_materials_resource",
     lang = "c",
-    srcs = RelPaths(["anubis/resources/iblprefilter_materials.c"]),
-    private_compiler_flags = ["-std=c23", "-w"],
+    srcs = RelPaths([ "anubis/resources/iblprefilter_materials.c" ]),
+    private_compiler_flags = [ "-std=c23", "-w" ],
 )
 
 cc_static_library(
     name = "_mochi_filament_filament_bloom_resource",
     lang = "c",
-    srcs = RelPaths(["anubis/resources/bloom.c"]),
-    private_compiler_flags = ["-std=c23", "-w"],
+    srcs = RelPaths([ "anubis/resources/bloom.c" ]),
+    private_compiler_flags = [ "-std=c23", "-w" ],
 )
 
 cc_static_library(
     name = "_mochi_filament_filament_colorGrading_resource",
     lang = "c",
-    srcs = RelPaths(["anubis/resources/colorGrading.c"]),
-    private_compiler_flags = ["-std=c23", "-w"],
+    srcs = RelPaths([ "anubis/resources/colorGrading.c" ]),
+    private_compiler_flags = [ "-std=c23", "-w" ],
 )
 
 cc_static_library(
     name = "_mochi_filament_filament_dfg_resource",
     lang = "c",
-    srcs = RelPaths(["anubis/resources/dfg.c"]),
-    private_compiler_flags = ["-std=c23", "-w"],
+    srcs = RelPaths([ "anubis/resources/dfg.c" ]),
+    private_compiler_flags = [ "-std=c23", "-w" ],
 )
 
 cc_static_library(
     name = "_mochi_filament_filament_dof_resource",
     lang = "c",
-    srcs = RelPaths(["anubis/resources/dof.c"]),
-    private_compiler_flags = ["-std=c23", "-w"],
+    srcs = RelPaths([ "anubis/resources/dof.c" ]),
+    private_compiler_flags = [ "-std=c23", "-w" ],
 )
 
 cc_static_library(
     name = "_mochi_filament_filament_evsm_resource",
     lang = "c",
-    srcs = RelPaths(["anubis/resources/evsm.c"]),
-    private_compiler_flags = ["-std=c23", "-w"],
+    srcs = RelPaths([ "anubis/resources/evsm.c" ]),
+    private_compiler_flags = [ "-std=c23", "-w" ],
 )
 
 cc_static_library(
     name = "_mochi_filament_filament_flare_resource",
     lang = "c",
-    srcs = RelPaths(["anubis/resources/flare.c"]),
-    private_compiler_flags = ["-std=c23", "-w"],
+    srcs = RelPaths([ "anubis/resources/flare.c" ]),
+    private_compiler_flags = [ "-std=c23", "-w" ],
 )
 
 cc_static_library(
     name = "_mochi_filament_filament_fog_resource",
     lang = "c",
-    srcs = RelPaths(["anubis/resources/fog.c"]),
-    private_compiler_flags = ["-std=c23", "-w"],
+    srcs = RelPaths([ "anubis/resources/fog.c" ]),
+    private_compiler_flags = [ "-std=c23", "-w" ],
 )
 
 cc_static_library(
     name = "_mochi_filament_filament_fsr_resource",
     lang = "c",
-    srcs = RelPaths(["anubis/resources/fsr.c"]),
-    private_compiler_flags = ["-std=c23", "-w"],
+    srcs = RelPaths([ "anubis/resources/fsr.c" ]),
+    private_compiler_flags = [ "-std=c23", "-w" ],
 )
 
 cc_static_library(
     name = "_mochi_filament_filament_fxaa_resource",
     lang = "c",
-    srcs = RelPaths(["anubis/resources/fxaa.c"]),
-    private_compiler_flags = ["-std=c23", "-w"],
+    srcs = RelPaths([ "anubis/resources/fxaa.c" ]),
+    private_compiler_flags = [ "-std=c23", "-w" ],
 )
 
 cc_static_library(
     name = "_mochi_filament_filament_materials_resource",
     lang = "c",
-    srcs = RelPaths(["anubis/resources/materials.c"]),
-    private_compiler_flags = ["-std=c23", "-w"],
+    srcs = RelPaths([ "anubis/resources/materials.c" ]),
+    private_compiler_flags = [ "-std=c23", "-w" ],
 )
 
 cc_static_library(
     name = "_mochi_filament_filament_sgsr_resource",
     lang = "c",
-    srcs = RelPaths(["anubis/resources/sgsr.c"]),
-    private_compiler_flags = ["-std=c23", "-w"],
+    srcs = RelPaths([ "anubis/resources/sgsr.c" ]),
+    private_compiler_flags = [ "-std=c23", "-w" ],
 )
 
 cc_static_library(
     name = "_mochi_filament_filament_ssao_resource",
     lang = "c",
-    srcs = RelPaths(["anubis/resources/ssao.c"]),
-    private_compiler_flags = ["-std=c23", "-w"],
+    srcs = RelPaths([ "anubis/resources/ssao.c" ]),
+    private_compiler_flags = [ "-std=c23", "-w" ],
 )
 
 cc_static_library(
     name = "_mochi_filament_filament_taa_resource",
     lang = "c",
-    srcs = RelPaths(["anubis/resources/taa.c"]),
-    private_compiler_flags = ["-std=c23", "-w"],
+    srcs = RelPaths([ "anubis/resources/taa.c" ]),
+    private_compiler_flags = [ "-std=c23", "-w" ],
 )
 
 cc_static_library(
@@ -113,124 +113,124 @@ cc_static_library(
     lang = "cpp",
     srcs = select(
         (target_platform) => {
-        (linux) = RelPaths([
-            "filament/backend/src/BackendUtils.cpp",
-            "filament/backend/src/BlobCacheKey.cpp",
-            "filament/backend/src/Callable.cpp",
-            "filament/backend/src/CallbackManager.cpp",
-            "filament/backend/src/CircularBuffer.cpp",
-            "filament/backend/src/CommandBufferQueue.cpp",
-            "filament/backend/src/CommandStream.cpp",
-            "filament/backend/src/CompilerThreadPool.cpp",
-            "filament/backend/src/Driver.cpp",
-            "filament/backend/src/Handle.cpp",
-            "filament/backend/src/HandleAllocator.cpp",
-            "filament/backend/src/JobQueue.cpp",
-            "filament/backend/src/Platform.cpp",
-            "filament/backend/src/PlatformFactory.cpp",
-            "filament/backend/src/Program.cpp",
-            "filament/backend/src/noop/NoopDriver.cpp",
-            "filament/backend/src/noop/PlatformNoop.cpp",
-            "filament/backend/src/opengl/GLDescriptorSet.cpp",
-            "filament/backend/src/opengl/GLMemoryMappedBuffer.cpp",
-            "filament/backend/src/opengl/GLUtils.cpp",
-            "filament/backend/src/opengl/OpenGLBlobCache.cpp",
-            "filament/backend/src/opengl/OpenGLContext.cpp",
-            "filament/backend/src/opengl/OpenGLDriver.cpp",
-            "filament/backend/src/opengl/OpenGLPlatform.cpp",
-            "filament/backend/src/opengl/OpenGLProgram.cpp",
-            "filament/backend/src/opengl/OpenGLState.cpp",
-            "filament/backend/src/opengl/OpenGLTimerQuery.cpp",
-            "filament/backend/src/opengl/ShaderCompilerService.cpp",
-            "filament/backend/src/opengl/gl_headers.cpp",
-            "filament/backend/src/opengl/platforms/PlatformGLX.cpp",
-            "filament/backend/src/ostream.cpp",
-            "filament/backend/src/vulkan/VulkanAsyncHandles.cpp",
-            "filament/backend/src/vulkan/VulkanBlitter.cpp",
-            "filament/backend/src/vulkan/VulkanBufferCache.cpp",
-            "filament/backend/src/vulkan/VulkanBufferProxy.cpp",
-            "filament/backend/src/vulkan/VulkanCommands.cpp",
-            "filament/backend/src/vulkan/VulkanContext.cpp",
-            "filament/backend/src/vulkan/VulkanDescriptorSetCache.cpp",
-            "filament/backend/src/vulkan/VulkanDescriptorSetLayoutCache.cpp",
-            "filament/backend/src/vulkan/VulkanDriver.cpp",
-            "filament/backend/src/vulkan/VulkanExternalImageManager.cpp",
-            "filament/backend/src/vulkan/VulkanFboCache.cpp",
-            "filament/backend/src/vulkan/VulkanHandles.cpp",
-            "filament/backend/src/vulkan/VulkanMemory.cpp",
-            "filament/backend/src/vulkan/VulkanPipelineCache.cpp",
-            "filament/backend/src/vulkan/VulkanPipelineLayoutCache.cpp",
-            "filament/backend/src/vulkan/VulkanQueryManager.cpp",
-            "filament/backend/src/vulkan/VulkanReadPixels.cpp",
-            "filament/backend/src/vulkan/VulkanSamplerCache.cpp",
-            "filament/backend/src/vulkan/VulkanSemaphore.cpp",
-            "filament/backend/src/vulkan/VulkanSemaphoreManager.cpp",
-            "filament/backend/src/vulkan/VulkanStagePool.cpp",
-            "filament/backend/src/vulkan/VulkanStreamedImageManager.cpp",
-            "filament/backend/src/vulkan/VulkanSwapChain.cpp",
-            "filament/backend/src/vulkan/VulkanTexture.cpp",
-            "filament/backend/src/vulkan/VulkanYcbcrConversionCache.cpp",
-            "filament/backend/src/vulkan/memory/Resource.cpp",
-            "filament/backend/src/vulkan/memory/ResourceManager.cpp",
-            "filament/backend/src/vulkan/platform/VulkanPlatform.cpp",
-            "filament/backend/src/vulkan/platform/VulkanPlatformLinux.cpp",
-            "filament/backend/src/vulkan/platform/VulkanPlatformSwapChainImpl.cpp",
-            "filament/backend/src/vulkan/utils/Conversion.cpp",
-            "filament/backend/src/vulkan/utils/Image.cpp",
-            "filament/backend/src/vulkan/utils/Spirv.cpp",
-        ]),
-        (windows) = RelPaths([
-            "filament/backend/src/BackendUtils.cpp",
-            "filament/backend/src/BlobCacheKey.cpp",
-            "filament/backend/src/Callable.cpp",
-            "filament/backend/src/CallbackManager.cpp",
-            "filament/backend/src/CircularBuffer.cpp",
-            "filament/backend/src/CommandBufferQueue.cpp",
-            "filament/backend/src/CommandStream.cpp",
-            "filament/backend/src/CompilerThreadPool.cpp",
-            "filament/backend/src/Driver.cpp",
-            "filament/backend/src/Handle.cpp",
-            "filament/backend/src/HandleAllocator.cpp",
-            "filament/backend/src/JobQueue.cpp",
-            "filament/backend/src/Platform.cpp",
-            "filament/backend/src/PlatformFactory.cpp",
-            "filament/backend/src/Program.cpp",
-            "filament/backend/src/noop/NoopDriver.cpp",
-            "filament/backend/src/noop/PlatformNoop.cpp",
-            "filament/backend/src/opengl/GLDescriptorSet.cpp",
-            "filament/backend/src/opengl/GLMemoryMappedBuffer.cpp",
-            "filament/backend/src/opengl/GLUtils.cpp",
-            "filament/backend/src/opengl/OpenGLBlobCache.cpp",
-            "filament/backend/src/opengl/OpenGLContext.cpp",
-            "filament/backend/src/opengl/OpenGLDriver.cpp",
-            "filament/backend/src/opengl/OpenGLPlatform.cpp",
-            "filament/backend/src/opengl/OpenGLProgram.cpp",
-            "filament/backend/src/opengl/OpenGLState.cpp",
-            "filament/backend/src/opengl/OpenGLTimerQuery.cpp",
-            "filament/backend/src/opengl/ShaderCompilerService.cpp",
-            "filament/backend/src/opengl/gl_headers.cpp",
-            "filament/backend/src/opengl/platforms/PlatformWGL.cpp",
-            "filament/backend/src/ostream.cpp",
-        ]),
+            (linux) = RelPaths([
+                "filament/backend/src/BackendUtils.cpp",
+                "filament/backend/src/BlobCacheKey.cpp",
+                "filament/backend/src/Callable.cpp",
+                "filament/backend/src/CallbackManager.cpp",
+                "filament/backend/src/CircularBuffer.cpp",
+                "filament/backend/src/CommandBufferQueue.cpp",
+                "filament/backend/src/CommandStream.cpp",
+                "filament/backend/src/CompilerThreadPool.cpp",
+                "filament/backend/src/Driver.cpp",
+                "filament/backend/src/Handle.cpp",
+                "filament/backend/src/HandleAllocator.cpp",
+                "filament/backend/src/JobQueue.cpp",
+                "filament/backend/src/Platform.cpp",
+                "filament/backend/src/PlatformFactory.cpp",
+                "filament/backend/src/Program.cpp",
+                "filament/backend/src/noop/NoopDriver.cpp",
+                "filament/backend/src/noop/PlatformNoop.cpp",
+                "filament/backend/src/opengl/GLDescriptorSet.cpp",
+                "filament/backend/src/opengl/GLMemoryMappedBuffer.cpp",
+                "filament/backend/src/opengl/GLUtils.cpp",
+                "filament/backend/src/opengl/OpenGLBlobCache.cpp",
+                "filament/backend/src/opengl/OpenGLContext.cpp",
+                "filament/backend/src/opengl/OpenGLDriver.cpp",
+                "filament/backend/src/opengl/OpenGLPlatform.cpp",
+                "filament/backend/src/opengl/OpenGLProgram.cpp",
+                "filament/backend/src/opengl/OpenGLState.cpp",
+                "filament/backend/src/opengl/OpenGLTimerQuery.cpp",
+                "filament/backend/src/opengl/ShaderCompilerService.cpp",
+                "filament/backend/src/opengl/gl_headers.cpp",
+                "filament/backend/src/opengl/platforms/PlatformGLX.cpp",
+                "filament/backend/src/ostream.cpp",
+                "filament/backend/src/vulkan/VulkanAsyncHandles.cpp",
+                "filament/backend/src/vulkan/VulkanBlitter.cpp",
+                "filament/backend/src/vulkan/VulkanBufferCache.cpp",
+                "filament/backend/src/vulkan/VulkanBufferProxy.cpp",
+                "filament/backend/src/vulkan/VulkanCommands.cpp",
+                "filament/backend/src/vulkan/VulkanContext.cpp",
+                "filament/backend/src/vulkan/VulkanDescriptorSetCache.cpp",
+                "filament/backend/src/vulkan/VulkanDescriptorSetLayoutCache.cpp",
+                "filament/backend/src/vulkan/VulkanDriver.cpp",
+                "filament/backend/src/vulkan/VulkanExternalImageManager.cpp",
+                "filament/backend/src/vulkan/VulkanFboCache.cpp",
+                "filament/backend/src/vulkan/VulkanHandles.cpp",
+                "filament/backend/src/vulkan/VulkanMemory.cpp",
+                "filament/backend/src/vulkan/VulkanPipelineCache.cpp",
+                "filament/backend/src/vulkan/VulkanPipelineLayoutCache.cpp",
+                "filament/backend/src/vulkan/VulkanQueryManager.cpp",
+                "filament/backend/src/vulkan/VulkanReadPixels.cpp",
+                "filament/backend/src/vulkan/VulkanSamplerCache.cpp",
+                "filament/backend/src/vulkan/VulkanSemaphore.cpp",
+                "filament/backend/src/vulkan/VulkanSemaphoreManager.cpp",
+                "filament/backend/src/vulkan/VulkanStagePool.cpp",
+                "filament/backend/src/vulkan/VulkanStreamedImageManager.cpp",
+                "filament/backend/src/vulkan/VulkanSwapChain.cpp",
+                "filament/backend/src/vulkan/VulkanTexture.cpp",
+                "filament/backend/src/vulkan/VulkanYcbcrConversionCache.cpp",
+                "filament/backend/src/vulkan/memory/Resource.cpp",
+                "filament/backend/src/vulkan/memory/ResourceManager.cpp",
+                "filament/backend/src/vulkan/platform/VulkanPlatform.cpp",
+                "filament/backend/src/vulkan/platform/VulkanPlatformLinux.cpp",
+                "filament/backend/src/vulkan/platform/VulkanPlatformSwapChainImpl.cpp",
+                "filament/backend/src/vulkan/utils/Conversion.cpp",
+                "filament/backend/src/vulkan/utils/Image.cpp",
+                "filament/backend/src/vulkan/utils/Spirv.cpp",
+            ]),
+            (windows) = RelPaths([
+                "filament/backend/src/BackendUtils.cpp",
+                "filament/backend/src/BlobCacheKey.cpp",
+                "filament/backend/src/Callable.cpp",
+                "filament/backend/src/CallbackManager.cpp",
+                "filament/backend/src/CircularBuffer.cpp",
+                "filament/backend/src/CommandBufferQueue.cpp",
+                "filament/backend/src/CommandStream.cpp",
+                "filament/backend/src/CompilerThreadPool.cpp",
+                "filament/backend/src/Driver.cpp",
+                "filament/backend/src/Handle.cpp",
+                "filament/backend/src/HandleAllocator.cpp",
+                "filament/backend/src/JobQueue.cpp",
+                "filament/backend/src/Platform.cpp",
+                "filament/backend/src/PlatformFactory.cpp",
+                "filament/backend/src/Program.cpp",
+                "filament/backend/src/noop/NoopDriver.cpp",
+                "filament/backend/src/noop/PlatformNoop.cpp",
+                "filament/backend/src/opengl/GLDescriptorSet.cpp",
+                "filament/backend/src/opengl/GLMemoryMappedBuffer.cpp",
+                "filament/backend/src/opengl/GLUtils.cpp",
+                "filament/backend/src/opengl/OpenGLBlobCache.cpp",
+                "filament/backend/src/opengl/OpenGLContext.cpp",
+                "filament/backend/src/opengl/OpenGLDriver.cpp",
+                "filament/backend/src/opengl/OpenGLPlatform.cpp",
+                "filament/backend/src/opengl/OpenGLProgram.cpp",
+                "filament/backend/src/opengl/OpenGLState.cpp",
+                "filament/backend/src/opengl/OpenGLTimerQuery.cpp",
+                "filament/backend/src/opengl/ShaderCompilerService.cpp",
+                "filament/backend/src/opengl/gl_headers.cpp",
+                "filament/backend/src/opengl/platforms/PlatformWGL.cpp",
+                "filament/backend/src/ostream.cpp",
+            ]),
         }
     ),
     deps = select(
         (target_platform) => {
-        (linux) = Targets([
-            ":math",
-            ":utils",
-            ":bluegl",
-            ":bluevk",
-            ":vkmemalloc",
-            ":smol_v",
-            ":SPIRV_Headers",
-            "//anubis/sys:x11",
-        ]),
-        (windows) = Targets([
-            ":math",
-            ":utils",
-            ":bluegl",
-        ]),
+            (linux) = Targets([
+                ":math",
+                ":utils",
+                ":bluegl",
+                ":bluevk",
+                ":vkmemalloc",
+                ":smol_v",
+                ":SPIRV_Headers",
+                "//anubis/sys:x11",
+            ]),
+            (windows) = Targets([
+                ":math",
+                ":utils",
+                ":bluegl",
+            ]),
         }
     ),
     public_include_dirs = RelPaths([
@@ -244,62 +244,62 @@ cc_static_library(
     ]),
     private_defines = select(
         (target_platform) => {
-        (linux) = [
-            "FILAMENT_DFG_LUT_SIZE=128",
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_ENABLE_FGVIEWER=0",
-            "FILAMENT_ENABLE_MATDBG=0",
-            "FILAMENT_METAL_HANDLE_ARENA_SIZE_IN_MB=8",
-            "FILAMENT_MIN_COMMAND_BUFFERS_SIZE_IN_MB=2",
-            "FILAMENT_OPENGL_HANDLE_ARENA_SIZE_IN_MB=4",
-            "FILAMENT_PER_FRAME_COMMANDS_SIZE_IN_MB=2",
-            "FILAMENT_PER_RENDER_PASS_ARENA_SIZE_IN_MB=3",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_DFG_LUT_SIZE=128",
-            "FILAMENT_ENABLE_FGVIEWER=0",
-            "FILAMENT_ENABLE_MATDBG=0",
-            "FILAMENT_METAL_HANDLE_ARENA_SIZE_IN_MB=8",
-            "FILAMENT_MIN_COMMAND_BUFFERS_SIZE_IN_MB=2",
-            "FILAMENT_OPENGL_HANDLE_ARENA_SIZE_IN_MB=4",
-            "FILAMENT_PER_FRAME_COMMANDS_SIZE_IN_MB=2",
-            "FILAMENT_PER_RENDER_PASS_ARENA_SIZE_IN_MB=3",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
+            (linux) = [
+                "FILAMENT_DFG_LUT_SIZE=128",
+                "FILAMENT_DRIVER_SUPPORTS_VULKAN",
+                "FILAMENT_ENABLE_FGVIEWER=0",
+                "FILAMENT_ENABLE_MATDBG=0",
+                "FILAMENT_METAL_HANDLE_ARENA_SIZE_IN_MB=8",
+                "FILAMENT_MIN_COMMAND_BUFFERS_SIZE_IN_MB=2",
+                "FILAMENT_OPENGL_HANDLE_ARENA_SIZE_IN_MB=4",
+                "FILAMENT_PER_FRAME_COMMANDS_SIZE_IN_MB=2",
+                "FILAMENT_PER_RENDER_PASS_ARENA_SIZE_IN_MB=3",
+                "FILAMENT_SUPPORTS_OPENGL",
+                "FILAMENT_SUPPORTS_X11",
+                "FILAMENT_SUPPORTS_XCB",
+                "FILAMENT_SUPPORTS_XLIB",
+            ],
+            (windows) = [
+                "FILAMENT_DFG_LUT_SIZE=128",
+                "FILAMENT_ENABLE_FGVIEWER=0",
+                "FILAMENT_ENABLE_MATDBG=0",
+                "FILAMENT_METAL_HANDLE_ARENA_SIZE_IN_MB=8",
+                "FILAMENT_MIN_COMMAND_BUFFERS_SIZE_IN_MB=2",
+                "FILAMENT_OPENGL_HANDLE_ARENA_SIZE_IN_MB=4",
+                "FILAMENT_PER_FRAME_COMMANDS_SIZE_IN_MB=2",
+                "FILAMENT_PER_RENDER_PASS_ARENA_SIZE_IN_MB=3",
+                "FILAMENT_SUPPORTS_OPENGL",
+                "WIN32",
+                "_WINDOWS",
+                "_USE_MATH_DEFINES=1",
+                "_CRT_SECURE_NO_WARNINGS",
+                "_CRT_NONSTDC_NO_DEPRECATE",
+            ],
         }
     ),
     private_compiler_flags = select(
         (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-ffast-math",
-            "-fno-finite-math-only",
-            "-ffp-contract=fast",
-            "-fvisibility-inlines-hidden",
-            "-fstrict-vtable-pointers",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-ffast-math",
-            "-fno-finite-math-only",
-            "-std=c++20",
-        ],
+            (linux) = [
+                "-fstrict-aliasing",
+                "-fvisibility=hidden",
+                "-fomit-frame-pointer",
+                "-ffunction-sections",
+                "-fdata-sections",
+                "-w",
+                "-fno-rtti",
+                "-ffast-math",
+                "-fno-finite-math-only",
+                "-ffp-contract=fast",
+                "-fvisibility-inlines-hidden",
+                "-fstrict-vtable-pointers",
+                "-std=gnu++20",
+            ],
+            (windows) = [
+                "-w",
+                "-ffast-math",
+                "-fno-finite-math-only",
+                "-std=c++20",
+            ],
         }
     ),
 )
@@ -343,57 +343,57 @@ cc_static_library(
     ]),
     private_defines = select(
         (target_platform) => {
-        (linux) = [
-            "BASISD_SUPPORT_ATC=0",
-            "BASISD_SUPPORT_BC7=0",
-            "BASISD_SUPPORT_DXT1=1",
-            "BASISD_SUPPORT_DXT5A=1",
-            "BASISD_SUPPORT_FXT1=0",
-            "BASISD_SUPPORT_KTX2=1",
-            "BASISD_SUPPORT_KTX2_ZSTD=1",
-            "BASISD_SUPPORT_PVRTC1=0",
-            "BASISD_SUPPORT_PVRTC2=0",
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "BASISD_SUPPORT_ATC=0",
-            "BASISD_SUPPORT_BC7=0",
-            "BASISD_SUPPORT_DXT1=1",
-            "BASISD_SUPPORT_DXT5A=1",
-            "BASISD_SUPPORT_FXT1=0",
-            "BASISD_SUPPORT_KTX2=1",
-            "BASISD_SUPPORT_KTX2_ZSTD=1",
-            "BASISD_SUPPORT_PVRTC1=0",
-            "BASISD_SUPPORT_PVRTC2=0",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
+            (linux) = [
+                "BASISD_SUPPORT_ATC=0",
+                "BASISD_SUPPORT_BC7=0",
+                "BASISD_SUPPORT_DXT1=1",
+                "BASISD_SUPPORT_DXT5A=1",
+                "BASISD_SUPPORT_FXT1=0",
+                "BASISD_SUPPORT_KTX2=1",
+                "BASISD_SUPPORT_KTX2_ZSTD=1",
+                "BASISD_SUPPORT_PVRTC1=0",
+                "BASISD_SUPPORT_PVRTC2=0",
+                "FILAMENT_DRIVER_SUPPORTS_VULKAN",
+                "FILAMENT_SUPPORTS_OPENGL",
+                "FILAMENT_SUPPORTS_X11",
+                "FILAMENT_SUPPORTS_XCB",
+                "FILAMENT_SUPPORTS_XLIB",
+            ],
+            (windows) = [
+                "BASISD_SUPPORT_ATC=0",
+                "BASISD_SUPPORT_BC7=0",
+                "BASISD_SUPPORT_DXT1=1",
+                "BASISD_SUPPORT_DXT5A=1",
+                "BASISD_SUPPORT_FXT1=0",
+                "BASISD_SUPPORT_KTX2=1",
+                "BASISD_SUPPORT_KTX2_ZSTD=1",
+                "BASISD_SUPPORT_PVRTC1=0",
+                "BASISD_SUPPORT_PVRTC2=0",
+                "FILAMENT_SUPPORTS_OPENGL",
+                "WIN32",
+                "_WINDOWS",
+                "_USE_MATH_DEFINES=1",
+                "_CRT_SECURE_NO_WARNINGS",
+                "_CRT_NONSTDC_NO_DEPRECATE",
+            ],
         }
     ),
     private_compiler_flags = select(
         (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
+            (linux) = [
+                "-fstrict-aliasing",
+                "-fvisibility=hidden",
+                "-fomit-frame-pointer",
+                "-ffunction-sections",
+                "-fdata-sections",
+                "-w",
+                "-fno-rtti",
+                "-std=gnu++20",
+            ],
+            (windows) = [
+                "-w",
+                "-std=c++20",
+            ],
         }
     ),
 )
@@ -412,57 +412,57 @@ cc_static_library(
     ]),
     private_defines = select(
         (target_platform) => {
-        (linux) = [
-            "BASISD_SUPPORT_ATC=0",
-            "BASISD_SUPPORT_BC7=0",
-            "BASISD_SUPPORT_DXT1=1",
-            "BASISD_SUPPORT_DXT5A=1",
-            "BASISD_SUPPORT_FXT1=0",
-            "BASISD_SUPPORT_KTX2=1",
-            "BASISD_SUPPORT_KTX2_ZSTD=1",
-            "BASISD_SUPPORT_PVRTC1=0",
-            "BASISD_SUPPORT_PVRTC2=0",
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "BASISD_SUPPORT_ATC=0",
-            "BASISD_SUPPORT_BC7=0",
-            "BASISD_SUPPORT_DXT1=1",
-            "BASISD_SUPPORT_DXT5A=1",
-            "BASISD_SUPPORT_FXT1=0",
-            "BASISD_SUPPORT_KTX2=1",
-            "BASISD_SUPPORT_KTX2_ZSTD=1",
-            "BASISD_SUPPORT_PVRTC1=0",
-            "BASISD_SUPPORT_PVRTC2=0",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
+            (linux) = [
+                "BASISD_SUPPORT_ATC=0",
+                "BASISD_SUPPORT_BC7=0",
+                "BASISD_SUPPORT_DXT1=1",
+                "BASISD_SUPPORT_DXT5A=1",
+                "BASISD_SUPPORT_FXT1=0",
+                "BASISD_SUPPORT_KTX2=1",
+                "BASISD_SUPPORT_KTX2_ZSTD=1",
+                "BASISD_SUPPORT_PVRTC1=0",
+                "BASISD_SUPPORT_PVRTC2=0",
+                "FILAMENT_DRIVER_SUPPORTS_VULKAN",
+                "FILAMENT_SUPPORTS_OPENGL",
+                "FILAMENT_SUPPORTS_X11",
+                "FILAMENT_SUPPORTS_XCB",
+                "FILAMENT_SUPPORTS_XLIB",
+            ],
+            (windows) = [
+                "BASISD_SUPPORT_ATC=0",
+                "BASISD_SUPPORT_BC7=0",
+                "BASISD_SUPPORT_DXT1=1",
+                "BASISD_SUPPORT_DXT5A=1",
+                "BASISD_SUPPORT_FXT1=0",
+                "BASISD_SUPPORT_KTX2=1",
+                "BASISD_SUPPORT_KTX2_ZSTD=1",
+                "BASISD_SUPPORT_PVRTC1=0",
+                "BASISD_SUPPORT_PVRTC2=0",
+                "FILAMENT_SUPPORTS_OPENGL",
+                "WIN32",
+                "_WINDOWS",
+                "_USE_MATH_DEFINES=1",
+                "_CRT_SECURE_NO_WARNINGS",
+                "_CRT_NONSTDC_NO_DEPRECATE",
+            ],
         }
     ),
     private_compiler_flags = select(
         (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
+            (linux) = [
+                "-fstrict-aliasing",
+                "-fvisibility=hidden",
+                "-fomit-frame-pointer",
+                "-ffunction-sections",
+                "-fdata-sections",
+                "-w",
+                "-fno-rtti",
+                "-std=gnu++20",
+            ],
+            (windows) = [
+                "-w",
+                "-std=c++20",
+            ],
         }
     ),
 )
@@ -472,24 +472,24 @@ cc_static_library(
     lang = "cpp",
     srcs = select(
         (target_platform) => {
-        (linux) = RelPaths([
-            "libs/bluegl/src/BlueGL.cpp",
-            "libs/bluegl/src/BlueGLCoreLinuxUniversalImpl.S",
-            "libs/bluegl/src/BlueGLLinux.cpp",
-        ]),
-        (windows) = RelPaths([
-            "libs/bluegl/src/BlueGL.cpp",
-            "libs/bluegl/src/BlueGLCoreWindows32Impl.cpp",
-            "libs/bluegl/src/BlueGLWindows.cpp",
-        ]),
+            (linux) = RelPaths([
+                "libs/bluegl/src/BlueGL.cpp",
+                "libs/bluegl/src/BlueGLCoreLinuxUniversalImpl.S",
+                "libs/bluegl/src/BlueGLLinux.cpp",
+            ]),
+            (windows) = RelPaths([
+                "libs/bluegl/src/BlueGL.cpp",
+                "libs/bluegl/src/BlueGLCoreWindows32Impl.cpp",
+                "libs/bluegl/src/BlueGLWindows.cpp",
+            ]),
         }
     ),
     deps = select(
         (target_platform) => {
-        (linux) = Targets([
-            "//anubis/sys:x11",
-        ]),
-        (windows) = [],
+            (linux) = Targets([
+                "//anubis/sys:x11",
+            ]),
+            (windows) = [],
         }
     ),
     public_include_dirs = RelPaths([
@@ -497,48 +497,48 @@ cc_static_library(
     ]),
     public_libraries = select(
         (target_platform) => {
-        (linux) = [],
-        (windows) = [
-            "opengl32.lib",
-            "gdi32.lib",
-        ],
+            (linux) = [],
+            (windows) = [
+                "opengl32.lib",
+                "gdi32.lib",
+            ],
         }
     ),
     private_defines = select(
         (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
+            (linux) = [
+                "FILAMENT_DRIVER_SUPPORTS_VULKAN",
+                "FILAMENT_SUPPORTS_OPENGL",
+                "FILAMENT_SUPPORTS_X11",
+                "FILAMENT_SUPPORTS_XCB",
+                "FILAMENT_SUPPORTS_XLIB",
+            ],
+            (windows) = [
+                "FILAMENT_SUPPORTS_OPENGL",
+                "WIN32",
+                "_WINDOWS",
+                "_USE_MATH_DEFINES=1",
+                "_CRT_SECURE_NO_WARNINGS",
+                "_CRT_NONSTDC_NO_DEPRECATE",
+            ],
         }
     ),
     private_compiler_flags = select(
         (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
+            (linux) = [
+                "-fstrict-aliasing",
+                "-fvisibility=hidden",
+                "-fomit-frame-pointer",
+                "-ffunction-sections",
+                "-fdata-sections",
+                "-w",
+                "-fno-rtti",
+                "-std=gnu++20",
+            ],
+            (windows) = [
+                "-w",
+                "-std=c++20",
+            ],
         }
     ),
 )
@@ -551,9 +551,9 @@ cc_static_library(
         "libs/bluevk/src/BlueVKLinuxAndroid.cpp",
     ]),
     deps = Targets([
-        ":utils",
-        ":math",
         "//anubis/sys:x11",
+        ":math",
+        ":utils",
     ]),
     public_include_dirs = RelPaths([
         "libs/bluevk/include",
@@ -592,39 +592,39 @@ cc_static_library(
     ]),
     private_defines = select(
         (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
+            (linux) = [
+                "FILAMENT_DRIVER_SUPPORTS_VULKAN",
+                "FILAMENT_SUPPORTS_OPENGL",
+                "FILAMENT_SUPPORTS_X11",
+                "FILAMENT_SUPPORTS_XCB",
+                "FILAMENT_SUPPORTS_XLIB",
+            ],
+            (windows) = [
+                "FILAMENT_SUPPORTS_OPENGL",
+                "WIN32",
+                "_WINDOWS",
+                "_USE_MATH_DEFINES=1",
+                "_CRT_SECURE_NO_WARNINGS",
+                "_CRT_NONSTDC_NO_DEPRECATE",
+            ],
         }
     ),
     private_compiler_flags = select(
         (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
+            (linux) = [
+                "-fstrict-aliasing",
+                "-fvisibility=hidden",
+                "-fomit-frame-pointer",
+                "-ffunction-sections",
+                "-fdata-sections",
+                "-w",
+                "-fno-rtti",
+                "-std=gnu++20",
+            ],
+            (windows) = [
+                "-w",
+                "-std=c++20",
+            ],
         }
     ),
 )
@@ -638,161 +638,19 @@ cc_static_library(
     ]),
 )
 
+# Draco: CMake builds these as OBJECT libraries folded into dracodec. One
+# static library here, so link order can't matter (GNU ld).
 cc_static_library(
-    name = "draco_animation",
+    name = "draco",
     lang = "cpp",
     srcs = RelPaths([
         "third_party/draco/src/draco/animation/keyframe_animation.cc",
-    ]),
-    private_include_dirs = RelPaths([
-        "third_party/draco/src",
-        "anubis/draco",
-    ]),
-    private_defines = select(
-        (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
-        }
-    ),
-    private_compiler_flags = select(
-        (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
-        }
-    ),
-)
-
-cc_static_library(
-    name = "draco_animation_dec",
-    lang = "cpp",
-    srcs = RelPaths([
         "third_party/draco/src/draco/animation/keyframe_animation_decoder.cc",
-    ]),
-    private_include_dirs = RelPaths([
-        "third_party/draco/src",
-        "anubis/draco",
-    ]),
-    private_defines = select(
-        (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
-        }
-    ),
-    private_compiler_flags = select(
-        (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
-        }
-    ),
-)
-
-cc_static_library(
-    name = "draco_attributes",
-    lang = "cpp",
-    srcs = RelPaths([
         "third_party/draco/src/draco/attributes/attribute_octahedron_transform.cc",
         "third_party/draco/src/draco/attributes/attribute_quantization_transform.cc",
         "third_party/draco/src/draco/attributes/attribute_transform.cc",
         "third_party/draco/src/draco/attributes/geometry_attribute.cc",
         "third_party/draco/src/draco/attributes/point_attribute.cc",
-    ]),
-    private_include_dirs = RelPaths([
-        "third_party/draco/src",
-        "anubis/draco",
-    ]),
-    private_defines = select(
-        (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
-        }
-    ),
-    private_compiler_flags = select(
-        (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
-        }
-    ),
-)
-
-cc_static_library(
-    name = "draco_compression_attributes_dec",
-    lang = "cpp",
-    srcs = RelPaths([
         "third_party/draco/src/draco/compression/attributes/attributes_decoder.cc",
         "third_party/draco/src/draco/compression/attributes/kd_tree_attributes_decoder.cc",
         "third_party/draco/src/draco/compression/attributes/sequential_attribute_decoder.cc",
@@ -800,54 +658,6 @@ cc_static_library(
         "third_party/draco/src/draco/compression/attributes/sequential_integer_attribute_decoder.cc",
         "third_party/draco/src/draco/compression/attributes/sequential_normal_attribute_decoder.cc",
         "third_party/draco/src/draco/compression/attributes/sequential_quantization_attribute_decoder.cc",
-    ]),
-    private_include_dirs = RelPaths([
-        "third_party/draco/src",
-        "anubis/draco",
-    ]),
-    private_defines = select(
-        (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
-        }
-    ),
-    private_compiler_flags = select(
-        (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
-        }
-    ),
-)
-
-cc_static_library(
-    name = "draco_compression_bit_coders",
-    lang = "cpp",
-    srcs = RelPaths([
         "third_party/draco/src/draco/compression/bit_coders/adaptive_rans_bit_decoder.cc",
         "third_party/draco/src/draco/compression/bit_coders/adaptive_rans_bit_encoder.cc",
         "third_party/draco/src/draco/compression/bit_coders/direct_bit_decoder.cc",
@@ -856,306 +666,18 @@ cc_static_library(
         "third_party/draco/src/draco/compression/bit_coders/rans_bit_encoder.cc",
         "third_party/draco/src/draco/compression/bit_coders/symbol_bit_decoder.cc",
         "third_party/draco/src/draco/compression/bit_coders/symbol_bit_encoder.cc",
-    ]),
-    private_include_dirs = RelPaths([
-        "third_party/draco/src",
-        "anubis/draco",
-    ]),
-    private_defines = select(
-        (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
-        }
-    ),
-    private_compiler_flags = select(
-        (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
-        }
-    ),
-)
-
-cc_static_library(
-    name = "draco_compression_decode",
-    lang = "cpp",
-    srcs = RelPaths([
         "third_party/draco/src/draco/compression/decode.cc",
-    ]),
-    private_include_dirs = RelPaths([
-        "third_party/draco/src",
-        "anubis/draco",
-    ]),
-    private_defines = select(
-        (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
-        }
-    ),
-    private_compiler_flags = select(
-        (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
-        }
-    ),
-)
-
-cc_static_library(
-    name = "draco_compression_entropy",
-    lang = "cpp",
-    srcs = RelPaths([
         "third_party/draco/src/draco/compression/entropy/shannon_entropy.cc",
         "third_party/draco/src/draco/compression/entropy/symbol_decoding.cc",
         "third_party/draco/src/draco/compression/entropy/symbol_encoding.cc",
-    ]),
-    private_include_dirs = RelPaths([
-        "third_party/draco/src",
-        "anubis/draco",
-    ]),
-    private_defines = select(
-        (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
-        }
-    ),
-    private_compiler_flags = select(
-        (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
-        }
-    ),
-)
-
-cc_static_library(
-    name = "draco_compression_mesh_dec",
-    lang = "cpp",
-    srcs = RelPaths([
         "third_party/draco/src/draco/compression/mesh/mesh_decoder.cc",
         "third_party/draco/src/draco/compression/mesh/mesh_edgebreaker_decoder.cc",
         "third_party/draco/src/draco/compression/mesh/mesh_edgebreaker_decoder_impl.cc",
         "third_party/draco/src/draco/compression/mesh/mesh_sequential_decoder.cc",
-    ]),
-    private_include_dirs = RelPaths([
-        "third_party/draco/src",
-        "anubis/draco",
-    ]),
-    private_defines = select(
-        (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
-        }
-    ),
-    private_compiler_flags = select(
-        (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
-        }
-    ),
-)
-
-cc_static_library(
-    name = "draco_compression_options",
-    lang = "cpp",
-    srcs = RelPaths([
         "third_party/draco/src/draco/compression/draco_compression_options.cc",
-    ]),
-    private_include_dirs = RelPaths([
-        "third_party/draco/src",
-        "anubis/draco",
-    ]),
-    private_defines = select(
-        (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
-        }
-    ),
-    private_compiler_flags = select(
-        (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
-        }
-    ),
-)
-
-cc_static_library(
-    name = "draco_compression_point_cloud_dec",
-    lang = "cpp",
-    srcs = RelPaths([
         "third_party/draco/src/draco/compression/point_cloud/point_cloud_decoder.cc",
         "third_party/draco/src/draco/compression/point_cloud/point_cloud_kd_tree_decoder.cc",
         "third_party/draco/src/draco/compression/point_cloud/point_cloud_sequential_decoder.cc",
-    ]),
-    private_include_dirs = RelPaths([
-        "third_party/draco/src",
-        "anubis/draco",
-    ]),
-    private_defines = select(
-        (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
-        }
-    ),
-    private_compiler_flags = select(
-        (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
-        }
-    ),
-)
-
-cc_static_library(
-    name = "draco_core",
-    lang = "cpp",
-    srcs = RelPaths([
         "third_party/draco/src/draco/core/bit_utils.cc",
         "third_party/draco/src/draco/core/bounding_box.cc",
         "third_party/draco/src/draco/core/cycle_timer.cc",
@@ -1167,60 +689,6 @@ cc_static_library(
         "third_party/draco/src/draco/core/hash_utils.cc",
         "third_party/draco/src/draco/core/options.cc",
         "third_party/draco/src/draco/core/quantization_utils.cc",
-    ]),
-    private_include_dirs = RelPaths([
-        "third_party/draco/src",
-        "anubis/draco",
-    ]),
-    private_defines = select(
-        (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
-        }
-    ),
-    private_compiler_flags = select(
-        (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
-        }
-    ),
-)
-
-cc_static_library(
-    name = "draco_dec_config",
-    lang = "cpp",
-    srcs = [],
-)
-
-cc_static_library(
-    name = "draco_io",
-    lang = "cpp",
-    srcs = RelPaths([
         "third_party/draco/src/draco/io/file_reader_factory.cc",
         "third_party/draco/src/draco/io/file_utils.cc",
         "third_party/draco/src/draco/io/file_writer_factory.cc",
@@ -1237,54 +705,6 @@ cc_static_library(
         "third_party/draco/src/draco/io/stdio_file_writer.cc",
         "third_party/draco/src/draco/io/stl_decoder.cc",
         "third_party/draco/src/draco/io/stl_encoder.cc",
-    ]),
-    private_include_dirs = RelPaths([
-        "third_party/draco/src",
-        "anubis/draco",
-    ]),
-    private_defines = select(
-        (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
-        }
-    ),
-    private_compiler_flags = select(
-        (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
-        }
-    ),
-)
-
-cc_static_library(
-    name = "draco_mesh",
-    lang = "cpp",
-    srcs = RelPaths([
         "third_party/draco/src/draco/mesh/corner_table.cc",
         "third_party/draco/src/draco/mesh/mesh.cc",
         "third_party/draco/src/draco/mesh/mesh_are_equivalent.cc",
@@ -1294,207 +714,15 @@ cc_static_library(
         "third_party/draco/src/draco/mesh/mesh_misc_functions.cc",
         "third_party/draco/src/draco/mesh/mesh_stripifier.cc",
         "third_party/draco/src/draco/mesh/triangle_soup_mesh_builder.cc",
-    ]),
-    private_include_dirs = RelPaths([
-        "third_party/draco/src",
-        "anubis/draco",
-    ]),
-    private_defines = select(
-        (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
-        }
-    ),
-    private_compiler_flags = select(
-        (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
-        }
-    ),
-)
-
-cc_static_library(
-    name = "draco_metadata",
-    lang = "cpp",
-    srcs = RelPaths([
         "third_party/draco/src/draco/metadata/geometry_metadata.cc",
         "third_party/draco/src/draco/metadata/metadata.cc",
         "third_party/draco/src/draco/metadata/property_attribute.cc",
         "third_party/draco/src/draco/metadata/property_table.cc",
         "third_party/draco/src/draco/metadata/structural_metadata.cc",
         "third_party/draco/src/draco/metadata/structural_metadata_schema.cc",
-    ]),
-    private_include_dirs = RelPaths([
-        "third_party/draco/src",
-        "anubis/draco",
-    ]),
-    private_defines = select(
-        (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
-        }
-    ),
-    private_compiler_flags = select(
-        (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
-        }
-    ),
-)
-
-cc_static_library(
-    name = "draco_metadata_dec",
-    lang = "cpp",
-    srcs = RelPaths([
         "third_party/draco/src/draco/metadata/metadata_decoder.cc",
-    ]),
-    private_include_dirs = RelPaths([
-        "third_party/draco/src",
-        "anubis/draco",
-    ]),
-    private_defines = select(
-        (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
-        }
-    ),
-    private_compiler_flags = select(
-        (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
-        }
-    ),
-)
-
-cc_static_library(
-    name = "draco_point_cloud",
-    lang = "cpp",
-    srcs = RelPaths([
         "third_party/draco/src/draco/point_cloud/point_cloud.cc",
         "third_party/draco/src/draco/point_cloud/point_cloud_builder.cc",
-    ]),
-    private_include_dirs = RelPaths([
-        "third_party/draco/src",
-        "anubis/draco",
-    ]),
-    private_defines = select(
-        (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
-        }
-    ),
-    private_compiler_flags = select(
-        (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
-        }
-    ),
-)
-
-cc_static_library(
-    name = "draco_points_dec",
-    lang = "cpp",
-    srcs = RelPaths([
         "third_party/draco/src/draco/compression/point_cloud/algorithms/dynamic_integer_points_kd_tree_decoder.cc",
         "third_party/draco/src/draco/compression/point_cloud/algorithms/float_points_tree_decoder.cc",
     ]),
@@ -1504,39 +732,39 @@ cc_static_library(
     ]),
     private_defines = select(
         (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
+            (linux) = [
+                "FILAMENT_DRIVER_SUPPORTS_VULKAN",
+                "FILAMENT_SUPPORTS_OPENGL",
+                "FILAMENT_SUPPORTS_X11",
+                "FILAMENT_SUPPORTS_XCB",
+                "FILAMENT_SUPPORTS_XLIB",
+            ],
+            (windows) = [
+                "FILAMENT_SUPPORTS_OPENGL",
+                "WIN32",
+                "_WINDOWS",
+                "_USE_MATH_DEFINES=1",
+                "_CRT_SECURE_NO_WARNINGS",
+                "_CRT_NONSTDC_NO_DEPRECATE",
+            ],
         }
     ),
     private_compiler_flags = select(
         (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
+            (linux) = [
+                "-fstrict-aliasing",
+                "-fvisibility=hidden",
+                "-fomit-frame-pointer",
+                "-ffunction-sections",
+                "-fdata-sections",
+                "-w",
+                "-fno-rtti",
+                "-std=gnu++20",
+            ],
+            (windows) = [
+                "-w",
+                "-std=c++20",
+            ],
         }
     ),
 )
@@ -1547,58 +775,39 @@ cc_static_library(
     srcs = RelPaths([
         "third_party/draco/tnt/dummy.c",
     ]),
-    deps = Targets([
-        ":draco_attributes",
-        ":draco_compression_attributes_dec",
-        ":draco_compression_decode",
-        ":draco_compression_entropy",
-        ":draco_compression_mesh_dec",
-        ":draco_compression_point_cloud_dec",
-        ":draco_compression_bit_coders",
-        ":draco_core",
-        ":draco_dec_config",
-        ":draco_compression_options",
-        ":draco_io",
-        ":draco_mesh",
-        ":draco_metadata",
-        ":draco_metadata_dec",
-        ":draco_animation",
-        ":draco_animation_dec",
-        ":draco_point_cloud",
-        ":draco_points_dec",
-    ]),
+    deps = Targets([":draco"]),
     public_include_dirs = RelPaths([
         "anubis/draco",
         "third_party/draco/src",
     ]),
     private_defines = select(
         (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
+            (linux) = [
+                "FILAMENT_DRIVER_SUPPORTS_VULKAN",
+                "FILAMENT_SUPPORTS_OPENGL",
+                "FILAMENT_SUPPORTS_X11",
+                "FILAMENT_SUPPORTS_XCB",
+                "FILAMENT_SUPPORTS_XLIB",
+            ],
+            (windows) = [
+                "FILAMENT_SUPPORTS_OPENGL",
+                "WIN32",
+                "_WINDOWS",
+                "_CRT_SECURE_NO_WARNINGS",
+                "_CRT_NONSTDC_NO_DEPRECATE",
+            ],
         }
     ),
     private_compiler_flags = select(
         (target_platform) => {
-        (linux) = [
-            "-fvisibility=hidden",
-            "-w",
-            "-fno-rtti",
-        ],
-        (windows) = [
-            "-w",
-        ],
+            (linux) = [
+                "-fvisibility=hidden",
+                "-w",
+                "-fno-rtti",
+            ],
+            (windows) = [
+                "-w",
+            ],
         }
     ),
 )
@@ -1613,48 +822,48 @@ cc_static_library(
         "libs/filabridge/src/Variant.cpp",
     ]),
     deps = Targets([
-        ":utils",
-        ":math",
         ":backend_headers",
+        ":math",
+        ":utils",
     ]),
     public_include_dirs = RelPaths([
         "libs/filabridge/include",
     ]),
     private_defines = select(
         (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
+            (linux) = [
+                "FILAMENT_DRIVER_SUPPORTS_VULKAN",
+                "FILAMENT_SUPPORTS_OPENGL",
+                "FILAMENT_SUPPORTS_X11",
+                "FILAMENT_SUPPORTS_XCB",
+                "FILAMENT_SUPPORTS_XLIB",
+            ],
+            (windows) = [
+                "FILAMENT_SUPPORTS_OPENGL",
+                "WIN32",
+                "_WINDOWS",
+                "_USE_MATH_DEFINES=1",
+                "_CRT_SECURE_NO_WARNINGS",
+                "_CRT_NONSTDC_NO_DEPRECATE",
+            ],
         }
     ),
     private_compiler_flags = select(
         (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
+            (linux) = [
+                "-fstrict-aliasing",
+                "-fvisibility=hidden",
+                "-fomit-frame-pointer",
+                "-ffunction-sections",
+                "-fdata-sections",
+                "-w",
+                "-fno-rtti",
+                "-std=gnu++20",
+            ],
+            (windows) = [
+                "-w",
+                "-std=c++20",
+            ],
         }
     ),
 )
@@ -1670,15 +879,15 @@ cc_static_library(
     ]),
     deps = select(
         (target_platform) => {
-        (linux) = Targets([
-            ":filabridge",
-            ":utils",
-            ":smol_v",
-        ]),
-        (windows) = Targets([
-            ":filabridge",
-            ":utils",
-        ]),
+            (linux) = Targets([
+                ":filabridge",
+                ":utils",
+                ":smol_v",
+            ]),
+            (windows) = Targets([
+                ":filabridge",
+                ":utils",
+            ]),
         }
     ),
     public_include_dirs = RelPaths([
@@ -1686,39 +895,39 @@ cc_static_library(
     ]),
     private_defines = select(
         (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
+            (linux) = [
+                "FILAMENT_DRIVER_SUPPORTS_VULKAN",
+                "FILAMENT_SUPPORTS_OPENGL",
+                "FILAMENT_SUPPORTS_X11",
+                "FILAMENT_SUPPORTS_XCB",
+                "FILAMENT_SUPPORTS_XLIB",
+            ],
+            (windows) = [
+                "FILAMENT_SUPPORTS_OPENGL",
+                "WIN32",
+                "_WINDOWS",
+                "_USE_MATH_DEFINES=1",
+                "_CRT_SECURE_NO_WARNINGS",
+                "_CRT_NONSTDC_NO_DEPRECATE",
+            ],
         }
     ),
     private_compiler_flags = select(
         (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
+            (linux) = [
+                "-fstrict-aliasing",
+                "-fvisibility=hidden",
+                "-fomit-frame-pointer",
+                "-ffunction-sections",
+                "-fdata-sections",
+                "-w",
+                "-fno-rtti",
+                "-std=gnu++20",
+            ],
+            (windows) = [
+                "-w",
+                "-std=c++20",
+            ],
         }
     ),
 )
@@ -1845,12 +1054,6 @@ cc_static_library(
         "filament/src/materials/ssao/ssao.cpp",
     ]),
     deps = Targets([
-        ":backend",
-        ":math",
-        ":utils",
-        ":filaflat",
-        ":filabridge",
-        ":zstd",
         ":_mochi_filament_filament_bloom_resource",
         ":_mochi_filament_filament_colorGrading_resource",
         ":_mochi_filament_filament_dfg_resource",
@@ -1864,6 +1067,12 @@ cc_static_library(
         ":_mochi_filament_filament_sgsr_resource",
         ":_mochi_filament_filament_ssao_resource",
         ":_mochi_filament_filament_taa_resource",
+        ":backend",
+        ":filabridge",
+        ":filaflat",
+        ":math",
+        ":utils",
+        ":zstd",
     ]),
     public_include_dirs = RelPaths([
         "filament/include",
@@ -1874,62 +1083,62 @@ cc_static_library(
     ]),
     private_defines = select(
         (target_platform) => {
-        (linux) = [
-            "FILAMENT_DFG_LUT_SIZE=128",
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_ENABLE_FGVIEWER=0",
-            "FILAMENT_ENABLE_MATDBG=0",
-            "FILAMENT_METAL_HANDLE_ARENA_SIZE_IN_MB=8",
-            "FILAMENT_MIN_COMMAND_BUFFERS_SIZE_IN_MB=2",
-            "FILAMENT_OPENGL_HANDLE_ARENA_SIZE_IN_MB=4",
-            "FILAMENT_PER_FRAME_COMMANDS_SIZE_IN_MB=2",
-            "FILAMENT_PER_RENDER_PASS_ARENA_SIZE_IN_MB=3",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_DFG_LUT_SIZE=128",
-            "FILAMENT_ENABLE_FGVIEWER=0",
-            "FILAMENT_ENABLE_MATDBG=0",
-            "FILAMENT_METAL_HANDLE_ARENA_SIZE_IN_MB=8",
-            "FILAMENT_MIN_COMMAND_BUFFERS_SIZE_IN_MB=2",
-            "FILAMENT_OPENGL_HANDLE_ARENA_SIZE_IN_MB=4",
-            "FILAMENT_PER_FRAME_COMMANDS_SIZE_IN_MB=2",
-            "FILAMENT_PER_RENDER_PASS_ARENA_SIZE_IN_MB=3",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
+            (linux) = [
+                "FILAMENT_DFG_LUT_SIZE=128",
+                "FILAMENT_DRIVER_SUPPORTS_VULKAN",
+                "FILAMENT_ENABLE_FGVIEWER=0",
+                "FILAMENT_ENABLE_MATDBG=0",
+                "FILAMENT_METAL_HANDLE_ARENA_SIZE_IN_MB=8",
+                "FILAMENT_MIN_COMMAND_BUFFERS_SIZE_IN_MB=2",
+                "FILAMENT_OPENGL_HANDLE_ARENA_SIZE_IN_MB=4",
+                "FILAMENT_PER_FRAME_COMMANDS_SIZE_IN_MB=2",
+                "FILAMENT_PER_RENDER_PASS_ARENA_SIZE_IN_MB=3",
+                "FILAMENT_SUPPORTS_OPENGL",
+                "FILAMENT_SUPPORTS_X11",
+                "FILAMENT_SUPPORTS_XCB",
+                "FILAMENT_SUPPORTS_XLIB",
+            ],
+            (windows) = [
+                "FILAMENT_DFG_LUT_SIZE=128",
+                "FILAMENT_ENABLE_FGVIEWER=0",
+                "FILAMENT_ENABLE_MATDBG=0",
+                "FILAMENT_METAL_HANDLE_ARENA_SIZE_IN_MB=8",
+                "FILAMENT_MIN_COMMAND_BUFFERS_SIZE_IN_MB=2",
+                "FILAMENT_OPENGL_HANDLE_ARENA_SIZE_IN_MB=4",
+                "FILAMENT_PER_FRAME_COMMANDS_SIZE_IN_MB=2",
+                "FILAMENT_PER_RENDER_PASS_ARENA_SIZE_IN_MB=3",
+                "FILAMENT_SUPPORTS_OPENGL",
+                "WIN32",
+                "_WINDOWS",
+                "_USE_MATH_DEFINES=1",
+                "_CRT_SECURE_NO_WARNINGS",
+                "_CRT_NONSTDC_NO_DEPRECATE",
+            ],
         }
     ),
     private_compiler_flags = select(
         (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-ffast-math",
-            "-fno-finite-math-only",
-            "-ffp-contract=fast",
-            "-fvisibility-inlines-hidden",
-            "-fstrict-vtable-pointers",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-ffast-math",
-            "-fno-finite-math-only",
-            "-std=c++20",
-        ],
+            (linux) = [
+                "-fstrict-aliasing",
+                "-fvisibility=hidden",
+                "-fomit-frame-pointer",
+                "-ffunction-sections",
+                "-fdata-sections",
+                "-w",
+                "-fno-rtti",
+                "-ffast-math",
+                "-fno-finite-math-only",
+                "-ffp-contract=fast",
+                "-fvisibility-inlines-hidden",
+                "-fstrict-vtable-pointers",
+                "-std=gnu++20",
+            ],
+            (windows) = [
+                "-w",
+                "-ffast-math",
+                "-fno-finite-math-only",
+                "-std=c++20",
+            ],
         }
     ),
 )
@@ -1941,10 +1150,10 @@ cc_static_library(
         "libs/iblprefilter/src/IBLPrefilterContext.cpp",
     ]),
     deps = Targets([
+        ":_mochi_filament_filament_iblprefilter_iblprefilter_materials_resource",
+        ":filament",
         ":math",
         ":utils",
-        ":filament",
-        ":_mochi_filament_filament_iblprefilter_iblprefilter_materials_resource",
     ]),
     public_include_dirs = RelPaths([
         "libs/iblprefilter/include",
@@ -1955,46 +1164,46 @@ cc_static_library(
     ]),
     private_defines = select(
         (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
+            (linux) = [
+                "FILAMENT_DRIVER_SUPPORTS_VULKAN",
+                "FILAMENT_SUPPORTS_OPENGL",
+                "FILAMENT_SUPPORTS_X11",
+                "FILAMENT_SUPPORTS_XCB",
+                "FILAMENT_SUPPORTS_XLIB",
+            ],
+            (windows) = [
+                "FILAMENT_SUPPORTS_OPENGL",
+                "WIN32",
+                "_WINDOWS",
+                "_USE_MATH_DEFINES=1",
+                "_CRT_SECURE_NO_WARNINGS",
+                "_CRT_NONSTDC_NO_DEPRECATE",
+            ],
         }
     ),
     private_compiler_flags = select(
         (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-ffast-math",
-            "-fno-finite-math-only",
-            "-ffp-contract=fast",
-            "-fvisibility-inlines-hidden",
-            "-fstrict-vtable-pointers",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-ffast-math",
-            "-fno-finite-math-only",
-            "-std=c++20",
-        ],
+            (linux) = [
+                "-fstrict-aliasing",
+                "-fvisibility=hidden",
+                "-fomit-frame-pointer",
+                "-ffunction-sections",
+                "-fdata-sections",
+                "-w",
+                "-fno-rtti",
+                "-ffast-math",
+                "-fno-finite-math-only",
+                "-ffp-contract=fast",
+                "-fvisibility-inlines-hidden",
+                "-fstrict-vtable-pointers",
+                "-std=gnu++20",
+            ],
+            (windows) = [
+                "-w",
+                "-ffast-math",
+                "-fno-finite-math-only",
+                "-std=c++20",
+            ],
         }
     ),
 )
@@ -2006,47 +1215,47 @@ cc_static_library(
         "libs/filameshio/src/MeshReader.cpp",
     ]),
     deps = Targets([
-        ":meshoptimizer",
         ":filament",
+        ":meshoptimizer",
     ]),
     public_include_dirs = RelPaths([
         "libs/filameshio/include",
     ]),
     private_defines = select(
         (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
+            (linux) = [
+                "FILAMENT_DRIVER_SUPPORTS_VULKAN",
+                "FILAMENT_SUPPORTS_OPENGL",
+                "FILAMENT_SUPPORTS_X11",
+                "FILAMENT_SUPPORTS_XCB",
+                "FILAMENT_SUPPORTS_XLIB",
+            ],
+            (windows) = [
+                "FILAMENT_SUPPORTS_OPENGL",
+                "WIN32",
+                "_WINDOWS",
+                "_USE_MATH_DEFINES=1",
+                "_CRT_SECURE_NO_WARNINGS",
+                "_CRT_NONSTDC_NO_DEPRECATE",
+            ],
         }
     ),
     private_compiler_flags = select(
         (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
+            (linux) = [
+                "-fstrict-aliasing",
+                "-fvisibility=hidden",
+                "-fomit-frame-pointer",
+                "-ffunction-sections",
+                "-fdata-sections",
+                "-w",
+                "-fno-rtti",
+                "-std=gnu++20",
+            ],
+            (windows) = [
+                "-w",
+                "-std=c++20",
+            ],
         }
     ),
 )
@@ -2062,52 +1271,52 @@ cc_static_library(
     ]),
     deps = Targets([
         ":math",
-        ":utils",
         ":meshoptimizer",
         ":mikktspace",
+        ":utils",
     ]),
     public_include_dirs = RelPaths([
         "libs/geometry/include",
     ]),
     private_defines = select(
         (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
+            (linux) = [
+                "FILAMENT_DRIVER_SUPPORTS_VULKAN",
+                "FILAMENT_SUPPORTS_OPENGL",
+                "FILAMENT_SUPPORTS_X11",
+                "FILAMENT_SUPPORTS_XCB",
+                "FILAMENT_SUPPORTS_XLIB",
+            ],
+            (windows) = [
+                "FILAMENT_SUPPORTS_OPENGL",
+                "WIN32",
+                "_WINDOWS",
+                "_USE_MATH_DEFINES=1",
+                "_CRT_SECURE_NO_WARNINGS",
+                "_CRT_NONSTDC_NO_DEPRECATE",
+            ],
         }
     ),
     private_compiler_flags = select(
         (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-ffast-math",
-            "-fno-finite-math-only",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-ffast-math",
-            "-fno-finite-math-only",
-            "-std=c++20",
-        ],
+            (linux) = [
+                "-fstrict-aliasing",
+                "-fvisibility=hidden",
+                "-fomit-frame-pointer",
+                "-ffunction-sections",
+                "-fdata-sections",
+                "-w",
+                "-fno-rtti",
+                "-ffast-math",
+                "-fno-finite-math-only",
+                "-std=gnu++20",
+            ],
+            (windows) = [
+                "-w",
+                "-ffast-math",
+                "-fno-finite-math-only",
+                "-std=c++20",
+            ],
         }
     ),
 )
@@ -2146,17 +1355,17 @@ cc_static_library(
         "libs/gltfio/src/extended/TangentsJobExtended.cpp",
     ]),
     deps = Targets([
-        ":math",
-        ":utils",
-        ":filament",
         ":cgltf",
-        ":stb",
-        ":ktxreader",
+        ":dracodec",
+        ":filament",
         ":geometry",
+        ":ktxreader",
+        ":math",
+        ":meshoptimizer",
+        ":stb",
         ":tsl",
         ":uberzlib",
-        ":dracodec",
-        ":meshoptimizer",
+        ":utils",
     ]),
     public_include_dirs = RelPaths([
         "libs/gltfio/include",
@@ -2169,39 +1378,39 @@ cc_static_library(
     ]),
     private_defines = select(
         (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
+            (linux) = [
+                "FILAMENT_DRIVER_SUPPORTS_VULKAN",
+                "FILAMENT_SUPPORTS_OPENGL",
+                "FILAMENT_SUPPORTS_X11",
+                "FILAMENT_SUPPORTS_XCB",
+                "FILAMENT_SUPPORTS_XLIB",
+            ],
+            (windows) = [
+                "FILAMENT_SUPPORTS_OPENGL",
+                "WIN32",
+                "_WINDOWS",
+                "_USE_MATH_DEFINES=1",
+                "_CRT_SECURE_NO_WARNINGS",
+                "_CRT_NONSTDC_NO_DEPRECATE",
+            ],
         }
     ),
     private_compiler_flags = select(
         (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
+            (linux) = [
+                "-fstrict-aliasing",
+                "-fvisibility=hidden",
+                "-fomit-frame-pointer",
+                "-ffunction-sections",
+                "-fdata-sections",
+                "-w",
+                "-fno-rtti",
+                "-std=gnu++20",
+            ],
+            (windows) = [
+                "-w",
+                "-std=c++20",
+            ],
         }
     ),
 )
@@ -2224,43 +1433,43 @@ cc_static_library(
     ]),
     private_defines = select(
         (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
+            (linux) = [
+                "FILAMENT_DRIVER_SUPPORTS_VULKAN",
+                "FILAMENT_SUPPORTS_OPENGL",
+                "FILAMENT_SUPPORTS_X11",
+                "FILAMENT_SUPPORTS_XCB",
+                "FILAMENT_SUPPORTS_XLIB",
+            ],
+            (windows) = [
+                "FILAMENT_SUPPORTS_OPENGL",
+                "WIN32",
+                "_WINDOWS",
+                "_USE_MATH_DEFINES=1",
+                "_CRT_SECURE_NO_WARNINGS",
+                "_CRT_NONSTDC_NO_DEPRECATE",
+            ],
         }
     ),
     private_compiler_flags = select(
         (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-ffast-math",
-            "-fno-finite-math-only",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-ffast-math",
-            "-fno-finite-math-only",
-            "-std=c++20",
-        ],
+            (linux) = [
+                "-fstrict-aliasing",
+                "-fvisibility=hidden",
+                "-fomit-frame-pointer",
+                "-ffunction-sections",
+                "-fdata-sections",
+                "-w",
+                "-fno-rtti",
+                "-ffast-math",
+                "-fno-finite-math-only",
+                "-std=gnu++20",
+            ],
+            (windows) = [
+                "-w",
+                "-ffast-math",
+                "-fno-finite-math-only",
+                "-std=c++20",
+            ],
         }
     ),
 )
@@ -2276,63 +1485,63 @@ cc_static_library(
         "libs/imageio/src/ImageEncoder.cpp",
     ]),
     deps = Targets([
+        "//superdex_physics/libraries/mochi/third_party/zlib:zlib",
+        "//superdex_physics/libraries/mochi/third_party/zlib:zlib",
+        ":basis_encoder",
         ":image",
         ":math",
         ":png",
         ":tinyexr",
         ":utils",
-        "//superdex_physics/libraries/mochi/third_party/zlib:zlib",
-        ":basis_encoder",
     ]),
     public_include_dirs = RelPaths([
         "libs/imageio/include",
     ]),
     public_libraries = select(
         (target_platform) => {
-        (linux) = [],
-        (windows) = [
-            "wsock32.lib",
-        ],
+            (linux) = [],
+            (windows) = [
+                "wsock32.lib",
+            ],
         }
     ),
     private_include_dirs = RelPaths([
-        "../zlib",
     ]),
     private_defines = select(
         (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
+            (linux) = [
+                "FILAMENT_DRIVER_SUPPORTS_VULKAN",
+                "FILAMENT_SUPPORTS_OPENGL",
+                "FILAMENT_SUPPORTS_X11",
+                "FILAMENT_SUPPORTS_XCB",
+                "FILAMENT_SUPPORTS_XLIB",
+            ],
+            (windows) = [
+                "FILAMENT_SUPPORTS_OPENGL",
+                "WIN32",
+                "_WINDOWS",
+                "_USE_MATH_DEFINES=1",
+                "_CRT_SECURE_NO_WARNINGS",
+                "_CRT_NONSTDC_NO_DEPRECATE",
+            ],
         }
     ),
     private_compiler_flags = select(
         (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
+            (linux) = [
+                "-fstrict-aliasing",
+                "-fvisibility=hidden",
+                "-fomit-frame-pointer",
+                "-ffunction-sections",
+                "-fdata-sections",
+                "-w",
+                "-fno-rtti",
+                "-std=gnu++20",
+            ],
+            (windows) = [
+                "-w",
+                "-std=c++20",
+            ],
         }
     ),
 )
@@ -2345,49 +1554,49 @@ cc_static_library(
         "libs/ktxreader/src/Ktx2Reader.cpp",
     ]),
     deps = Targets([
-        ":utils",
-        ":image",
-        ":filament",
         ":basis_transcoder",
+        ":filament",
+        ":image",
+        ":utils",
     ]),
     public_include_dirs = RelPaths([
         "libs/ktxreader/include",
     ]),
     private_defines = select(
         (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
+            (linux) = [
+                "FILAMENT_DRIVER_SUPPORTS_VULKAN",
+                "FILAMENT_SUPPORTS_OPENGL",
+                "FILAMENT_SUPPORTS_X11",
+                "FILAMENT_SUPPORTS_XCB",
+                "FILAMENT_SUPPORTS_XLIB",
+            ],
+            (windows) = [
+                "FILAMENT_SUPPORTS_OPENGL",
+                "WIN32",
+                "_WINDOWS",
+                "_USE_MATH_DEFINES=1",
+                "_CRT_SECURE_NO_WARNINGS",
+                "_CRT_NONSTDC_NO_DEPRECATE",
+            ],
         }
     ),
     private_compiler_flags = select(
         (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
+            (linux) = [
+                "-fstrict-aliasing",
+                "-fvisibility=hidden",
+                "-fomit-frame-pointer",
+                "-ffunction-sections",
+                "-fdata-sections",
+                "-w",
+                "-fno-rtti",
+                "-std=gnu++20",
+            ],
+            (windows) = [
+                "-w",
+                "-std=c++20",
+            ],
         }
     ),
 )
@@ -2403,44 +1612,44 @@ cc_static_library(
     ]),
     private_defines = select(
         (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
+            (linux) = [
+                "FILAMENT_DRIVER_SUPPORTS_VULKAN",
+                "FILAMENT_SUPPORTS_OPENGL",
+                "FILAMENT_SUPPORTS_X11",
+                "FILAMENT_SUPPORTS_XCB",
+                "FILAMENT_SUPPORTS_XLIB",
+            ],
+            (windows) = [
+                "FILAMENT_SUPPORTS_OPENGL",
+                "WIN32",
+                "_WINDOWS",
+                "_USE_MATH_DEFINES=1",
+                "_CRT_SECURE_NO_WARNINGS",
+                "_CRT_NONSTDC_NO_DEPRECATE",
+            ],
         }
     ),
     private_compiler_flags = select(
         (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-ffast-math",
-            "-fno-finite-math-only",
-            "-ffp-contract=fast",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-ffast-math",
-            "-fno-finite-math-only",
-            "-std=c++20",
-        ],
+            (linux) = [
+                "-fstrict-aliasing",
+                "-fvisibility=hidden",
+                "-fomit-frame-pointer",
+                "-ffunction-sections",
+                "-fdata-sections",
+                "-w",
+                "-fno-rtti",
+                "-ffast-math",
+                "-fno-finite-math-only",
+                "-ffp-contract=fast",
+                "-std=gnu++20",
+            ],
+            (windows) = [
+                "-w",
+                "-ffast-math",
+                "-fno-finite-math-only",
+                "-std=c++20",
+            ],
         }
     ),
 )
@@ -2470,39 +1679,39 @@ cc_static_library(
     ]),
     private_defines = select(
         (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
+            (linux) = [
+                "FILAMENT_DRIVER_SUPPORTS_VULKAN",
+                "FILAMENT_SUPPORTS_OPENGL",
+                "FILAMENT_SUPPORTS_X11",
+                "FILAMENT_SUPPORTS_XCB",
+                "FILAMENT_SUPPORTS_XLIB",
+            ],
+            (windows) = [
+                "FILAMENT_SUPPORTS_OPENGL",
+                "WIN32",
+                "_WINDOWS",
+                "_USE_MATH_DEFINES=1",
+                "_CRT_SECURE_NO_WARNINGS",
+                "_CRT_NONSTDC_NO_DEPRECATE",
+            ],
         }
     ),
     private_compiler_flags = select(
         (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
+            (linux) = [
+                "-fstrict-aliasing",
+                "-fvisibility=hidden",
+                "-fomit-frame-pointer",
+                "-ffunction-sections",
+                "-fdata-sections",
+                "-w",
+                "-fno-rtti",
+                "-std=gnu++20",
+            ],
+            (windows) = [
+                "-w",
+                "-std=c++20",
+            ],
         }
     ),
 )
@@ -2518,36 +1727,36 @@ cc_static_library(
     ]),
     private_defines = select(
         (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
+            (linux) = [
+                "FILAMENT_DRIVER_SUPPORTS_VULKAN",
+                "FILAMENT_SUPPORTS_OPENGL",
+                "FILAMENT_SUPPORTS_X11",
+                "FILAMENT_SUPPORTS_XCB",
+                "FILAMENT_SUPPORTS_XLIB",
+            ],
+            (windows) = [
+                "FILAMENT_SUPPORTS_OPENGL",
+                "WIN32",
+                "_WINDOWS",
+                "_CRT_SECURE_NO_WARNINGS",
+                "_CRT_NONSTDC_NO_DEPRECATE",
+            ],
         }
     ),
     private_compiler_flags = select(
         (target_platform) => {
-        (linux) = [
-            "-fvisibility=hidden",
-            "-w",
-            "-fno-rtti",
-            "-ffast-math",
-            "-fno-finite-math-only",
-        ],
-        (windows) = [
-            "-w",
-            "-ffast-math",
-            "-fno-finite-math-only",
-        ],
+            (linux) = [
+                "-fvisibility=hidden",
+                "-w",
+                "-fno-rtti",
+                "-ffast-math",
+                "-fno-finite-math-only",
+            ],
+            (windows) = [
+                "-w",
+                "-ffast-math",
+                "-fno-finite-math-only",
+            ],
         }
     ),
 )
@@ -2574,43 +1783,43 @@ cc_static_library(
     ]),
     deps = Targets([
         "//superdex_physics/libraries/mochi/third_party/zlib:zlib",
+        "//superdex_physics/libraries/mochi/third_party/zlib:zlib",
     ]),
     public_include_dirs = RelPaths([
         "third_party/libpng",
     ]),
     private_include_dirs = RelPaths([
-        "../zlib",
     ]),
     private_defines = select(
         (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-            "PNG_ARM_NEON_OPT=0",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "PNG_ARM_NEON_OPT=0",
-            "WIN32",
-            "_WINDOWS",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
+            (linux) = [
+                "FILAMENT_DRIVER_SUPPORTS_VULKAN",
+                "FILAMENT_SUPPORTS_OPENGL",
+                "FILAMENT_SUPPORTS_X11",
+                "FILAMENT_SUPPORTS_XCB",
+                "FILAMENT_SUPPORTS_XLIB",
+                "PNG_ARM_NEON_OPT=0",
+            ],
+            (windows) = [
+                "FILAMENT_SUPPORTS_OPENGL",
+                "PNG_ARM_NEON_OPT=0",
+                "WIN32",
+                "_WINDOWS",
+                "_CRT_SECURE_NO_WARNINGS",
+                "_CRT_NONSTDC_NO_DEPRECATE",
+            ],
         }
     ),
     private_compiler_flags = select(
         (target_platform) => {
-        (linux) = [
-            "-fvisibility=hidden",
-            "-w",
-            "-fno-rtti",
-        ],
-        (windows) = [
-            "-w",
-        ],
+            (linux) = [
+                "-fvisibility=hidden",
+                "-w",
+                "-fno-rtti",
+            ],
+            (windows) = [
+                "-w",
+            ],
         }
     ),
 )
@@ -2626,39 +1835,39 @@ cc_static_library(
     ]),
     private_defines = select(
         (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
+            (linux) = [
+                "FILAMENT_DRIVER_SUPPORTS_VULKAN",
+                "FILAMENT_SUPPORTS_OPENGL",
+                "FILAMENT_SUPPORTS_X11",
+                "FILAMENT_SUPPORTS_XCB",
+                "FILAMENT_SUPPORTS_XLIB",
+            ],
+            (windows) = [
+                "FILAMENT_SUPPORTS_OPENGL",
+                "WIN32",
+                "_WINDOWS",
+                "_USE_MATH_DEFINES=1",
+                "_CRT_SECURE_NO_WARNINGS",
+                "_CRT_NONSTDC_NO_DEPRECATE",
+            ],
         }
     ),
     private_compiler_flags = select(
         (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
+            (linux) = [
+                "-fstrict-aliasing",
+                "-fvisibility=hidden",
+                "-fomit-frame-pointer",
+                "-ffunction-sections",
+                "-fdata-sections",
+                "-w",
+                "-fno-rtti",
+                "-std=gnu++20",
+            ],
+            (windows) = [
+                "-w",
+                "-std=c++20",
+            ],
         }
     ),
 )
@@ -2674,39 +1883,39 @@ cc_static_library(
     ]),
     private_defines = select(
         (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
+            (linux) = [
+                "FILAMENT_DRIVER_SUPPORTS_VULKAN",
+                "FILAMENT_SUPPORTS_OPENGL",
+                "FILAMENT_SUPPORTS_X11",
+                "FILAMENT_SUPPORTS_XCB",
+                "FILAMENT_SUPPORTS_XLIB",
+            ],
+            (windows) = [
+                "FILAMENT_SUPPORTS_OPENGL",
+                "WIN32",
+                "_WINDOWS",
+                "_USE_MATH_DEFINES=1",
+                "_CRT_SECURE_NO_WARNINGS",
+                "_CRT_NONSTDC_NO_DEPRECATE",
+            ],
         }
     ),
     private_compiler_flags = select(
         (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
+            (linux) = [
+                "-fstrict-aliasing",
+                "-fvisibility=hidden",
+                "-fomit-frame-pointer",
+                "-ffunction-sections",
+                "-fdata-sections",
+                "-w",
+                "-fno-rtti",
+                "-std=gnu++20",
+            ],
+            (windows) = [
+                "-w",
+                "-std=c++20",
+            ],
         }
     ),
 )
@@ -2719,48 +1928,48 @@ cc_static_library(
     ]),
     deps = Targets([
         "//superdex_physics/libraries/mochi/third_party/zlib:zlib",
+        "//superdex_physics/libraries/mochi/third_party/zlib:zlib",
     ]),
     public_include_dirs = RelPaths([
         "third_party/tinyexr",
     ]),
     private_include_dirs = RelPaths([
-        "../zlib",
     ]),
     private_defines = select(
         (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
+            (linux) = [
+                "FILAMENT_DRIVER_SUPPORTS_VULKAN",
+                "FILAMENT_SUPPORTS_OPENGL",
+                "FILAMENT_SUPPORTS_X11",
+                "FILAMENT_SUPPORTS_XCB",
+                "FILAMENT_SUPPORTS_XLIB",
+            ],
+            (windows) = [
+                "FILAMENT_SUPPORTS_OPENGL",
+                "WIN32",
+                "_WINDOWS",
+                "_USE_MATH_DEFINES=1",
+                "_CRT_SECURE_NO_WARNINGS",
+                "_CRT_NONSTDC_NO_DEPRECATE",
+            ],
         }
     ),
     private_compiler_flags = select(
         (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
+            (linux) = [
+                "-fstrict-aliasing",
+                "-fvisibility=hidden",
+                "-fomit-frame-pointer",
+                "-ffunction-sections",
+                "-fdata-sections",
+                "-w",
+                "-fno-rtti",
+                "-std=gnu++20",
+            ],
+            (windows) = [
+                "-w",
+                "-std=c++20",
+            ],
         }
     ),
 )
@@ -2777,9 +1986,9 @@ cc_static_library(
 cc_static_library(
     name = "uberarchive",
     lang = "c",
-    srcs = RelPaths(["anubis/resources/uberarchive.c"]),
-    public_include_dirs = RelPaths(["libs/gltfio/src/buck_generated/generated"]),
-    private_compiler_flags = ["-std=c23", "-w"],
+    srcs = RelPaths([ "anubis/resources/uberarchive.c" ]),
+    public_include_dirs = RelPaths([ "libs/gltfio/src/buck_generated/generated" ]),
+    private_compiler_flags = [ "-std=c23", "-w" ],
 )
 
 cc_static_library(
@@ -2790,9 +1999,9 @@ cc_static_library(
         "libs/uberz/src/WritableArchive.cpp",
     ]),
     deps = Targets([
+        ":filabridge",
         ":math",
         ":utils",
-        ":filabridge",
         ":zstd",
     ]),
     public_include_dirs = RelPaths([
@@ -2800,42 +2009,42 @@ cc_static_library(
     ]),
     private_defines = select(
         (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
+            (linux) = [
+                "FILAMENT_DRIVER_SUPPORTS_VULKAN",
+                "FILAMENT_SUPPORTS_OPENGL",
+                "FILAMENT_SUPPORTS_X11",
+                "FILAMENT_SUPPORTS_XCB",
+                "FILAMENT_SUPPORTS_XLIB",
+            ],
+            (windows) = [
+                "FILAMENT_SUPPORTS_OPENGL",
+                "WIN32",
+                "_WINDOWS",
+                "_USE_MATH_DEFINES=1",
+                "_CRT_SECURE_NO_WARNINGS",
+                "_CRT_NONSTDC_NO_DEPRECATE",
+            ],
         }
     ),
     private_compiler_flags = select(
         (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-ffast-math",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-ffast-math",
-            "-fno-finite-math-only",
-            "-std=c++20",
-        ],
+            (linux) = [
+                "-fstrict-aliasing",
+                "-fvisibility=hidden",
+                "-fomit-frame-pointer",
+                "-ffunction-sections",
+                "-fdata-sections",
+                "-w",
+                "-fno-rtti",
+                "-ffast-math",
+                "-std=gnu++20",
+            ],
+            (windows) = [
+                "-w",
+                "-ffast-math",
+                "-fno-finite-math-only",
+                "-std=c++20",
+            ],
         }
     ),
 )
@@ -2845,81 +2054,81 @@ cc_static_library(
     lang = "cpp",
     srcs = select(
         (target_platform) => {
-        (linux) = RelPaths([
-            "libs/utils/src/Allocator.cpp",
-            "libs/utils/src/AsyncJobQueue.cpp",
-            "libs/utils/src/CString.cpp",
-            "libs/utils/src/CallStack.cpp",
-            "libs/utils/src/CountDownLatch.cpp",
-            "libs/utils/src/CyclicBarrier.cpp",
-            "libs/utils/src/EntityManager.cpp",
-            "libs/utils/src/FeatureFlagManager.cpp",
-            "libs/utils/src/FixedCapacityVectorBase.cpp",
-            "libs/utils/src/ImmutableCString.cpp",
-            "libs/utils/src/Invocable.cpp",
-            "libs/utils/src/JobSystem.cpp",
-            "libs/utils/src/Log.cpp",
-            "libs/utils/src/NameComponentManager.cpp",
-            "libs/utils/src/PagedArenaBitset.cpp",
-            "libs/utils/src/Panic.cpp",
-            "libs/utils/src/Path.cpp",
-            "libs/utils/src/Profiler.cpp",
-            "libs/utils/src/SingleInstanceComponentManager.cpp",
-            "libs/utils/src/Status.cpp",
-            "libs/utils/src/ThreadUtils.cpp",
-            "libs/utils/src/api_level.cpp",
-            "libs/utils/src/architecture.cpp",
-            "libs/utils/src/ashmem.cpp",
-            "libs/utils/src/debug.cpp",
-            "libs/utils/src/linux/Condition.cpp",
-            "libs/utils/src/linux/Mutex.cpp",
-            "libs/utils/src/linux/Path.cpp",
-            "libs/utils/src/ostream.cpp",
-            "libs/utils/src/sstream.cpp",
-            "libs/utils/src/string.cpp",
-        ]),
-        (windows) = RelPaths([
-            "libs/utils/src/Allocator.cpp",
-            "libs/utils/src/AsyncJobQueue.cpp",
-            "libs/utils/src/CString.cpp",
-            "libs/utils/src/CallStack.cpp",
-            "libs/utils/src/CountDownLatch.cpp",
-            "libs/utils/src/CyclicBarrier.cpp",
-            "libs/utils/src/EntityManager.cpp",
-            "libs/utils/src/FeatureFlagManager.cpp",
-            "libs/utils/src/FixedCapacityVectorBase.cpp",
-            "libs/utils/src/ImmutableCString.cpp",
-            "libs/utils/src/Invocable.cpp",
-            "libs/utils/src/JobSystem.cpp",
-            "libs/utils/src/Log.cpp",
-            "libs/utils/src/NameComponentManager.cpp",
-            "libs/utils/src/PagedArenaBitset.cpp",
-            "libs/utils/src/Panic.cpp",
-            "libs/utils/src/Path.cpp",
-            "libs/utils/src/Profiler.cpp",
-            "libs/utils/src/SingleInstanceComponentManager.cpp",
-            "libs/utils/src/Status.cpp",
-            "libs/utils/src/ThreadUtils.cpp",
-            "libs/utils/src/api_level.cpp",
-            "libs/utils/src/architecture.cpp",
-            "libs/utils/src/ashmem.cpp",
-            "libs/utils/src/debug.cpp",
-            "libs/utils/src/ostream.cpp",
-            "libs/utils/src/sstream.cpp",
-            "libs/utils/src/string.cpp",
-            "libs/utils/src/win32/Path.cpp",
-        ]),
+            (linux) = RelPaths([
+                "libs/utils/src/Allocator.cpp",
+                "libs/utils/src/AsyncJobQueue.cpp",
+                "libs/utils/src/CString.cpp",
+                "libs/utils/src/CallStack.cpp",
+                "libs/utils/src/CountDownLatch.cpp",
+                "libs/utils/src/CyclicBarrier.cpp",
+                "libs/utils/src/EntityManager.cpp",
+                "libs/utils/src/FeatureFlagManager.cpp",
+                "libs/utils/src/FixedCapacityVectorBase.cpp",
+                "libs/utils/src/ImmutableCString.cpp",
+                "libs/utils/src/Invocable.cpp",
+                "libs/utils/src/JobSystem.cpp",
+                "libs/utils/src/Log.cpp",
+                "libs/utils/src/NameComponentManager.cpp",
+                "libs/utils/src/PagedArenaBitset.cpp",
+                "libs/utils/src/Panic.cpp",
+                "libs/utils/src/Path.cpp",
+                "libs/utils/src/Profiler.cpp",
+                "libs/utils/src/SingleInstanceComponentManager.cpp",
+                "libs/utils/src/Status.cpp",
+                "libs/utils/src/ThreadUtils.cpp",
+                "libs/utils/src/api_level.cpp",
+                "libs/utils/src/architecture.cpp",
+                "libs/utils/src/ashmem.cpp",
+                "libs/utils/src/debug.cpp",
+                "libs/utils/src/linux/Condition.cpp",
+                "libs/utils/src/linux/Mutex.cpp",
+                "libs/utils/src/linux/Path.cpp",
+                "libs/utils/src/ostream.cpp",
+                "libs/utils/src/sstream.cpp",
+                "libs/utils/src/string.cpp",
+            ]),
+            (windows) = RelPaths([
+                "libs/utils/src/Allocator.cpp",
+                "libs/utils/src/AsyncJobQueue.cpp",
+                "libs/utils/src/CString.cpp",
+                "libs/utils/src/CallStack.cpp",
+                "libs/utils/src/CountDownLatch.cpp",
+                "libs/utils/src/CyclicBarrier.cpp",
+                "libs/utils/src/EntityManager.cpp",
+                "libs/utils/src/FeatureFlagManager.cpp",
+                "libs/utils/src/FixedCapacityVectorBase.cpp",
+                "libs/utils/src/ImmutableCString.cpp",
+                "libs/utils/src/Invocable.cpp",
+                "libs/utils/src/JobSystem.cpp",
+                "libs/utils/src/Log.cpp",
+                "libs/utils/src/NameComponentManager.cpp",
+                "libs/utils/src/PagedArenaBitset.cpp",
+                "libs/utils/src/Panic.cpp",
+                "libs/utils/src/Path.cpp",
+                "libs/utils/src/Profiler.cpp",
+                "libs/utils/src/SingleInstanceComponentManager.cpp",
+                "libs/utils/src/Status.cpp",
+                "libs/utils/src/ThreadUtils.cpp",
+                "libs/utils/src/api_level.cpp",
+                "libs/utils/src/architecture.cpp",
+                "libs/utils/src/ashmem.cpp",
+                "libs/utils/src/debug.cpp",
+                "libs/utils/src/ostream.cpp",
+                "libs/utils/src/sstream.cpp",
+                "libs/utils/src/string.cpp",
+                "libs/utils/src/win32/Path.cpp",
+            ]),
         }
     ),
     deps = select(
         (target_platform) => {
-        (linux) = Targets([
-            ":tsl",
-        ]),
-        (windows) = Targets([
-            ":getopt",
-            ":tsl",
-        ]),
+            (linux) = Targets([
+                ":tsl",
+            ]),
+            (windows) = Targets([
+                ":getopt",
+                ":tsl",
+            ]),
         }
     ),
     public_include_dirs = RelPaths([
@@ -2927,55 +2136,55 @@ cc_static_library(
     ]),
     public_defines = select(
         (target_platform) => {
-        (linux) = [
-            "HAS_SYSTEM_GETOPT",
-        ],
-        (windows) = [],
+            (linux) = [
+                "HAS_SYSTEM_GETOPT",
+            ],
+            (windows) = [],
         }
     ),
     public_libraries = select(
         (target_platform) => {
-        (linux) = [],
-        (windows) = [
-            "shlwapi.lib",
-        ],
+            (linux) = [],
+            (windows) = [
+                "shlwapi.lib",
+            ],
         }
     ),
     private_defines = select(
         (target_platform) => {
-        (linux) = [
-            "FILAMENT_DRIVER_SUPPORTS_VULKAN",
-            "FILAMENT_SUPPORTS_OPENGL",
-            "FILAMENT_SUPPORTS_X11",
-            "FILAMENT_SUPPORTS_XCB",
-            "FILAMENT_SUPPORTS_XLIB",
-        ],
-        (windows) = [
-            "FILAMENT_SUPPORTS_OPENGL",
-            "WIN32",
-            "_WINDOWS",
-            "_USE_MATH_DEFINES=1",
-            "_CRT_SECURE_NO_WARNINGS",
-            "_CRT_NONSTDC_NO_DEPRECATE",
-        ],
+            (linux) = [
+                "FILAMENT_DRIVER_SUPPORTS_VULKAN",
+                "FILAMENT_SUPPORTS_OPENGL",
+                "FILAMENT_SUPPORTS_X11",
+                "FILAMENT_SUPPORTS_XCB",
+                "FILAMENT_SUPPORTS_XLIB",
+            ],
+            (windows) = [
+                "FILAMENT_SUPPORTS_OPENGL",
+                "WIN32",
+                "_WINDOWS",
+                "_USE_MATH_DEFINES=1",
+                "_CRT_SECURE_NO_WARNINGS",
+                "_CRT_NONSTDC_NO_DEPRECATE",
+            ],
         }
     ),
     private_compiler_flags = select(
         (target_platform) => {
-        (linux) = [
-            "-fstrict-aliasing",
-            "-fvisibility=hidden",
-            "-fomit-frame-pointer",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-w",
-            "-fno-rtti",
-            "-std=gnu++20",
-        ],
-        (windows) = [
-            "-w",
-            "-std=c++20",
-        ],
+            (linux) = [
+                "-fstrict-aliasing",
+                "-fvisibility=hidden",
+                "-fomit-frame-pointer",
+                "-ffunction-sections",
+                "-fdata-sections",
+                "-w",
+                "-fno-rtti",
+                "-std=gnu++20",
+            ],
+            (windows) = [
+                "-w",
+                "-std=c++20",
+            ],
         }
     ),
 )
@@ -3000,11 +2209,11 @@ cc_static_library(
     ]),
     private_defines = select(
         (target_platform) => {
-        (linux) = [],
-        (windows) = [
-            "WIN32",
-            "_WINDOWS",
-        ],
+            (linux) = [],
+            (windows) = [
+                "WIN32",
+                "_WINDOWS",
+            ],
         }
     ),
     private_compiler_flags = [
