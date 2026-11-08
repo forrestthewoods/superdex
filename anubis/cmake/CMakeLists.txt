@@ -1985,6 +1985,7 @@ target_link_libraries(superdex_utils
   PUBLIC
     "superdex_tsl"
     "$<$<PLATFORM_ID:Windows>:superdex_getopt>"
+    "$<$<PLATFORM_ID:Windows>:shell32>"
     "$<$<PLATFORM_ID:Windows>:shlwapi>"
 )
 

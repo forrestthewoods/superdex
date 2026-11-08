@@ -2146,6 +2146,7 @@ cc_static_library(
         (target_platform) => {
             (linux) = [],
             (windows) = [
+                "shell32.lib",
                 "shlwapi.lib",
             ],
         }
