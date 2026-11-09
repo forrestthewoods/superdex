@@ -29,13 +29,17 @@ namespace mochi {
 // extension.
 MochiErrorException::~MochiErrorException() = default;
 
+// Throws from here reach the extensions as MochiErrorException (mochi.Error, a RuntimeError),
+// never as a std:: exception type: with a static C++ runtime in each .so, std:: RTTI isn't
+// shared across .so boundaries, so an extension can't catch it by type.
+
 namespace {
 Context* g_context = nullptr;
 } // namespace
 
 void InitGlobalContext(int numWorkerThreads) {
   if (g_context) {
-    throw std::runtime_error("Mochi has already been initialized.");
+    throw MochiErrorException("Mochi has already been initialized.");
   }
   g_context = mochi::CreateContext(numWorkerThreads);
 }
@@ -46,7 +50,7 @@ Context* GetContext() {
 
 void DestroyGlobalContext() {
   if (!g_context) {
-    throw std::runtime_error("Mochi is not currently initialized.");
+    throw MochiErrorException("Mochi is not currently initialized.");
   }
   // Before destroying the context, clear the log callback. It may hold a reference to a
   // Python function that the user didn't release; otherwise, the interpreter can crash on exit
@@ -58,7 +62,7 @@ void DestroyGlobalContext() {
 
 void CheckContext() {
   if (!g_context) {
-    throw std::runtime_error("Please call mochi.initialize(num_worker_threads) first.");
+    throw MochiErrorException("Please call mochi.initialize(num_worker_threads) first.");
   }
 }
 

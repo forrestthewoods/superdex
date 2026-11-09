@@ -37,3 +37,50 @@ cc_binary(
     include_dirs = RelPaths([ "src" ]),
     compiler_defines = [ "MOCHI_USE_REFLECTION=1" ],
 )
+
+# Shared build (CMake MOCHI_BUILD_SHARED=ON) for the Python extension. Links
+# mochi_physics_shared rather than the static mochi_physics, so physics and
+# robotics share one copy of mochi.
+cc_shared_library(
+    name = "superdex_robotics_shared",
+    lang = "cpp",
+    srcs = glob(
+        includes = [ "src/**/*.cpp", "src/**/*.c" ],
+        excludes = [ "**/internal/**" ],
+    ),
+    deps = Targets([
+        "//superdex_physics/libraries/mochi/mochi_core:mochi_core",
+        "//superdex_physics/libraries/mochi/mochi_physics:mochi_physics_shared",
+        "//superdex_physics/libraries/mochi/third_party/miniz:miniz",
+        "//superdex_physics/libraries/mochi/third_party/tinyxml2:tinyxml2",
+        "//superdex_physics/libraries/mochi/third_party/xxhash:xxhash",
+        "//superdex_physics:headers",
+    ]),
+    public_include_dirs = RelPaths([ "include" ]),
+    private_include_dirs = RelPaths([ "src" ]),
+    private_defines = [
+        "MOCHI_PHYSICS_EXPORTS=1",
+        "MOCHI_USE_REFLECTION=1",
+    ],
+)
+
+# The superdex_robotics Python extension (CMake: pybind/CMakeLists.txt).
+py_extension(
+    name = "superdex_robotics_py",
+    module = "superdex_robotics",
+    lang = "cpp",
+    srcs = glob(
+        includes = [ "pybind/src/**/*.cpp" ],
+        excludes = [ "**/internal/**" ],
+    ),
+    deps = Targets([
+        "//superdex_physics/libraries/mochi/mochi_core:mochi_core",
+        "//superdex_physics/libraries/mochi/mochi_physics:mochi_physics_shared",
+        "//superdex_physics/libraries/mochi/mochi_physics:mochi_pybind_core",
+        "//superdex_physics/libraries/mochi/third_party/pybind11:pybind11",
+        "//superdex_physics/libraries/mochi:mochi_root",
+        ":superdex_robotics_shared",
+    ]),
+    private_include_dirs = RelPaths([ "pybind/src" ]),
+    private_defines = [ "MOCHI_USE_REFLECTION=1" ],
+)

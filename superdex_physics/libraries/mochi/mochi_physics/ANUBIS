@@ -85,11 +85,55 @@ cc_binary(
     compiler_defines = [ "MOCHI_USE_REFLECTION=1" ],
 )
 
-# The mochi_physics Python extension (CMake: pybind/CMakeLists.txt). First
-# cut: everything static in one module (pybind core, mochi_physics, marl),
-# so no C++ state or exceptions cross a shared-library boundary. superdex's
-# CMake build instead shares mochi_pybind_core/mochi_physics/marl as .so
-# files with the superdex_robotics extension.
+# Shared build (CMake MOCHI_BUILD_SHARED=ON), for the Python extensions:
+# mochi_physics and the pybind core are each one .so, which the physics and
+# robotics extensions both link, so they share one copy of mochi's state,
+# RTTI and g_context. libc++ is static in each .so (hidden), so no std::
+# exception may cross these boundaries; MochiErrorException is our own type.
+cc_shared_library(
+    name = "mochi_physics_shared",
+    lang = "cpp",
+    srcs = glob(
+        includes = [ "src/**/*.cpp", "src/**/*.c" ],
+        excludes = [ "**/internal/**" ],
+    ),
+    deps = Targets([
+        "//superdex_physics/libraries/mochi/mochi_core:mochi_core",
+        "//superdex_physics/libraries/mochi/third_party/entt:entt",
+        ":mochi_physics_dbg",
+    ]),
+    public_include_dirs = RelPaths([ "include" ]),
+    public_defines = [ "MOCHI_PHYSICS_DYNAMICALLY_LINKED=1" ],
+    private_include_dirs = RelPaths([
+        "src",
+        "private/diffsim/include",
+    ]),
+    private_defines = [
+        "MOCHI_PHYSICS_EXPORTS=1",
+        "MOCHI_USE_REFLECTION=1",
+    ],
+)
+
+# CMake: mochi_pybind_core. One process-wide g_context and one exported
+# MochiErrorException for every extension. Like CMake, which links the
+# static mochi_core PUBLIC through mochi_physics, each .so that uses
+# mochi_core links its own copy: a static library's objects only land in a
+# .so that references them.
+cc_shared_library(
+    name = "mochi_pybind_core",
+    lang = "cpp",
+    srcs = RelPaths([ "pybind/core/pybind_core.cpp" ]),
+    deps = Targets([
+        "//superdex_physics/libraries/mochi/mochi_core:mochi_core",
+        "//superdex_physics/libraries/mochi/third_party/pybind11:pybind11",
+        "//toolchains:python_headers",
+        ":mochi_physics_shared",
+    ]),
+    public_include_dirs = RelPaths([ "pybind/core" ]),
+    private_defines = [ "MOCHI_USE_REFLECTION=1" ],
+)
+
+# The mochi_physics Python extension (CMake: pybind/CMakeLists.txt).
 py_extension(
     name = "mochi_physics_py",
     module = "mochi_physics",
@@ -97,16 +141,16 @@ py_extension(
     srcs = glob(
         includes = [ "pybind/src/**/*.cpp" ],
         excludes = [ "**/internal/**" ],
-    ) + RelPaths([ "pybind/core/pybind_core.cpp" ]),
+    ),
     deps = Targets([
+        "//superdex_physics/libraries/mochi/mochi_core:mochi_core",
         "//superdex_physics/libraries/mochi/third_party/pybind11:pybind11",
-        "//superdex_physics/libraries/mochi/third_party/marl:marl",
         "//superdex_physics/libraries/mochi:mochi_root",
-        ":mochi_physics",
+        ":mochi_physics_shared",
+        ":mochi_pybind_core",
     ]),
     private_include_dirs = RelPaths([
         "pybind/src",
-        "pybind/core",
         "private/diffsim/include",
     ]),
     private_defines = [ "MOCHI_USE_REFLECTION=1" ],

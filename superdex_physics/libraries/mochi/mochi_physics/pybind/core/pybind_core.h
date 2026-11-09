@@ -36,6 +36,7 @@ namespace mochi {
 class PYBIND11_EXPORT MochiErrorException : public std::runtime_error {
  public:
   explicit MochiErrorException(Error const& e) : std::runtime_error(e.ToString()) {}
+  explicit MochiErrorException(char const* message) : std::runtime_error(message) {}
 
   // Out-of-line key function: anchors the vtable and typeinfo to pybind_core.cpp.
   ~MochiErrorException() override;

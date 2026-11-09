@@ -76,7 +76,6 @@ no-build-isolation-package = [
     "superdex-mesh-cli",
     "superdex-physics-debugger",
     "superdex-physics-fp64",
-    "superdex-robotics",
     "superdex-robotics-fp64",
     "superdex-studio",
 ]
