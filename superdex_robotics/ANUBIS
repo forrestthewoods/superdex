@@ -43,6 +43,12 @@ cc_binary(
 # robotics share one copy of mochi.
 cc_shared_library(
     name = "superdex_robotics_shared",
+    output_name = select(
+        (precision) => {
+            (double) = "superdex_robotics_double",
+            default = "superdex_robotics",
+        }
+    ),
     lang = "cpp",
     srcs = glob(
         includes = [ "src/**/*.cpp", "src/**/*.c" ],
@@ -67,7 +73,12 @@ cc_shared_library(
 # The superdex_robotics Python extension (CMake: pybind/CMakeLists.txt).
 py_extension(
     name = "superdex_robotics_py",
-    module = "superdex_robotics",
+    module = select(
+        (precision) => {
+            (double) = "superdex_robotics_double",
+            default = "superdex_robotics",
+        }
+    ),
     lang = "cpp",
     srcs = glob(
         includes = [ "pybind/src/**/*.cpp" ],

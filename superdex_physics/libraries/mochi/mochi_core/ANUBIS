@@ -25,7 +25,12 @@ cc_static_library(
         "MOCHI_INTERNAL=0",
         "MOCHI_USE_EIGEN=1",
         "MOCHI_USE_HDF5=1",
-    ],
+    ] + select(
+        (precision) => {
+            (double) = [ "MOCHI_USE_DOUBLE_PRECISION=1" ],
+            default = [],
+        }
+    ),
     public_libraries = select(
         (target_platform) => {
             (windows) = [ "ws2_32.lib" ],

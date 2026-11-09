@@ -92,6 +92,12 @@ cc_binary(
 # exception may cross these boundaries; MochiErrorException is our own type.
 cc_shared_library(
     name = "mochi_physics_shared",
+    output_name = select(
+        (precision) => {
+            (double) = "mochi_physics_double",
+            default = "mochi_physics",
+        }
+    ),
     lang = "cpp",
     srcs = glob(
         includes = [ "src/**/*.cpp", "src/**/*.c" ],
@@ -121,6 +127,12 @@ cc_shared_library(
 # .so that references them.
 cc_shared_library(
     name = "mochi_pybind_core",
+    output_name = select(
+        (precision) => {
+            (double) = "mochi_pybind_core_double",
+            default = "mochi_pybind_core",
+        }
+    ),
     lang = "cpp",
     srcs = RelPaths([ "pybind/core/pybind_core.cpp" ]),
     deps = Targets([
@@ -136,7 +148,12 @@ cc_shared_library(
 # The mochi_physics Python extension (CMake: pybind/CMakeLists.txt).
 py_extension(
     name = "mochi_physics_py",
-    module = "mochi_physics",
+    module = select(
+        (precision) => {
+            (double) = "mochi_physics_double",
+            default = "mochi_physics",
+        }
+    ),
     lang = "cpp",
     srcs = glob(
         includes = [ "pybind/src/**/*.cpp" ],

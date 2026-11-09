@@ -63,6 +63,7 @@ exclude = ["superdex/physics/internal", "superdex/physics/utils/testing/internal
 [tool.hatch.build.hooks.anubis]
 targets = ["//superdex_physics/libraries/mochi/mochi_physics:mochi_physics_py"]
 native_dir = "superdex/physics/_native"
+mode_vars = { precision = "single" }
 
 [tool.uv]
 cache-keys = [{ file = "pyproject.toml" }, { env = "ANUBIS_MODE" }]

@@ -3,5 +3,5 @@
 py_env(
     name = "py",
     project = RelPath("."),
-    sync_args = [ "--package", "superdex-physics", "--package", "superdex-robotics" ],
+    sync_args = [ "--package", "superdex-physics", "--package", "superdex-robotics", "--package", "superdex-physics-fp64", "--package", "superdex-robotics-fp64", "--package", "superdex-physics-debugger" ],
 )

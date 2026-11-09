@@ -49,6 +49,7 @@ packages = ["superdex"]
 [tool.hatch.build.hooks.anubis]
 targets = ["//superdex_robotics:superdex_robotics_py"]
 native_dir = "superdex/robotics/_native"
+mode_vars = { precision = "single" }
 # superdex-physics (a dependency) ships the shared mochi libraries.
 exclude_targets = ["//superdex_physics/libraries/mochi/mochi_physics:mochi_physics_py"]
 

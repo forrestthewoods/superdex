@@ -44,8 +44,6 @@ double = [
 gui = [
     "superdex-dev[core]",
     "superdex-mesh-cli",
-    "superdex-physics-debugger",
-    "superdex-studio",
 ]
 
 [project.urls]
@@ -74,10 +72,6 @@ dev = [
 concurrent-builds = 1
 no-build-isolation-package = [
     "superdex-mesh-cli",
-    "superdex-physics-debugger",
-    "superdex-physics-fp64",
-    "superdex-robotics-fp64",
-    "superdex-studio",
 ]
 
 [tool.uv.workspace]

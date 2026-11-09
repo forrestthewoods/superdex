@@ -33,12 +33,12 @@ cc_static_library(
     ),
 )
 
-# Needs assets/ and processing_presets/ next to it at run time (CMake copies
-# them post-build).
+# Finds assets/ and processing_presets/ next to it at run time.
 cc_binary(
     name = "superdex_studio",
     lang = "cpp",
     srcs = RelPaths([ "src/app/main.cpp" ]),
+    resources = glob([ "assets/**/*", "processing_presets/**/*" ]),
     deps = Targets([ ":superdex_studio_static" ]),
     include_dirs = RelPaths([ ".", "src" ]),
     compiler_defines = [
