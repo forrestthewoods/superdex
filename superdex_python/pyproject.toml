@@ -13,8 +13,8 @@
 # limitations under the License.
 
 [build-system]
-requires = ["scikit-build-core>=0.11"]
-build-backend = "scikit_build_core.build"
+requires = ["hatchling>=1.26", "hatch-anubis"]
+build-backend = "hatchling.build"
 
 [project]
 name = "superdex-physics"
@@ -54,25 +54,21 @@ double = ["superdex-physics-fp64==1.0.0"]
 Homepage = "https://github.com/facebookresearch/project_superdex"
 Repository = "https://github.com/facebookresearch/project_superdex"
 
-[tool.scikit-build]
-build-dir = "../build-fp32/{wheel_tag}"
-wheel.packages = ["superdex"]
-wheel.exclude = ["superdex/physics/internal", "superdex/physics/utils/testing/internal"]
-wheel.install-dir = "superdex/physics/_native"
-build.targets = ["mochi_physics_pybind"]
-install.components = ["mochi_physics_pybind"]
+[tool.hatch.build.targets.wheel]
+packages = ["superdex"]
+exclude = ["superdex/physics/internal", "superdex/physics/utils/testing/internal"]
 
-[tool.scikit-build.cmake]
-source-dir = ".."
-args = [
-    "-GNinja",
-    "-DMOCHI_BUILD_DEBUGGER=OFF",
-    "-DMOCHI_BUILD_MESH_CLI=OFF",
-    "-DMOCHI_BUILD_RENDERER=OFF",
-    "-DMOCHI_BUILD_SHARED=ON",
-    "-DMOCHI_USE_PYBIND=ON",
-    "-DSUPERDEX_BUILD_ROBOTICS=OFF",
-]
+# Anubis builds the native payload; hatch-anubis puts it in the wheel
+# (and `anubis run` copies it into .venv for development).
+[tool.hatch.build.hooks.anubis]
+targets = ["//superdex_physics/libraries/mochi/mochi_physics:mochi_physics_py"]
+native_dir = "superdex/physics/_native"
+
+[tool.uv]
+cache-keys = [{ file = "pyproject.toml" }, { env = "ANUBIS_MODE" }]
+
+[tool.uv.sources]
+hatch-anubis = { path = "/home/user/anubis/python/hatch-anubis" }
 
 [tool.cibuildwheel]
 build = "cp312-*"

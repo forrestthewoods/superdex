@@ -74,7 +74,6 @@ dev = [
 concurrent-builds = 1
 no-build-isolation-package = [
     "superdex-mesh-cli",
-    "superdex-physics",
     "superdex-physics-debugger",
     "superdex-physics-fp64",
     "superdex-robotics",

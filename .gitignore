@@ -37,3 +37,4 @@ default.profraw
 /.anubis-cache
 /.anubis-temp
 .anubis_db
+__pycache__

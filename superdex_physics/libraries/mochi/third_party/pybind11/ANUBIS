@@ -1,0 +1,7 @@
+# pybind11 is header-only.
+cc_static_library(
+    name = "pybind11",
+    lang = "cpp",
+    srcs = [],
+    public_include_dirs = RelPaths([ "include" ]),
+)

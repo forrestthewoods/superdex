@@ -1,0 +1,7 @@
+# `anubis run -m //mode:linux_dev -t //:py -- python <script>`: build the
+# native code the uv members declare, sync .venv, copy natives in, run.
+py_env(
+    name = "py",
+    project = RelPath("."),
+    sync_args = [ "--package", "superdex-physics" ],
+)
