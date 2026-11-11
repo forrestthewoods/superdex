@@ -164,11 +164,12 @@ sha256  = "acfde570451cfdb8689fa159a138ee805ba4e241c466432750302c86254b0984"
 [[toolchain]]
 name       = "occt"
 deploy_dir = "third_party/occt"
-provider   = "url"
+provider   = "git"
 [toolchain.options]
-url          = "https://github.com/Open-Cascade-SAS/OCCT/archive/refs/tags/V7_9_3.tar.gz"
-strip_prefix = "OCCT-7_9_3/src"
-sha256       = "5ecf094ec6b12d5413dfb851d8c3590c354058aee556e32e408bdfbf8c357d57"
+repo         = "https://github.com/Open-Cascade-SAS/OCCT.git"
+commit       = "a016080bf6738d6aeae020badee4e888ad1540a5"   # tag V7_9_3
+version      = "7.9.3"
+strip_prefix = "src"
 
 [[toolchain]]
 name       = "cgal"
@@ -194,8 +195,8 @@ sha256       = "5347464af5b14ac54bb945dc68f1dd7c56f0dad7262816b956138fc53bcc0131
 [[toolchain]]
 name       = "rapidjson"
 deploy_dir = "third_party/rapidjson"
-provider   = "url"
+provider   = "git"
 [toolchain.options]
-url          = "https://github.com/Tencent/rapidjson/archive/7484e06c589873e1ed80382d262087e4fa80fb63.tar.gz"
-strip_prefix = "rapidjson-7484e06c589873e1ed80382d262087e4fa80fb63/include"
-sha256       = "fc22de09b56c68bf4e0463e33352f0d7622eb9500ba93af453b7d2d66b5d6be9"
+repo         = "https://github.com/Tencent/rapidjson.git"
+commit       = "7484e06c589873e1ed80382d262087e4fa80fb63"
+strip_prefix = "include"
