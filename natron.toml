@@ -156,3 +156,46 @@ tag     = "0.11.32"
 version = "0.11.32"
 asset   = "uv-x86_64-pc-windows-msvc.zip"
 sha256  = "acfde570451cfdb8689fa159a138ee805ba4e241c466432750302c86254b0984"
+
+# === superdex_mesh_cli third-party sources ===============================
+# Source/header archives (same pins as superdex's CMake FetchContent and
+# ExternalProject), built by toolchains/third_party/ANUBIS. Only the parts
+# the build uses are extracted (strip_prefix).
+[[toolchain]]
+name       = "occt"
+deploy_dir = "third_party/occt"
+provider   = "url"
+[toolchain.options]
+url          = "https://github.com/Open-Cascade-SAS/OCCT/archive/refs/tags/V7_9_3.tar.gz"
+strip_prefix = "OCCT-7_9_3/src"
+sha256       = "5ecf094ec6b12d5413dfb851d8c3590c354058aee556e32e408bdfbf8c357d57"
+
+[[toolchain]]
+name       = "cgal"
+deploy_dir = "third_party/cgal"
+provider   = "github"
+[toolchain.options]
+repo         = "CGAL/cgal"
+tag          = "v6.1.1"
+asset        = "CGAL-6.1.1-library.tar.xz"
+strip_prefix = "CGAL-6.1.1/include"
+sha256       = "37e9fffe48a83209b070e1914c6aa0a7bae8076749712ab78b53245e176e0e0e"
+
+# Headers only: boost/ lands in third_party/boost/boost.
+[[toolchain]]
+name       = "boost"
+deploy_dir = "third_party/boost/boost"
+provider   = "url"
+[toolchain.options]
+url          = "https://archives.boost.io/release/1.77.0/source/boost_1_77_0.tar.gz"
+strip_prefix = "boost_1_77_0/boost"
+sha256       = "5347464af5b14ac54bb945dc68f1dd7c56f0dad7262816b956138fc53bcc0131"
+
+[[toolchain]]
+name       = "rapidjson"
+deploy_dir = "third_party/rapidjson"
+provider   = "url"
+[toolchain.options]
+url          = "https://github.com/Tencent/rapidjson/archive/7484e06c589873e1ed80382d262087e4fa80fb63.tar.gz"
+strip_prefix = "rapidjson-7484e06c589873e1ed80382d262087e4fa80fb63/include"
+sha256       = "fc22de09b56c68bf4e0463e33352f0d7622eb9500ba93af453b7d2d66b5d6be9"

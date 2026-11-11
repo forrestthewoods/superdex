@@ -16,8 +16,8 @@
 # `license` field below.
 
 [build-system]
-requires = ["scikit-build-core>=0.11"]
-build-backend = "scikit_build_core.build"
+requires = ["hatchling>=1.26", "hatch-anubis"]
+build-backend = "hatchling.build"
 
 [project]
 name = "superdex-mesh-cli"
@@ -40,25 +40,18 @@ classifiers = [
 Homepage = "https://github.com/facebookresearch/project_superdex"
 Repository = "https://github.com/facebookresearch/project_superdex"
 
-[tool.scikit-build]
-build-dir = "../build-fp32/{wheel_tag}"
-wheel.packages = ["superdex_mesh_cli"]
-wheel.install-dir = "superdex_mesh_cli/_native"
-build.targets = ["superdex_mesh_cli"]
-install.components = ["superdex_mesh_cli"]
+[tool.hatch.build.targets.wheel]
+packages = ["superdex_mesh_cli"]
 
-[tool.scikit-build.cmake]
-source-dir = ".."
-args = [
-    "-GNinja",
-    "-DMOCHI_BUILD_MESH_CLI=ON",
-    "-DMOCHI_BUILD_SHARED=ON",
-    "-DMOCHI_BUILD_DEBUGGER=OFF",
-    "-DMOCHI_BUILD_RENDERER=OFF",
-    "-DMOCHI_USE_PYBIND=OFF",
-    "-DSUPERDEX_BUILD_ROBOTICS=OFF",
-    "-DSUPERDEX_BUILD_STUDIO=OFF",
-]
+# Anubis builds the native payload; hatch-anubis puts it in the wheel
+# (and `anubis run` copies it into .venv for development).
+[tool.hatch.build.hooks.anubis]
+targets = ["//superdex_physics/libraries/mochi/superdex_mesh_cli:superdex_mesh_cli"]
+native_dir = "superdex_mesh_cli/_native"
+mode_vars = { precision = "single" }
+
+[tool.uv]
+cache-keys = [{ file = "pyproject.toml" }, { env = "ANUBIS_MODE" }]
 
 [tool.cibuildwheel]
 build = "cp312-*"
@@ -75,3 +68,6 @@ CXX = "clang++"
 
 [tool.cibuildwheel.windows]
 repair-wheel-command = "delvewheel repair -w {dest_dir} -v {wheel} --ignore-existing"
+
+[tool.uv.sources]
+hatch-anubis = { path = "/home/user/anubis/python/hatch-anubis" }

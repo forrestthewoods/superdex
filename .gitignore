@@ -33,8 +33,13 @@ default.profraw
 # Anubis
 /toolchains/*
 !/toolchains/ANUBIS
+!/toolchains/third_party/
+/toolchains/third_party/*
+!/toolchains/third_party/ANUBIS
 /.anubis-out
 /.anubis-cache
 /.anubis-temp
 .anubis_db
 __pycache__
+!/toolchains/third_party/glibc_shim/
+!/toolchains/third_party/occt_generated/

@@ -1,0 +1,26 @@
+# superdex_mesh_cli: the out-of-process mesh helper (CGAL + OpenCASCADE).
+# CMake: superdex_mesh_cli/CMakeLists.txt. Third-party sources come from
+# Natron (natron.toml) and build in //toolchains/third_party.
+cc_binary(
+    name = "superdex_mesh_cli",
+    lang = "cpp",
+    srcs = glob([ "superdex_mesh_cli/src/*.cpp" ]),
+    deps = Targets([
+        "//superdex_physics/libraries/mochi/mochi_mesh:mochi_mesh_protocol_private",
+        "//superdex_physics/libraries/mochi/third_party/eigen:eigen",
+        "//toolchains/third_party:TKDEGLTF",
+        "//toolchains/third_party:TKDEOBJ",
+        "//toolchains/third_party:TKDESTEP",
+        "//toolchains/third_party:TKDESTL",
+        "//toolchains/third_party:TKMesh",
+        "//toolchains/third_party:TKRWMesh",
+        "//toolchains/third_party:cgal",
+        "//toolchains/third_party:rapidjson",
+    ]),
+    include_dirs = RelPaths([ "superdex_mesh_cli/src" ]),
+    compiler_defines = [
+        "CGAL_EIGEN3_ENABLED",
+        "MOCHI_USE_EIGEN=1",
+        "MOCHI_USE_OCCT=1",
+    ],
+)

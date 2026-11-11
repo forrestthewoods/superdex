@@ -44,6 +44,8 @@ double = [
 gui = [
     "superdex-dev[core]",
     "superdex-mesh-cli",
+    "superdex-physics-debugger",
+    "superdex-studio",
 ]
 
 [project.urls]
@@ -61,18 +63,9 @@ dev = [
 ]
 
 [tool.uv]
-# The native distributions share one CMake build tree (see `build-dir` in each of their
-# pyproject.toml files) and ninja takes no lock on a build directory. uv builds distributions
-# concurrently by default -- including ones that depend on each other, because a runtime
-# dependency orders installs, not builds -- so without this two of them configure into the
-# same tree at once and it fails, typically on a half-written `.skbuild-info.json`.
-#
-# This costs no wall time. Each build still uses every core, and going one at a time is what
-# lets a later distribution reuse the objects an earlier one just built.
+# The native distributions all run Anubis in this repo. Each build already uses every core,
+# so going one at a time costs no wall time.
 concurrent-builds = 1
-no-build-isolation-package = [
-    "superdex-mesh-cli",
-]
 
 [tool.uv.workspace]
 # Every distribution in the repo. Without this, uv resolves whatever pyproject.toml is
