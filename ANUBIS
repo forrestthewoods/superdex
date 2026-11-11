@@ -61,7 +61,7 @@ py_package(
     targets = Targets([ "//superdex_physics/libraries/mochi/superdex_mesh_cli:superdex_mesh_cli" ]),
 )
 
-# `anubis run -m //mode:linux_dev -t //:py -- python <script>`: build the
+# `anubis run -m //mode:linux_dev_static -t //:py -- python <script>`: build the
 # packages, sync .venv, copy their native files in, run.
 py_env(
     name = "py",
