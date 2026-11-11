@@ -49,9 +49,8 @@ packages = ["superdex_studio"]
 # Anubis builds the native payload; hatch-anubis puts it in the wheel
 # (and `anubis run` copies it into .venv for development).
 [tool.hatch.build.hooks.anubis]
-targets = ["//superdex_studio:superdex_studio"]
-native_dir = "superdex_studio/_native"
-mode_vars = { precision = "single" }
+# The py_package in the root ANUBIS file.
+target = "//:studio"
 
 [tool.uv]
 cache-keys = [{ file = "pyproject.toml" }, { env = "ANUBIS_MODE" }]

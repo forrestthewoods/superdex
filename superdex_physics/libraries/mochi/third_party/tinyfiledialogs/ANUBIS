@@ -31,4 +31,10 @@ cc_static_library(
     private_compiler_flags = [
         "-w",
     ],
+    public_headers = glob([
+        "**/*.h*",
+    ]),
+    private_headers = glob([
+        "*.h*",
+    ]),
 )

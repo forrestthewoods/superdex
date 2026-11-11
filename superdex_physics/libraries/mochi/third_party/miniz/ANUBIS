@@ -4,4 +4,10 @@ cc_static_library(
     srcs = RelPaths([ "miniz.c" ]),
     public_include_dirs = RelPaths([ "." ]),
     private_compiler_flags = [ "-w" ],
+    public_headers = glob([
+        "**/*.h*",
+    ]),
+    private_headers = glob([
+        "*.h*",
+    ]),
 )

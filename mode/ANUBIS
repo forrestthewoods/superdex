@@ -1,23 +1,14 @@
-# Modes. `precision` picks mochi's float type: fp64 modes build the
-# double-precision Python packages (superdex-*-fp64).
-
+# Modes. `precision` picks mochi's float type. Every mode is single
+# precision; the fp64 Python packages override it for their own targets
+# (`mode_vars = { precision = "double" }` on their py_package).
 mode(
     name = "win_dev",
     vars = {
         target_platform = "windows",
         target_arch = "x64",
         build_type = "debug",
+        runtime_linkage = "dynamic",
         precision = "single",
-    },
-)
-
-mode(
-    name = "win_dev_fp64",
-    vars = {
-        target_platform = "windows",
-        target_arch = "x64",
-        build_type = "debug",
-        precision = "double",
     },
 )
 
@@ -27,17 +18,8 @@ mode(
         target_platform = "windows",
         target_arch = "x64",
         build_type = "release",
+        runtime_linkage = "dynamic",
         precision = "single",
-    },
-)
-
-mode(
-    name = "win_release_fp64",
-    vars = {
-        target_platform = "windows",
-        target_arch = "x64",
-        build_type = "release",
-        precision = "double",
     },
 )
 
@@ -47,17 +29,8 @@ mode(
         target_platform = "linux",
         target_arch = "x64",
         build_type = "debug",
+        runtime_linkage = "dynamic",
         precision = "single",
-    },
-)
-
-mode(
-    name = "linux_dev_fp64",
-    vars = {
-        target_platform = "linux",
-        target_arch = "x64",
-        build_type = "debug",
-        precision = "double",
     },
 )
 
@@ -67,16 +40,55 @@ mode(
         target_platform = "linux",
         target_arch = "x64",
         build_type = "release",
+        runtime_linkage = "dynamic",
+        precision = "single",
+    },
+)
+
+# Static C/C++ runtime: self-contained executables (no runtime DLLs/.so to
+# ship), but heap-owning C++ objects and exceptions can't cross a shared
+# library boundary.
+
+mode(
+    name = "win_dev_static",
+    vars = {
+        target_platform = "windows",
+        target_arch = "x64",
+        build_type = "debug",
+        runtime_linkage = "static",
         precision = "single",
     },
 )
 
 mode(
-    name = "linux_release_fp64",
+    name = "win_release_static",
+    vars = {
+        target_platform = "windows",
+        target_arch = "x64",
+        build_type = "release",
+        runtime_linkage = "static",
+        precision = "single",
+    },
+)
+
+mode(
+    name = "linux_dev_static",
+    vars = {
+        target_platform = "linux",
+        target_arch = "x64",
+        build_type = "debug",
+        runtime_linkage = "static",
+        precision = "single",
+    },
+)
+
+mode(
+    name = "linux_release_static",
     vars = {
         target_platform = "linux",
         target_arch = "x64",
         build_type = "release",
-        precision = "double",
+        runtime_linkage = "static",
+        precision = "single",
     },
 )

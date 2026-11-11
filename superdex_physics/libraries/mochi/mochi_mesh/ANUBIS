@@ -15,6 +15,13 @@ cc_static_library(
     public_include_dirs = RelPaths([ "include", "protocol/public" ]),
     private_include_dirs = RelPaths([ "src" ]),
     private_defines = [ "MOCHI_USE_REFLECTION=1" ],
+    public_headers = glob([
+        "include/**/*.h*",
+        "protocol/public/**/*.h*",
+    ]),
+    private_headers = glob([
+        "src/**/*.h*",
+    ]),
 )
 
 cc_static_library(
@@ -23,6 +30,11 @@ cc_static_library(
     srcs = glob([ "protocol/private/src/*.cpp" ]),
     public_include_dirs = RelPaths([ "protocol/private", "protocol/public" ]),
     private_compiler_flags = [ "-std=gnu++20" ],
+    public_headers = glob([
+        "protocol/private/**/*.h*",
+        "protocol/public/**/*.h*",
+    ]),
+    private_headers = [],
 )
 
 cc_binary(
@@ -39,6 +51,10 @@ cc_binary(
     ]),
     include_dirs = RelPaths([ "src", "test" ]),
     compiler_defines = [ "MOCHI_USE_REFLECTION=1" ],
+    headers = glob([
+        "src/**/*.h*",
+        "test/**/*.h*",
+    ]),
 )
 
 cc_binary(
@@ -51,6 +67,7 @@ cc_binary(
     ]),
     compiler_defines = [ "MOCHI_USE_REFLECTION=1" ],
     compiler_flags = [ "-std=gnu++20" ],
+    headers = [],
 )
 
 cc_binary(
@@ -62,6 +79,7 @@ cc_binary(
         ":mochi_mesh_protocol_private",
     ]),
     compiler_defines = [ "MOCHI_USE_REFLECTION=1" ],
+    headers = [],
 )
 
 cc_binary(
@@ -75,4 +93,7 @@ cc_binary(
     ]),
     include_dirs = RelPaths([ "src" ]),
     compiler_defines = [ "MOCHI_USE_REFLECTION=1" ],
+    headers = glob([
+        "src/**/*.h*",
+    ]),
 )

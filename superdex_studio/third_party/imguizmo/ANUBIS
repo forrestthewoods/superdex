@@ -37,4 +37,10 @@ cc_static_library(
             ],
         }
     ),
+    public_headers = glob([
+        "**/*.h*",
+    ]),
+    private_headers = glob([
+        "*.h*",
+    ]),
 )

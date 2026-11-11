@@ -6,4 +6,7 @@ cc_static_library(
     public_include_dirs = RelPaths([ "src" ]),
     # Portable type hashes across translation units (as CMake sets it).
     public_defines = [ "ENTT_STANDARD_CPP" ],
+    public_headers = glob([
+        "src/**/*.h*",
+    ]),
 )

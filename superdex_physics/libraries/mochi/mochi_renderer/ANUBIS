@@ -41,6 +41,13 @@ cc_static_library(
             default = [],
         }
     ),
+    public_headers = glob([
+        "include/**/*.h*",
+    ]),
+    private_headers = glob([
+        "resources/**/*.h*",
+        "src/**/*.h*",
+    ]),
 )
 
 # Prebuilt Filament materials (resources/*.bin), embedded with #embed.
@@ -50,6 +57,8 @@ cc_static_library(
     lang = "c",
     srcs = glob([ "anubis/*.c" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
+    # The files the sources #embed.
+    private_headers = glob([ "resources/*.bin" ]),
 )
 
 cc_binary(
@@ -67,4 +76,8 @@ cc_binary(
     ]),
     include_dirs = RelPaths([ "src" ]),
     compiler_defines = [ "MOCHI_USE_REFLECTION=1" ],
+    headers = glob([
+        "src/**/*.h*",
+        "test/**/*.h*",
+    ]),
 )

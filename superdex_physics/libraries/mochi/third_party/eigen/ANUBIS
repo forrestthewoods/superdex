@@ -4,4 +4,6 @@ cc_static_library(
     lang = "cpp",
     srcs = [],
     public_include_dirs = RelPaths([ "." ]),
+    # Eigen's public headers have no extension (<Eigen/Dense>).
+    public_headers = glob([ "Eigen/**/*", "unsupported/Eigen/**/*" ]),
 )

@@ -27,6 +27,10 @@ cc_static_library(
             (windows) = [ "-Wno-deprecated-declarations" ],
         }
     ),
+    public_headers = glob([
+        "include/**/*.h*",
+    ]),
+    private_headers = [],
 )
 
 cc_static_library(
@@ -42,6 +46,10 @@ cc_static_library(
         }
     ),
     private_compiler_flags = [ "-std=gnu++20", "-w" ],
+    public_headers = glob([
+        "third-party/cityhash/include/**/*.h*",
+    ]),
+    private_headers = [],
 )
 
 cc_binary(
@@ -53,4 +61,7 @@ cc_binary(
         ":simple_reflection",
     ]),
     compiler_flags = [ "-std=gnu++20" ],
+    headers = glob([
+        "test/**/*.h*",
+    ]),
 )

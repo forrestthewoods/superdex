@@ -8,6 +8,9 @@ cc_static_library(
     public_include_dirs = RelPaths([
         "third_party/spirv-headers/include",
     ]),
+    public_headers = glob([
+        "third_party/spirv-headers/include/**/*.h*",
+    ]),
 )
 
 cc_static_library(
@@ -15,6 +18,8 @@ cc_static_library(
     lang = "c",
     srcs = RelPaths([ "anubis/resources/iblprefilter_materials.c" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
+    # The file the source #embeds.
+    private_headers = RelPaths([ "libs/iblprefilter/src/buck_generated/generated/resources/iblprefilter_materials.bin" ]),
 )
 
 cc_static_library(
@@ -22,6 +27,8 @@ cc_static_library(
     lang = "c",
     srcs = RelPaths([ "anubis/resources/bloom.c" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
+    # The file the source #embeds.
+    private_headers = RelPaths([ "filament/src/buck_generated/generated/resources/bloom.bin" ]),
 )
 
 cc_static_library(
@@ -29,6 +36,8 @@ cc_static_library(
     lang = "c",
     srcs = RelPaths([ "anubis/resources/colorGrading.c" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
+    # The file the source #embeds.
+    private_headers = RelPaths([ "filament/src/buck_generated/generated/resources/colorGrading.bin" ]),
 )
 
 cc_static_library(
@@ -36,6 +45,8 @@ cc_static_library(
     lang = "c",
     srcs = RelPaths([ "anubis/resources/dfg.c" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
+    # The file the source #embeds.
+    private_headers = RelPaths([ "filament/src/buck_generated/generated/resources/dfg.bin" ]),
 )
 
 cc_static_library(
@@ -43,6 +54,8 @@ cc_static_library(
     lang = "c",
     srcs = RelPaths([ "anubis/resources/dof.c" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
+    # The file the source #embeds.
+    private_headers = RelPaths([ "filament/src/buck_generated/generated/resources/dof.bin" ]),
 )
 
 cc_static_library(
@@ -50,6 +63,8 @@ cc_static_library(
     lang = "c",
     srcs = RelPaths([ "anubis/resources/evsm.c" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
+    # The file the source #embeds.
+    private_headers = RelPaths([ "filament/src/buck_generated/generated/resources/evsm.bin" ]),
 )
 
 cc_static_library(
@@ -57,6 +72,8 @@ cc_static_library(
     lang = "c",
     srcs = RelPaths([ "anubis/resources/flare.c" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
+    # The file the source #embeds.
+    private_headers = RelPaths([ "filament/src/buck_generated/generated/resources/flare.bin" ]),
 )
 
 cc_static_library(
@@ -64,6 +81,8 @@ cc_static_library(
     lang = "c",
     srcs = RelPaths([ "anubis/resources/fog.c" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
+    # The file the source #embeds.
+    private_headers = RelPaths([ "filament/src/buck_generated/generated/resources/fog.bin" ]),
 )
 
 cc_static_library(
@@ -71,6 +90,8 @@ cc_static_library(
     lang = "c",
     srcs = RelPaths([ "anubis/resources/fsr.c" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
+    # The file the source #embeds.
+    private_headers = RelPaths([ "filament/src/buck_generated/generated/resources/fsr.bin" ]),
 )
 
 cc_static_library(
@@ -78,6 +99,8 @@ cc_static_library(
     lang = "c",
     srcs = RelPaths([ "anubis/resources/fxaa.c" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
+    # The file the source #embeds.
+    private_headers = RelPaths([ "filament/src/buck_generated/generated/resources/fxaa.bin" ]),
 )
 
 cc_static_library(
@@ -85,6 +108,8 @@ cc_static_library(
     lang = "c",
     srcs = RelPaths([ "anubis/resources/materials.c" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
+    # The file the source #embeds.
+    private_headers = RelPaths([ "filament/src/buck_generated/generated/resources/materials.bin" ]),
 )
 
 cc_static_library(
@@ -92,6 +117,8 @@ cc_static_library(
     lang = "c",
     srcs = RelPaths([ "anubis/resources/sgsr.c" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
+    # The file the source #embeds.
+    private_headers = RelPaths([ "filament/src/buck_generated/generated/resources/sgsr.bin" ]),
 )
 
 cc_static_library(
@@ -99,6 +126,8 @@ cc_static_library(
     lang = "c",
     srcs = RelPaths([ "anubis/resources/ssao.c" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
+    # The file the source #embeds.
+    private_headers = RelPaths([ "filament/src/buck_generated/generated/resources/ssao.bin" ]),
 )
 
 cc_static_library(
@@ -106,6 +135,8 @@ cc_static_library(
     lang = "c",
     srcs = RelPaths([ "anubis/resources/taa.c" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
+    # The file the source #embeds.
+    private_headers = RelPaths([ "filament/src/buck_generated/generated/resources/taa.bin" ]),
 )
 
 cc_static_library(
@@ -302,6 +333,16 @@ cc_static_library(
             ],
         }
     ),
+    public_headers = glob([
+        "filament/backend/include/**/*.h*",
+        "filament/backend/include/**/*.inc",
+    ]),
+    private_headers = glob([
+        "filament/backend/src/**/*.h*",
+        "filament/backend/src/**/*.inc",
+        "filament/include/**/*.h*",
+        "filament/src/**/*.h*",
+    ]),
 )
 
 cc_static_library(
@@ -310,6 +351,10 @@ cc_static_library(
     srcs = [],
     public_include_dirs = RelPaths([
         "filament/backend/include",
+    ]),
+    public_headers = glob([
+        "filament/backend/include/**/*.h*",
+        "filament/backend/include/**/*.inc",
     ]),
 )
 
@@ -396,6 +441,12 @@ cc_static_library(
             ],
         }
     ),
+    public_headers = glob([
+        "third_party/basisu/encoder/**/*.h*",
+    ]),
+    private_headers = glob([
+        "third_party/basisu/encoder/**/*.h*",
+    ]),
 )
 
 cc_static_library(
@@ -465,6 +516,14 @@ cc_static_library(
             ],
         }
     ),
+    public_headers = glob([
+        "third_party/basisu/transcoder/**/*.h*",
+        "third_party/basisu/transcoder/**/*.inc",
+    ]),
+    private_headers = glob([
+        "third_party/basisu/transcoder/**/*.h*",
+        "third_party/basisu/transcoder/**/*.inc",
+    ]),
 )
 
 cc_static_library(
@@ -541,6 +600,13 @@ cc_static_library(
             ],
         }
     ),
+    public_headers = glob([
+        "libs/bluegl/include/**/*.h*",
+    ]),
+    private_headers = glob([
+        "libs/bluegl/src/*.S",  # the Universal .S includes the per-arch one
+        "libs/bluegl/src/**/*.h*",
+    ]),
 )
 
 cc_static_library(
@@ -575,6 +641,10 @@ cc_static_library(
         "-fno-rtti",
         "-std=gnu++20",
     ],
+    public_headers = glob([
+        "libs/bluevk/include/**/*.h*",
+    ]),
+    private_headers = [],
 )
 
 cc_static_library(
@@ -627,6 +697,12 @@ cc_static_library(
             ],
         }
     ),
+    public_headers = glob([
+        "libs/camutils/include/**/*.h*",
+    ]),
+    private_headers = glob([
+        "libs/camutils/src/**/*.h*",
+    ]),
 )
 
 cc_static_library(
@@ -635,6 +711,9 @@ cc_static_library(
     srcs = [],
     public_include_dirs = RelPaths([
         "third_party/cgltf",
+    ]),
+    public_headers = glob([
+        "third_party/cgltf/**/*.h*",
     ]),
 )
 
@@ -667,6 +746,7 @@ cc_static_library(
         "third_party/draco/src/draco/compression/bit_coders/symbol_bit_decoder.cc",
         "third_party/draco/src/draco/compression/bit_coders/symbol_bit_encoder.cc",
         "third_party/draco/src/draco/compression/decode.cc",
+        "third_party/draco/src/draco/compression/draco_compression_options.cc",
         "third_party/draco/src/draco/compression/entropy/shannon_entropy.cc",
         "third_party/draco/src/draco/compression/entropy/symbol_decoding.cc",
         "third_party/draco/src/draco/compression/entropy/symbol_encoding.cc",
@@ -674,7 +754,8 @@ cc_static_library(
         "third_party/draco/src/draco/compression/mesh/mesh_edgebreaker_decoder.cc",
         "third_party/draco/src/draco/compression/mesh/mesh_edgebreaker_decoder_impl.cc",
         "third_party/draco/src/draco/compression/mesh/mesh_sequential_decoder.cc",
-        "third_party/draco/src/draco/compression/draco_compression_options.cc",
+        "third_party/draco/src/draco/compression/point_cloud/algorithms/dynamic_integer_points_kd_tree_decoder.cc",
+        "third_party/draco/src/draco/compression/point_cloud/algorithms/float_points_tree_decoder.cc",
         "third_party/draco/src/draco/compression/point_cloud/point_cloud_decoder.cc",
         "third_party/draco/src/draco/compression/point_cloud/point_cloud_kd_tree_decoder.cc",
         "third_party/draco/src/draco/compression/point_cloud/point_cloud_sequential_decoder.cc",
@@ -716,15 +797,13 @@ cc_static_library(
         "third_party/draco/src/draco/mesh/triangle_soup_mesh_builder.cc",
         "third_party/draco/src/draco/metadata/geometry_metadata.cc",
         "third_party/draco/src/draco/metadata/metadata.cc",
+        "third_party/draco/src/draco/metadata/metadata_decoder.cc",
         "third_party/draco/src/draco/metadata/property_attribute.cc",
         "third_party/draco/src/draco/metadata/property_table.cc",
         "third_party/draco/src/draco/metadata/structural_metadata.cc",
         "third_party/draco/src/draco/metadata/structural_metadata_schema.cc",
-        "third_party/draco/src/draco/metadata/metadata_decoder.cc",
         "third_party/draco/src/draco/point_cloud/point_cloud.cc",
         "third_party/draco/src/draco/point_cloud/point_cloud_builder.cc",
-        "third_party/draco/src/draco/compression/point_cloud/algorithms/dynamic_integer_points_kd_tree_decoder.cc",
-        "third_party/draco/src/draco/compression/point_cloud/algorithms/float_points_tree_decoder.cc",
     ]),
     private_include_dirs = RelPaths([
         "third_party/draco/src",
@@ -767,6 +846,10 @@ cc_static_library(
             ],
         }
     ),
+    private_headers = glob([
+        "anubis/draco/**/*.h*",
+        "third_party/draco/src/**/*.h*",
+    ]),
 )
 
 cc_static_library(
@@ -775,7 +858,7 @@ cc_static_library(
     srcs = RelPaths([
         "third_party/draco/tnt/dummy.c",
     ]),
-    deps = Targets([":draco"]),
+    deps = Targets([ ":draco" ]),
     public_include_dirs = RelPaths([
         "anubis/draco",
         "third_party/draco/src",
@@ -810,6 +893,13 @@ cc_static_library(
             ],
         }
     ),
+    public_headers = glob([
+        "anubis/draco/**/*.h*",
+        "third_party/draco/src/**/*.h*",
+    ]),
+    private_headers = glob([
+        "third_party/draco/tnt/**/*.h*",
+    ]),
 )
 
 cc_static_library(
@@ -866,6 +956,10 @@ cc_static_library(
             ],
         }
     ),
+    public_headers = glob([
+        "libs/filabridge/include/**/*.h*",
+    ]),
+    private_headers = [],
 )
 
 cc_static_library(
@@ -930,6 +1024,10 @@ cc_static_library(
             ],
         }
     ),
+    public_headers = glob([
+        "libs/filaflat/include/**/*.h*",
+    ]),
+    private_headers = [],
 )
 
 cc_static_library(
@@ -1141,6 +1239,12 @@ cc_static_library(
             ],
         }
     ),
+    public_headers = glob([
+        "filament/include/**/*.h*",
+    ]),
+    private_headers = glob([
+        "filament/src/**/*.h*",
+    ]),
 )
 
 cc_static_library(
@@ -1206,6 +1310,12 @@ cc_static_library(
             ],
         }
     ),
+    public_headers = glob([
+        "libs/iblprefilter/include/**/*.h*",
+    ]),
+    private_headers = glob([
+        "libs/iblprefilter/src/**/*.h*",
+    ]),
 )
 
 cc_static_library(
@@ -1258,6 +1368,10 @@ cc_static_library(
             ],
         }
     ),
+    public_headers = glob([
+        "libs/filameshio/include/**/*.h*",
+    ]),
+    private_headers = [],
 )
 
 cc_static_library(
@@ -1319,6 +1433,12 @@ cc_static_library(
             ],
         }
     ),
+    public_headers = glob([
+        "libs/geometry/include/**/*.h*",
+    ]),
+    private_headers = glob([
+        "libs/geometry/src/**/*.h*",
+    ]),
 )
 
 cc_static_library(
@@ -1413,6 +1533,12 @@ cc_static_library(
             ],
         }
     ),
+    public_headers = glob([
+        "libs/gltfio/include/**/*.h*",
+    ]),
+    private_headers = glob([
+        "libs/gltfio/src/**/*.h*",
+    ]),
 )
 
 cc_static_library(
@@ -1472,6 +1598,10 @@ cc_static_library(
             ],
         }
     ),
+    public_headers = glob([
+        "libs/image/include/**/*.h*",
+    ]),
+    private_headers = [],
 )
 
 cc_static_library(
@@ -1544,6 +1674,10 @@ cc_static_library(
             ],
         }
     ),
+    public_headers = glob([
+        "libs/imageio/include/**/*.h*",
+    ]),
+    private_headers = [],
 )
 
 cc_static_library(
@@ -1599,6 +1733,10 @@ cc_static_library(
             ],
         }
     ),
+    public_headers = glob([
+        "libs/ktxreader/include/**/*.h*",
+    ]),
+    private_headers = [],
 )
 
 cc_static_library(
@@ -1652,6 +1790,10 @@ cc_static_library(
             ],
         }
     ),
+    public_headers = glob([
+        "libs/math/include/**/*.h*",
+    ]),
+    private_headers = [],
 )
 
 cc_static_library(
@@ -1714,6 +1856,12 @@ cc_static_library(
             ],
         }
     ),
+    public_headers = glob([
+        "third_party/meshoptimizer/src/**/*.h*",
+    ]),
+    private_headers = glob([
+        "third_party/meshoptimizer/src/**/*.h*",
+    ]),
 )
 
 cc_static_library(
@@ -1759,6 +1907,10 @@ cc_static_library(
             ],
         }
     ),
+    public_headers = glob([
+        "third_party/mikktspace/include/**/*.h*",
+    ]),
+    private_headers = [],
 )
 
 cc_static_library(
@@ -1822,6 +1974,14 @@ cc_static_library(
             ],
         }
     ),
+    public_headers = glob([
+        "third_party/libpng/**/*.h*",
+        "third_party/libpng/**/*.def",
+    ]),
+    private_headers = glob([
+        "third_party/libpng/**/*.h*",
+        "third_party/libpng/**/*.def",
+    ]),
 )
 
 cc_static_library(
@@ -1870,6 +2030,12 @@ cc_static_library(
             ],
         }
     ),
+    public_headers = glob([
+        "third_party/smol-v/source/**/*.h*",
+    ]),
+    private_headers = glob([
+        "third_party/smol-v/source/**/*.h*",
+    ]),
 )
 
 cc_static_library(
@@ -1918,6 +2084,12 @@ cc_static_library(
             ],
         }
     ),
+    public_headers = glob([
+        "third_party/stb/**/*.h*",
+    ]),
+    private_headers = glob([
+        "third_party/stb/**/*.h*",
+    ]),
 )
 
 cc_static_library(
@@ -1972,6 +2144,10 @@ cc_static_library(
             ],
         }
     ),
+    public_headers = glob([
+        "third_party/tinyexr/**/*.h*",
+    ]),
+    private_headers = [],
 )
 
 cc_static_library(
@@ -1981,6 +2157,9 @@ cc_static_library(
     public_include_dirs = RelPaths([
         "third_party/robin-map/include",
     ]),
+    public_headers = glob([
+        "third_party/robin-map/include/**/*.h*",
+    ]),
 )
 
 cc_static_library(
@@ -1989,6 +2168,11 @@ cc_static_library(
     srcs = RelPaths([ "anubis/resources/uberarchive.c" ]),
     public_include_dirs = RelPaths([ "libs/gltfio/src/buck_generated/generated" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
+    public_headers = glob([
+        "libs/gltfio/src/buck_generated/generated/**/*.h*",
+    ]),
+    # The file the source #embeds.
+    private_headers = RelPaths([ "libs/gltfio/src/buck_generated/generated/materials/uberarchive.bin" ]),
 )
 
 cc_static_library(
@@ -2047,6 +2231,10 @@ cc_static_library(
             ],
         }
     ),
+    public_headers = glob([
+        "libs/uberz/include/**/*.h*",
+    ]),
+    private_headers = [],
 )
 
 cc_static_library(
@@ -2188,6 +2376,12 @@ cc_static_library(
             ],
         }
     ),
+    public_headers = glob([
+        "libs/utils/include/**/*.h*",
+    ]),
+    private_headers = glob([
+        "libs/utils/src/**/*.h*",
+    ]),
 )
 
 cc_static_library(
@@ -2196,6 +2390,9 @@ cc_static_library(
     srcs = [],
     public_include_dirs = RelPaths([
         "third_party/vkmemalloc/include",
+    ]),
+    public_headers = glob([
+        "third_party/vkmemalloc/include/**/*.h*",
     ]),
 )
 
@@ -2220,4 +2417,10 @@ cc_static_library(
     private_compiler_flags = [
         "-w",
     ],
+    public_headers = glob([
+        "third_party/basisu/zstd/**/*.h*",
+    ]),
+    private_headers = glob([
+        "third_party/basisu/zstd/**/*.h*",
+    ]),
 )

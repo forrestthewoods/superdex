@@ -23,4 +23,7 @@ cc_binary(
         "MOCHI_USE_EIGEN=1",
         "MOCHI_USE_OCCT=1",
     ],
+    headers = glob([
+        "superdex_mesh_cli/src/**/*.h*",
+    ]),
 )

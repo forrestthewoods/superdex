@@ -25,6 +25,12 @@ cc_static_library(
             default = Targets([ ":marl_fiber" ]),
         }
     ),
+    public_headers = glob([
+        "marl/include/**/*.h*",
+    ]),
+    private_headers = glob([
+        "marl/src/**/*.h*",
+    ]),
 )
 
 cc_static_library(
@@ -38,4 +44,8 @@ cc_static_library(
     ),
     private_include_dirs = RelPaths([ "marl/include" ]),
     private_compiler_flags = [ "-w" ],
+    private_headers = glob([
+        "marl/include/**/*.h*",
+        "marl/src/**/*.h*",
+    ]),
 )

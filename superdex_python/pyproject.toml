@@ -61,9 +61,8 @@ exclude = ["superdex/physics/internal", "superdex/physics/utils/testing/internal
 # Anubis builds the native payload; hatch-anubis puts it in the wheel
 # (and `anubis run` copies it into .venv for development).
 [tool.hatch.build.hooks.anubis]
-targets = ["//superdex_physics/libraries/mochi/mochi_physics:mochi_physics_py"]
-native_dir = "superdex/physics/_native"
-mode_vars = { precision = "single" }
+# The py_package in the root ANUBIS file.
+target = "//:physics"
 
 [tool.uv]
 cache-keys = [{ file = "pyproject.toml" }, { env = "ANUBIS_MODE" }]

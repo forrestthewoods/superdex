@@ -4,4 +4,7 @@ cc_static_library(
     lang = "cpp",
     srcs = [],
     public_include_dirs = RelPaths([ "include" ]),
+    public_headers = glob([
+        "include/**/*.h*",
+    ]),
 )

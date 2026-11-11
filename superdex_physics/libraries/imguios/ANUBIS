@@ -33,4 +33,10 @@ cc_static_library(
             (windows) = [ "-Wno-deprecated-declarations" ],
         }
     ),
+    public_headers = glob([
+        "include/**/*.h*",
+    ]),
+    private_headers = glob([
+        "src/**/*.h*",
+    ]),
 )

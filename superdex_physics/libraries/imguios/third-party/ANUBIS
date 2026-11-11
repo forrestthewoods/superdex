@@ -22,6 +22,10 @@ cc_static_library(
     private_compiler_flags = [
         "-w",
     ],
+    public_headers = glob([
+        "glad/include/**/*.h*",
+    ]),
+    private_headers = [],
 )
 
 cc_static_library(
@@ -120,6 +124,12 @@ cc_static_library(
             ],
         }
     ),
+    public_headers = glob([
+        "glfw/include/**/*.h*",
+    ]),
+    private_headers = glob([
+        "glfw/src/**/*.h*",
+    ]),
 )
 
 cc_static_library(
@@ -163,6 +173,12 @@ cc_static_library(
             ],
         }
     ),
+    public_headers = glob([
+        "imgui/**/*.h*",
+    ]),
+    private_headers = glob([
+        "imgui/**/*.h*",
+    ]),
 )
 
 cc_static_library(
@@ -201,6 +217,10 @@ cc_static_library(
             ],
         }
     ),
+    public_headers = glob([
+        "imguios_fonts/include/**/*.h*",
+    ]),
+    private_headers = [],
 )
 
 cc_static_library(
@@ -238,4 +258,10 @@ cc_static_library(
             ],
         }
     ),
+    public_headers = glob([
+        "implot/**/*.h*",
+    ]),
+    private_headers = glob([
+        "implot/**/*.h*",
+    ]),
 )

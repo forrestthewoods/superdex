@@ -18,6 +18,13 @@ cc_static_library(
         "private/diffsim/include",
     ]),
     private_defines = [ "MOCHI_USE_REFLECTION=1" ],
+    public_headers = glob([
+        "include/**/*.h*",
+    ]),
+    private_headers = glob([
+        "private/diffsim/include/**/*.h*",
+        "src/**/*.h*",
+    ]),
 )
 
 cc_static_library(
@@ -31,6 +38,11 @@ cc_static_library(
     public_include_dirs = RelPaths([ "dbg/include", "include" ]),
     private_include_dirs = RelPaths([ "dbg/src" ]),
     private_defines = [ "MOCHI_USE_REFLECTION=1" ],
+    public_headers = glob([
+        "dbg/include/**/*.h*",
+        "include/**/*.h*",
+    ]),
+    private_headers = [],
 )
 
 cc_binary(
@@ -48,6 +60,9 @@ cc_binary(
         ":mochi_physics",
     ]),
     compiler_defines = [ "MOCHI_USE_REFLECTION=1" ],
+    headers = glob([
+        "test/**/*.h*",
+    ]),
 )
 
 cc_binary(
@@ -66,6 +81,11 @@ cc_binary(
     ]),
     include_dirs = RelPaths([ "test", "private/diffsim/test", "private/diffsim/include" ]),
     compiler_defines = [ "MOCHI_USE_REFLECTION=1" ],
+    headers = glob([
+        "private/diffsim/include/**/*.h*",
+        "private/diffsim/test/**/*.h*",
+        "test/**/*.h*",
+    ]),
 )
 
 cc_binary(
@@ -83,6 +103,9 @@ cc_binary(
         ":mochi_physics",
     ]),
     compiler_defines = [ "MOCHI_USE_REFLECTION=1" ],
+    headers = glob([
+        "benchmark/**/*.h*",
+    ]),
 )
 
 # Shared build (CMake MOCHI_BUILD_SHARED=ON), for the Python extensions:
@@ -118,6 +141,13 @@ cc_shared_library(
         "MOCHI_PHYSICS_EXPORTS=1",
         "MOCHI_USE_REFLECTION=1",
     ],
+    public_headers = glob([
+        "include/**/*.h*",
+    ]),
+    private_headers = glob([
+        "private/diffsim/include/**/*.h*",
+        "src/**/*.h*",
+    ]),
 )
 
 # CMake: mochi_pybind_core. One process-wide g_context and one exported
@@ -143,6 +173,12 @@ cc_shared_library(
     ]),
     public_include_dirs = RelPaths([ "pybind/core" ]),
     private_defines = [ "MOCHI_USE_REFLECTION=1" ],
+    public_headers = glob([
+        "pybind/core/**/*.h*",
+    ]),
+    private_headers = glob([
+        "pybind/core/**/*.h*",
+    ]),
 )
 
 # The mochi_physics Python extension (CMake: pybind/CMakeLists.txt).
@@ -171,4 +207,8 @@ py_extension(
         "private/diffsim/include",
     ]),
     private_defines = [ "MOCHI_USE_REFLECTION=1" ],
+    private_headers = glob([
+        "private/diffsim/include/**/*.h*",
+        "pybind/src/**/*.h*",
+    ]),
 )

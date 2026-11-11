@@ -47,13 +47,8 @@ packages = ["superdex_robotics_fp64"]
 # Anubis builds the native payload; hatch-anubis puts it in the wheel
 # (and `anubis run` copies it into .venv for development).
 [tool.hatch.build.hooks.anubis]
-# The double-precision build of superdex-robotics' extension: build the wheel
-# with an fp64 mode, e.g. ANUBIS_MODE=linux_release_fp64.
-targets = ["//superdex_robotics:superdex_robotics_py"]
-native_dir = "superdex_robotics_fp64/_native"
-# superdex-physics-fp64 (a dependency) ships the shared mochi libraries.
-exclude_targets = ["//superdex_physics/libraries/mochi/mochi_physics:mochi_physics_py"]
-mode_vars = { precision = "double" }
+# The py_package in the root ANUBIS file.
+target = "//:robotics_fp64"
 
 [tool.uv]
 cache-keys = [{ file = "pyproject.toml" }, { env = "ANUBIS_MODE" }]

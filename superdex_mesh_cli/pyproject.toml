@@ -46,9 +46,8 @@ packages = ["superdex_mesh_cli"]
 # Anubis builds the native payload; hatch-anubis puts it in the wheel
 # (and `anubis run` copies it into .venv for development).
 [tool.hatch.build.hooks.anubis]
-targets = ["//superdex_physics/libraries/mochi/superdex_mesh_cli:superdex_mesh_cli"]
-native_dir = "superdex_mesh_cli/_native"
-mode_vars = { precision = "single" }
+# The py_package in the root ANUBIS file.
+target = "//:mesh_cli"
 
 [tool.uv]
 cache-keys = [{ file = "pyproject.toml" }, { env = "ANUBIS_MODE" }]

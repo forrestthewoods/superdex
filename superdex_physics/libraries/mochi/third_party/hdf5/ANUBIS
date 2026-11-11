@@ -43,6 +43,15 @@ cc_static_library(
         }
     ),
     private_compiler_flags = [ "-std=gnu99", "-w" ],
+    public_headers = glob([
+        "anubis/linux/**/*.h*",
+        "anubis/windows/**/*.h*",
+        "src/**/*.h*",
+    ]),
+    private_headers = glob([
+        "anubis/**/*.h*",
+        "src/**/*.h*",
+    ]),
 )
 
 cc_static_library(
@@ -52,6 +61,12 @@ cc_static_library(
     deps = Targets([ ":hdf5" ]),
     public_include_dirs = RelPaths([ "hl/src" ]),
     private_compiler_flags = [ "-std=gnu99", "-w" ],
+    public_headers = glob([
+        "hl/src/**/*.h*",
+    ]),
+    private_headers = glob([
+        "hl/src/**/*.h*",
+    ]),
 )
 
 cc_static_library(
@@ -67,6 +82,12 @@ cc_static_library(
             default = [ "-std=c++11" ],
         }
     ),
+    public_headers = glob([
+        "c++/src/**/*.h*",
+    ]),
+    private_headers = glob([
+        "c++/src/**/*.h*",
+    ]),
 )
 
 cc_static_library(
@@ -82,4 +103,10 @@ cc_static_library(
             default = [ "-std=c++11" ],
         }
     ),
+    public_headers = glob([
+        "hl/c++/src/**/*.h*",
+    ]),
+    private_headers = glob([
+        "hl/c++/src/**/*.h*",
+    ]),
 )

@@ -580,7 +580,9 @@ gui = [
     { name = "superdex-lab" },
     { name = "superdex-mesh-cli" },
     { name = "superdex-physics" },
+    { name = "superdex-physics-debugger" },
     { name = "superdex-robotics" },
+    { name = "superdex-studio" },
 ]
 
 [package.dev-dependencies]
@@ -597,9 +599,11 @@ requires-dist = [
     { name = "superdex-lab", marker = "extra == 'core'", editable = "superdex_lab" },
     { name = "superdex-mesh-cli", marker = "extra == 'gui'", editable = "superdex_mesh_cli" },
     { name = "superdex-physics", marker = "extra == 'core'", editable = "superdex_python" },
+    { name = "superdex-physics-debugger", marker = "extra == 'gui'", editable = "superdex_physics_debugger" },
     { name = "superdex-physics-fp64", marker = "extra == 'double'", editable = "superdex_physics_fp64" },
     { name = "superdex-robotics", marker = "extra == 'core'", editable = "superdex_robotics" },
     { name = "superdex-robotics-fp64", marker = "extra == 'double'", editable = "superdex_robotics_fp64" },
+    { name = "superdex-studio", marker = "extra == 'gui'", editable = "superdex_studio" },
 ]
 provides-extras = ["core", "double", "gui"]
 

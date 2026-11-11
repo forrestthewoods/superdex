@@ -31,6 +31,13 @@ cc_static_library(
             default = [],
         }
     ),
+    public_headers = glob([
+        "src/**/*.h*",
+        "third_party/**/*.h*",
+    ]),
+    private_headers = glob([
+        "**/*.h*",
+    ]),
 )
 
 # Finds assets/ and processing_presets/ next to it at run time.
@@ -52,4 +59,7 @@ cc_binary(
             default = [],
         }
     ),
+    headers = glob([
+        "**/*.h*",
+    ]),
 )

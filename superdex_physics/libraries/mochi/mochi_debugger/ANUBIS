@@ -13,6 +13,10 @@ cc_static_library(
     public_include_dirs = RelPaths([ "lib/include" ]),
     private_include_dirs = RelPaths([ "lib/src" ]),
     private_defines = [ "MOCHI_USE_REFLECTION=1" ],
+    public_headers = glob([
+        "lib/include/**/*.h*",
+    ]),
+    private_headers = [],
 )
 
 cc_binary(
@@ -27,6 +31,9 @@ cc_binary(
         ":mochi_debugger_lib",
     ]),
     compiler_defines = [ "MOCHI_USE_REFLECTION=1" ],
+    headers = glob([
+        "mdb/**/*.h*",
+    ]),
 )
 
 cc_binary(
@@ -44,6 +51,9 @@ cc_binary(
     ]),
     include_dirs = RelPaths([ "app" ]),
     compiler_defines = [ "MOCHI_USE_REFLECTION=1", "FILAMENT_DISABLE_MATOPT=0", "IMGUI_DEFINE_MATH_OPERATORS" ],
+    headers = glob([
+        "app/**/*.h*",
+    ]),
 )
 
 cc_binary(
@@ -63,4 +73,7 @@ cc_binary(
         ":mochi_debugger_lib",
     ]),
     compiler_defines = [ "MOCHI_USE_REFLECTION=1" ],
+    headers = glob([
+        "test/**/*.h*",
+    ]),
 )

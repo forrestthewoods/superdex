@@ -63,6 +63,12 @@ cc_static_library(
         "MOCHI_USE_REFLECTION=1",
         "MOCHI_WARN_IF_NOT_OPTIMIZED=1",
     ],
+    public_headers = glob([
+        "include/**/*.h*",
+    ]),
+    private_headers = glob([
+        "src/**/*.h*",
+    ]),
 )
 
 cc_binary(
@@ -77,6 +83,9 @@ cc_binary(
         ":mochi_core",
     ]),
     compiler_defines = [ "MOCHI_USE_REFLECTION=1" ],
+    headers = glob([
+        "test/**/*.h*",
+    ]),
 )
 
 cc_binary(
@@ -91,4 +100,7 @@ cc_binary(
         ":mochi_core",
     ]),
     compiler_defines = [ "MOCHI_USE_REFLECTION=1" ],
+    headers = glob([
+        "benchmark/**/*.h*",
+    ]),
 )

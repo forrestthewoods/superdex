@@ -19,6 +19,12 @@ cc_static_library(
         "src",
     ]),
     private_defines = [ "MOCHI_USE_REFLECTION=1" ],
+    public_headers = glob([
+        "include/**/*.h*",
+    ]),
+    private_headers = glob([
+        "src/**/*.h*",
+    ]),
 )
 
 # Needs MOCHI_ASSETS_PATH=<superdex>/assets at run time (CMake sets it via
@@ -36,6 +42,10 @@ cc_binary(
     ]),
     include_dirs = RelPaths([ "src" ]),
     compiler_defines = [ "MOCHI_USE_REFLECTION=1" ],
+    headers = glob([
+        "src/**/*.h*",
+        "test/**/*.h*",
+    ]),
 )
 
 # Shared build (CMake MOCHI_BUILD_SHARED=ON) for the Python extension. Links
@@ -68,6 +78,12 @@ cc_shared_library(
         "MOCHI_PHYSICS_EXPORTS=1",
         "MOCHI_USE_REFLECTION=1",
     ],
+    public_headers = glob([
+        "include/**/*.h*",
+    ]),
+    private_headers = glob([
+        "src/**/*.h*",
+    ]),
 )
 
 # The superdex_robotics Python extension (CMake: pybind/CMakeLists.txt).
@@ -94,4 +110,7 @@ py_extension(
     ]),
     private_include_dirs = RelPaths([ "pybind/src" ]),
     private_defines = [ "MOCHI_USE_REFLECTION=1" ],
+    private_headers = glob([
+        "pybind/src/**/*.h*",
+    ]),
 )
