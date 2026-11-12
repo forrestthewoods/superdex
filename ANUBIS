@@ -67,5 +67,5 @@ py_env(
     name = "py",
     project = RelPath("."),
     packages = Targets([ ":physics", ":robotics", ":physics_fp64", ":robotics_fp64", ":physics_debugger", ":studio", ":mesh_cli" ]),
-    sync_args = [ "--package", "superdex-physics", "--package", "superdex-robotics", "--package", "superdex-physics-fp64", "--package", "superdex-robotics-fp64", "--package", "superdex-physics-debugger", "--package", "superdex-studio", "--package", "superdex-mesh-cli" ],
+    sync_args = [ "--package", "superdex-physics", "--package", "superdex-robotics", "--package", "superdex-physics-fp64", "--package", "superdex-robotics-fp64", "--package", "superdex-physics-debugger", "--package", "superdex-studio", "--package", "superdex-mesh-cli", "--package", "superdex-lab" ],
 )
