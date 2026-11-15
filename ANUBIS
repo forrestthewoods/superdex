@@ -70,7 +70,7 @@ py_wheel(
     package = Target(":physics"),
     project = RelPath("superdex_python"),
     srcs = glob(
-        includes = [ "superdex_python/pyproject.toml", "superdex_python/README.md", "superdex_python/LICENSE", "superdex_python/thirdparty_licenses/**/*", "superdex_python/superdex/**/*" ],
+        includes = [ "superdex_python/README.md", "superdex_python/LICENSE", "superdex_python/thirdparty_licenses/**/*", "superdex_python/superdex/**/*" ],
         excludes = [ "**/__pycache__/**" ],
     ),
 )
@@ -80,7 +80,7 @@ py_wheel(
     package = Target(":robotics"),
     project = RelPath("superdex_robotics"),
     srcs = glob(
-        includes = [ "superdex_robotics/pyproject.toml", "superdex_robotics/README.md", "superdex_robotics/LICENSE", "superdex_robotics/thirdparty_licenses/**/*", "superdex_robotics/superdex/**/*" ],
+        includes = [ "superdex_robotics/README.md", "superdex_robotics/LICENSE", "superdex_robotics/thirdparty_licenses/**/*", "superdex_robotics/superdex/**/*" ],
         excludes = [ "**/__pycache__/**" ],
     ),
 )
@@ -90,7 +90,7 @@ py_wheel(
     package = Target(":physics_fp64"),
     project = RelPath("superdex_physics_fp64"),
     srcs = glob(
-        includes = [ "superdex_physics_fp64/pyproject.toml", "superdex_physics_fp64/README.md", "superdex_physics_fp64/LICENSE", "superdex_physics_fp64/thirdparty_licenses/**/*", "superdex_physics_fp64/superdex_physics_fp64/**/*" ],
+        includes = [ "superdex_physics_fp64/README.md", "superdex_physics_fp64/LICENSE", "superdex_physics_fp64/thirdparty_licenses/**/*", "superdex_physics_fp64/superdex_physics_fp64/**/*" ],
         excludes = [ "**/__pycache__/**" ],
     ),
 )
@@ -100,7 +100,7 @@ py_wheel(
     package = Target(":robotics_fp64"),
     project = RelPath("superdex_robotics_fp64"),
     srcs = glob(
-        includes = [ "superdex_robotics_fp64/pyproject.toml", "superdex_robotics_fp64/README.md", "superdex_robotics_fp64/LICENSE", "superdex_robotics_fp64/thirdparty_licenses/**/*", "superdex_robotics_fp64/superdex_robotics_fp64/**/*" ],
+        includes = [ "superdex_robotics_fp64/README.md", "superdex_robotics_fp64/LICENSE", "superdex_robotics_fp64/thirdparty_licenses/**/*", "superdex_robotics_fp64/superdex_robotics_fp64/**/*" ],
         excludes = [ "**/__pycache__/**" ],
     ),
 )
@@ -110,7 +110,7 @@ py_wheel(
     package = Target(":physics_debugger"),
     project = RelPath("superdex_physics_debugger"),
     srcs = glob(
-        includes = [ "superdex_physics_debugger/pyproject.toml", "superdex_physics_debugger/README.md", "superdex_physics_debugger/LICENSE", "superdex_physics_debugger/thirdparty_licenses/**/*", "superdex_physics_debugger/superdex_physics_debugger/**/*" ],
+        includes = [ "superdex_physics_debugger/README.md", "superdex_physics_debugger/LICENSE", "superdex_physics_debugger/thirdparty_licenses/**/*", "superdex_physics_debugger/superdex_physics_debugger/**/*" ],
         excludes = [ "**/__pycache__/**" ],
     ),
 )
@@ -120,7 +120,7 @@ py_wheel(
     package = Target(":studio"),
     project = RelPath("superdex_studio"),
     srcs = glob(
-        includes = [ "superdex_studio/pyproject.toml", "superdex_studio/README.md", "superdex_studio/LICENSE", "superdex_studio/thirdparty_licenses/**/*", "superdex_studio/superdex_studio/**/*" ],
+        includes = [ "superdex_studio/README.md", "superdex_studio/LICENSE", "superdex_studio/thirdparty_licenses/**/*", "superdex_studio/superdex_studio/**/*" ],
         excludes = [ "**/__pycache__/**" ],
     ),
 )
@@ -130,7 +130,7 @@ py_wheel(
     package = Target(":mesh_cli"),
     project = RelPath("superdex_mesh_cli"),
     srcs = glob(
-        includes = [ "superdex_mesh_cli/pyproject.toml", "superdex_mesh_cli/README.md", "superdex_mesh_cli/LICENSE", "superdex_mesh_cli/thirdparty_licenses/**/*", "superdex_mesh_cli/superdex_mesh_cli/**/*" ],
+        includes = [ "superdex_mesh_cli/README.md", "superdex_mesh_cli/LICENSE", "superdex_mesh_cli/thirdparty_licenses/**/*", "superdex_mesh_cli/superdex_mesh_cli/**/*" ],
         excludes = [ "**/__pycache__/**" ],
     ),
 )
