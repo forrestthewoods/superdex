@@ -203,6 +203,9 @@ repo         = "https://github.com/Open-Cascade-SAS/OCCT.git"
 commit       = "a016080bf6738d6aeae020badee4e888ad1540a5"   # tag V7_9_3
 version      = "7.9.3"
 strip_prefix = "src"
+# One include directory for all 8,421 headers, like upstream's inc/ (one -I
+# per package is very slow on Windows).
+flatten      = { into = "inc", files = ["*.hxx", "*.lxx", "*.gxx", "*.pxx", "*.h"] }
 
 [[toolchain]]
 name       = "cgal"
