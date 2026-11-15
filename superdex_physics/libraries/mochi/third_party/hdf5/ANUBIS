@@ -2,19 +2,19 @@
 #
 # HDF5's CMake configure step generates H5pubconf.h by probing the target.
 # Anubis has no configure step, so the results are checked in per target
-# platform under anubis/<platform>/, plus a fixed anubis/H5build_settings.c.
+# platform under anubis_files/<platform>/, plus a fixed anubis_files/H5build_settings.c.
 # Feature set matches superdex's CMake build: no MPI, threads, Fortran,
 # subfiling or S3; deflate via //.../third_party/zlib.
 
 cc_static_library(
     name = "hdf5",
     lang = "c",
-    srcs = glob([ "src/*.c" ]) + RelPaths([ "anubis/H5build_settings.c" ]),
+    srcs = glob([ "src/*.c" ]) + RelPaths([ "anubis_files/H5build_settings.c" ]),
     deps = Targets([ "//superdex_physics/libraries/mochi/third_party/zlib:zlib" ]),
     public_include_dirs = RelPaths([ "src", "src/H5FDsubfiling" ]) + select(
         (target_platform) => {
-            (linux) = RelPaths([ "anubis/linux" ]),
-            (windows) = RelPaths([ "anubis/windows" ]),
+            (linux) = RelPaths([ "anubis_files/linux" ]),
+            (windows) = RelPaths([ "anubis_files/windows" ]),
         }
     ),
     public_defines = select(
@@ -44,12 +44,12 @@ cc_static_library(
     ),
     private_compiler_flags = [ "-std=gnu99", "-w" ],
     public_headers = glob([
-        "anubis/linux/**/*.h*",
-        "anubis/windows/**/*.h*",
+        "anubis_files/linux/**/*.h*",
+        "anubis_files/windows/**/*.h*",
         "src/**/*.h*",
     ]),
     private_headers = glob([
-        "anubis/**/*.h*",
+        "anubis_files/**/*.h*",
         "src/**/*.h*",
     ]),
 )

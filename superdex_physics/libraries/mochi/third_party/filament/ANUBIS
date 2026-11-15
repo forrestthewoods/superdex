@@ -16,7 +16,7 @@ cc_static_library(
 cc_static_library(
     name = "_mochi_filament_filament_iblprefilter_iblprefilter_materials_resource",
     lang = "c",
-    srcs = RelPaths([ "anubis/resources/iblprefilter_materials.c" ]),
+    srcs = RelPaths([ "anubis_files/resources/iblprefilter_materials.c" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
     # The file the source #embeds.
     private_headers = RelPaths([ "libs/iblprefilter/src/buck_generated/generated/resources/iblprefilter_materials.bin" ]),
@@ -25,7 +25,7 @@ cc_static_library(
 cc_static_library(
     name = "_mochi_filament_filament_bloom_resource",
     lang = "c",
-    srcs = RelPaths([ "anubis/resources/bloom.c" ]),
+    srcs = RelPaths([ "anubis_files/resources/bloom.c" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
     # The file the source #embeds.
     private_headers = RelPaths([ "filament/src/buck_generated/generated/resources/bloom.bin" ]),
@@ -34,7 +34,7 @@ cc_static_library(
 cc_static_library(
     name = "_mochi_filament_filament_colorGrading_resource",
     lang = "c",
-    srcs = RelPaths([ "anubis/resources/colorGrading.c" ]),
+    srcs = RelPaths([ "anubis_files/resources/colorGrading.c" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
     # The file the source #embeds.
     private_headers = RelPaths([ "filament/src/buck_generated/generated/resources/colorGrading.bin" ]),
@@ -43,7 +43,7 @@ cc_static_library(
 cc_static_library(
     name = "_mochi_filament_filament_dfg_resource",
     lang = "c",
-    srcs = RelPaths([ "anubis/resources/dfg.c" ]),
+    srcs = RelPaths([ "anubis_files/resources/dfg.c" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
     # The file the source #embeds.
     private_headers = RelPaths([ "filament/src/buck_generated/generated/resources/dfg.bin" ]),
@@ -52,7 +52,7 @@ cc_static_library(
 cc_static_library(
     name = "_mochi_filament_filament_dof_resource",
     lang = "c",
-    srcs = RelPaths([ "anubis/resources/dof.c" ]),
+    srcs = RelPaths([ "anubis_files/resources/dof.c" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
     # The file the source #embeds.
     private_headers = RelPaths([ "filament/src/buck_generated/generated/resources/dof.bin" ]),
@@ -61,7 +61,7 @@ cc_static_library(
 cc_static_library(
     name = "_mochi_filament_filament_evsm_resource",
     lang = "c",
-    srcs = RelPaths([ "anubis/resources/evsm.c" ]),
+    srcs = RelPaths([ "anubis_files/resources/evsm.c" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
     # The file the source #embeds.
     private_headers = RelPaths([ "filament/src/buck_generated/generated/resources/evsm.bin" ]),
@@ -70,7 +70,7 @@ cc_static_library(
 cc_static_library(
     name = "_mochi_filament_filament_flare_resource",
     lang = "c",
-    srcs = RelPaths([ "anubis/resources/flare.c" ]),
+    srcs = RelPaths([ "anubis_files/resources/flare.c" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
     # The file the source #embeds.
     private_headers = RelPaths([ "filament/src/buck_generated/generated/resources/flare.bin" ]),
@@ -79,7 +79,7 @@ cc_static_library(
 cc_static_library(
     name = "_mochi_filament_filament_fog_resource",
     lang = "c",
-    srcs = RelPaths([ "anubis/resources/fog.c" ]),
+    srcs = RelPaths([ "anubis_files/resources/fog.c" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
     # The file the source #embeds.
     private_headers = RelPaths([ "filament/src/buck_generated/generated/resources/fog.bin" ]),
@@ -88,7 +88,7 @@ cc_static_library(
 cc_static_library(
     name = "_mochi_filament_filament_fsr_resource",
     lang = "c",
-    srcs = RelPaths([ "anubis/resources/fsr.c" ]),
+    srcs = RelPaths([ "anubis_files/resources/fsr.c" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
     # The file the source #embeds.
     private_headers = RelPaths([ "filament/src/buck_generated/generated/resources/fsr.bin" ]),
@@ -97,7 +97,7 @@ cc_static_library(
 cc_static_library(
     name = "_mochi_filament_filament_fxaa_resource",
     lang = "c",
-    srcs = RelPaths([ "anubis/resources/fxaa.c" ]),
+    srcs = RelPaths([ "anubis_files/resources/fxaa.c" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
     # The file the source #embeds.
     private_headers = RelPaths([ "filament/src/buck_generated/generated/resources/fxaa.bin" ]),
@@ -106,7 +106,7 @@ cc_static_library(
 cc_static_library(
     name = "_mochi_filament_filament_materials_resource",
     lang = "c",
-    srcs = RelPaths([ "anubis/resources/materials.c" ]),
+    srcs = RelPaths([ "anubis_files/resources/materials.c" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
     # The file the source #embeds.
     private_headers = RelPaths([ "filament/src/buck_generated/generated/resources/materials.bin" ]),
@@ -115,7 +115,7 @@ cc_static_library(
 cc_static_library(
     name = "_mochi_filament_filament_sgsr_resource",
     lang = "c",
-    srcs = RelPaths([ "anubis/resources/sgsr.c" ]),
+    srcs = RelPaths([ "anubis_files/resources/sgsr.c" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
     # The file the source #embeds.
     private_headers = RelPaths([ "filament/src/buck_generated/generated/resources/sgsr.bin" ]),
@@ -124,7 +124,7 @@ cc_static_library(
 cc_static_library(
     name = "_mochi_filament_filament_ssao_resource",
     lang = "c",
-    srcs = RelPaths([ "anubis/resources/ssao.c" ]),
+    srcs = RelPaths([ "anubis_files/resources/ssao.c" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
     # The file the source #embeds.
     private_headers = RelPaths([ "filament/src/buck_generated/generated/resources/ssao.bin" ]),
@@ -133,7 +133,7 @@ cc_static_library(
 cc_static_library(
     name = "_mochi_filament_filament_taa_resource",
     lang = "c",
-    srcs = RelPaths([ "anubis/resources/taa.c" ]),
+    srcs = RelPaths([ "anubis_files/resources/taa.c" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
     # The file the source #embeds.
     private_headers = RelPaths([ "filament/src/buck_generated/generated/resources/taa.bin" ]),
@@ -255,7 +255,7 @@ cc_static_library(
                 ":vkmemalloc",
                 ":smol_v",
                 ":SPIRV_Headers",
-                "//anubis/sys:x11",
+                "//anubis_files/sys:x11",
             ]),
             (windows) = Targets([
                 ":math",
@@ -546,7 +546,7 @@ cc_static_library(
     deps = select(
         (target_platform) => {
             (linux) = Targets([
-                "//anubis/sys:x11",
+                "//anubis_files/sys:x11",
             ]),
             (windows) = [],
         }
@@ -617,7 +617,7 @@ cc_static_library(
         "libs/bluevk/src/BlueVKLinuxAndroid.cpp",
     ]),
     deps = Targets([
-        "//anubis/sys:x11",
+        "//anubis_files/sys:x11",
         ":math",
         ":utils",
     ]),
@@ -807,7 +807,7 @@ cc_static_library(
     ]),
     private_include_dirs = RelPaths([
         "third_party/draco/src",
-        "anubis/draco",
+        "anubis_files/draco",
     ]),
     private_defines = select(
         (target_platform) => {
@@ -847,7 +847,7 @@ cc_static_library(
         }
     ),
     private_headers = glob([
-        "anubis/draco/**/*.h*",
+        "anubis_files/draco/**/*.h*",
         "third_party/draco/src/**/*.h*",
     ]),
 )
@@ -860,7 +860,7 @@ cc_static_library(
     ]),
     deps = Targets([ ":draco" ]),
     public_include_dirs = RelPaths([
-        "anubis/draco",
+        "anubis_files/draco",
         "third_party/draco/src",
     ]),
     private_defines = select(
@@ -894,7 +894,7 @@ cc_static_library(
         }
     ),
     public_headers = glob([
-        "anubis/draco/**/*.h*",
+        "anubis_files/draco/**/*.h*",
         "third_party/draco/src/**/*.h*",
     ]),
     private_headers = glob([
@@ -2165,7 +2165,7 @@ cc_static_library(
 cc_static_library(
     name = "uberarchive",
     lang = "c",
-    srcs = RelPaths([ "anubis/resources/uberarchive.c" ]),
+    srcs = RelPaths([ "anubis_files/resources/uberarchive.c" ]),
     public_include_dirs = RelPaths([ "libs/gltfio/src/buck_generated/generated" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
     public_headers = glob([

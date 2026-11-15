@@ -74,7 +74,7 @@ target_compile_definitions(superdex_zlib
 target_include_directories(superdex_zlib
   PUBLIC
     "${_anubis_root}/superdex_physics/libraries/mochi/third_party/zlib"
-    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/zlib/anubis"
+    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/zlib/anubis_files"
 )
 
 # //superdex_physics/libraries/mochi/third_party/hdf5:hdf5
@@ -423,7 +423,7 @@ target_sources(superdex_hdf5
     "${_anubis_root}/superdex_physics/libraries/mochi/third_party/hdf5/src/H5system.c"
     "${_anubis_root}/superdex_physics/libraries/mochi/third_party/hdf5/src/H5timer.c"
     "${_anubis_root}/superdex_physics/libraries/mochi/third_party/hdf5/src/H5trace.c"
-    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/hdf5/anubis/H5build_settings.c"
+    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/hdf5/anubis_files/H5build_settings.c"
 )
 target_compile_options(superdex_hdf5
   PRIVATE
@@ -442,8 +442,8 @@ target_include_directories(superdex_hdf5
   PUBLIC
     "${_anubis_root}/superdex_physics/libraries/mochi/third_party/hdf5/src"
     "${_anubis_root}/superdex_physics/libraries/mochi/third_party/hdf5/src/H5FDsubfiling"
-    "$<$<PLATFORM_ID:Linux>:${_anubis_root}/superdex_physics/libraries/mochi/third_party/hdf5/anubis/linux>"
-    "$<$<PLATFORM_ID:Windows>:${_anubis_root}/superdex_physics/libraries/mochi/third_party/hdf5/anubis/windows>"
+    "$<$<PLATFORM_ID:Linux>:${_anubis_root}/superdex_physics/libraries/mochi/third_party/hdf5/anubis_files/linux>"
+    "$<$<PLATFORM_ID:Windows>:${_anubis_root}/superdex_physics/libraries/mochi/third_party/hdf5/anubis_files/windows>"
 )
 target_link_libraries(superdex_hdf5
   PUBLIC
@@ -1186,14 +1186,14 @@ add_library(superdex_x11_headers INTERFACE)
 add_library(superdex::x11_headers ALIAS superdex_x11_headers)
 endif()
 
-# //anubis/sys:libX11
+# //anubis_files/sys:libX11
 if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
 add_library(superdex_libX11 INTERFACE)
 add_library(superdex::libX11 ALIAS superdex_libX11)
 target_link_libraries(superdex_libX11 INTERFACE "X11")
 endif()
 
-# //anubis/sys:x11
+# //anubis_files/sys:x11
 if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
 add_library(superdex_x11 INTERFACE)
 add_library(superdex::x11 ALIAS superdex_x11)
@@ -1676,7 +1676,7 @@ target_compile_definitions(superdex_draco
 target_include_directories(superdex_draco
   PRIVATE
     "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/third_party/draco/src"
-    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis/draco"
+    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis_files/draco"
 )
 
 # //superdex_physics/libraries/mochi/third_party/filament:dracodec
@@ -1707,7 +1707,7 @@ target_compile_definitions(superdex_dracodec
 )
 target_include_directories(superdex_dracodec
   PUBLIC
-    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis/draco"
+    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis_files/draco"
     "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/third_party/draco/src"
 )
 target_link_libraries(superdex_dracodec
@@ -1721,7 +1721,7 @@ add_library(superdex::_mochi_filament_filament_bloom_resource ALIAS superdex__mo
 set_target_properties(superdex__mochi_filament_filament_bloom_resource PROPERTIES OUTPUT_NAME "_mochi_filament_filament_bloom_resource")
 target_sources(superdex__mochi_filament_filament_bloom_resource
   PRIVATE
-    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis/resources/bloom.c"
+    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis_files/resources/bloom.c"
 )
 target_compile_options(superdex__mochi_filament_filament_bloom_resource
   PRIVATE
@@ -1735,7 +1735,7 @@ add_library(superdex::_mochi_filament_filament_colorGrading_resource ALIAS super
 set_target_properties(superdex__mochi_filament_filament_colorGrading_resource PROPERTIES OUTPUT_NAME "_mochi_filament_filament_colorGrading_resource")
 target_sources(superdex__mochi_filament_filament_colorGrading_resource
   PRIVATE
-    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis/resources/colorGrading.c"
+    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis_files/resources/colorGrading.c"
 )
 target_compile_options(superdex__mochi_filament_filament_colorGrading_resource
   PRIVATE
@@ -1749,7 +1749,7 @@ add_library(superdex::_mochi_filament_filament_dfg_resource ALIAS superdex__moch
 set_target_properties(superdex__mochi_filament_filament_dfg_resource PROPERTIES OUTPUT_NAME "_mochi_filament_filament_dfg_resource")
 target_sources(superdex__mochi_filament_filament_dfg_resource
   PRIVATE
-    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis/resources/dfg.c"
+    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis_files/resources/dfg.c"
 )
 target_compile_options(superdex__mochi_filament_filament_dfg_resource
   PRIVATE
@@ -1763,7 +1763,7 @@ add_library(superdex::_mochi_filament_filament_dof_resource ALIAS superdex__moch
 set_target_properties(superdex__mochi_filament_filament_dof_resource PROPERTIES OUTPUT_NAME "_mochi_filament_filament_dof_resource")
 target_sources(superdex__mochi_filament_filament_dof_resource
   PRIVATE
-    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis/resources/dof.c"
+    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis_files/resources/dof.c"
 )
 target_compile_options(superdex__mochi_filament_filament_dof_resource
   PRIVATE
@@ -1777,7 +1777,7 @@ add_library(superdex::_mochi_filament_filament_evsm_resource ALIAS superdex__moc
 set_target_properties(superdex__mochi_filament_filament_evsm_resource PROPERTIES OUTPUT_NAME "_mochi_filament_filament_evsm_resource")
 target_sources(superdex__mochi_filament_filament_evsm_resource
   PRIVATE
-    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis/resources/evsm.c"
+    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis_files/resources/evsm.c"
 )
 target_compile_options(superdex__mochi_filament_filament_evsm_resource
   PRIVATE
@@ -1791,7 +1791,7 @@ add_library(superdex::_mochi_filament_filament_flare_resource ALIAS superdex__mo
 set_target_properties(superdex__mochi_filament_filament_flare_resource PROPERTIES OUTPUT_NAME "_mochi_filament_filament_flare_resource")
 target_sources(superdex__mochi_filament_filament_flare_resource
   PRIVATE
-    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis/resources/flare.c"
+    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis_files/resources/flare.c"
 )
 target_compile_options(superdex__mochi_filament_filament_flare_resource
   PRIVATE
@@ -1805,7 +1805,7 @@ add_library(superdex::_mochi_filament_filament_fog_resource ALIAS superdex__moch
 set_target_properties(superdex__mochi_filament_filament_fog_resource PROPERTIES OUTPUT_NAME "_mochi_filament_filament_fog_resource")
 target_sources(superdex__mochi_filament_filament_fog_resource
   PRIVATE
-    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis/resources/fog.c"
+    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis_files/resources/fog.c"
 )
 target_compile_options(superdex__mochi_filament_filament_fog_resource
   PRIVATE
@@ -1819,7 +1819,7 @@ add_library(superdex::_mochi_filament_filament_fsr_resource ALIAS superdex__moch
 set_target_properties(superdex__mochi_filament_filament_fsr_resource PROPERTIES OUTPUT_NAME "_mochi_filament_filament_fsr_resource")
 target_sources(superdex__mochi_filament_filament_fsr_resource
   PRIVATE
-    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis/resources/fsr.c"
+    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis_files/resources/fsr.c"
 )
 target_compile_options(superdex__mochi_filament_filament_fsr_resource
   PRIVATE
@@ -1833,7 +1833,7 @@ add_library(superdex::_mochi_filament_filament_fxaa_resource ALIAS superdex__moc
 set_target_properties(superdex__mochi_filament_filament_fxaa_resource PROPERTIES OUTPUT_NAME "_mochi_filament_filament_fxaa_resource")
 target_sources(superdex__mochi_filament_filament_fxaa_resource
   PRIVATE
-    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis/resources/fxaa.c"
+    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis_files/resources/fxaa.c"
 )
 target_compile_options(superdex__mochi_filament_filament_fxaa_resource
   PRIVATE
@@ -1847,7 +1847,7 @@ add_library(superdex::_mochi_filament_filament_materials_resource ALIAS superdex
 set_target_properties(superdex__mochi_filament_filament_materials_resource PROPERTIES OUTPUT_NAME "_mochi_filament_filament_materials_resource")
 target_sources(superdex__mochi_filament_filament_materials_resource
   PRIVATE
-    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis/resources/materials.c"
+    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis_files/resources/materials.c"
 )
 target_compile_options(superdex__mochi_filament_filament_materials_resource
   PRIVATE
@@ -1861,7 +1861,7 @@ add_library(superdex::_mochi_filament_filament_sgsr_resource ALIAS superdex__moc
 set_target_properties(superdex__mochi_filament_filament_sgsr_resource PROPERTIES OUTPUT_NAME "_mochi_filament_filament_sgsr_resource")
 target_sources(superdex__mochi_filament_filament_sgsr_resource
   PRIVATE
-    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis/resources/sgsr.c"
+    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis_files/resources/sgsr.c"
 )
 target_compile_options(superdex__mochi_filament_filament_sgsr_resource
   PRIVATE
@@ -1875,7 +1875,7 @@ add_library(superdex::_mochi_filament_filament_ssao_resource ALIAS superdex__moc
 set_target_properties(superdex__mochi_filament_filament_ssao_resource PROPERTIES OUTPUT_NAME "_mochi_filament_filament_ssao_resource")
 target_sources(superdex__mochi_filament_filament_ssao_resource
   PRIVATE
-    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis/resources/ssao.c"
+    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis_files/resources/ssao.c"
 )
 target_compile_options(superdex__mochi_filament_filament_ssao_resource
   PRIVATE
@@ -1889,7 +1889,7 @@ add_library(superdex::_mochi_filament_filament_taa_resource ALIAS superdex__moch
 set_target_properties(superdex__mochi_filament_filament_taa_resource PROPERTIES OUTPUT_NAME "_mochi_filament_filament_taa_resource")
 target_sources(superdex__mochi_filament_filament_taa_resource
   PRIVATE
-    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis/resources/taa.c"
+    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis_files/resources/taa.c"
 )
 target_compile_options(superdex__mochi_filament_filament_taa_resource
   PRIVATE
@@ -2586,7 +2586,7 @@ add_library(superdex::_mochi_filament_filament_iblprefilter_iblprefilter_materia
 set_target_properties(superdex__mochi_filament_filament_iblprefilter_iblprefilter_materials_resource PROPERTIES OUTPUT_NAME "_mochi_filament_filament_iblprefilter_iblprefilter_materials_resource")
 target_sources(superdex__mochi_filament_filament_iblprefilter_iblprefilter_materials_resource
   PRIVATE
-    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis/resources/iblprefilter_materials.c"
+    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis_files/resources/iblprefilter_materials.c"
 )
 target_compile_options(superdex__mochi_filament_filament_iblprefilter_iblprefilter_materials_resource
   PRIVATE
@@ -3351,7 +3351,7 @@ add_library(superdex::uberarchive ALIAS superdex_uberarchive)
 set_target_properties(superdex_uberarchive PROPERTIES OUTPUT_NAME "uberarchive")
 target_sources(superdex_uberarchive
   PRIVATE
-    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis/resources/uberarchive.c"
+    "${_anubis_root}/superdex_physics/libraries/mochi/third_party/filament/anubis_files/resources/uberarchive.c"
 )
 target_compile_options(superdex_uberarchive
   PRIVATE
@@ -3369,19 +3369,19 @@ add_library(superdex::mochi_renderer_materials ALIAS superdex_mochi_renderer_mat
 set_target_properties(superdex_mochi_renderer_materials PROPERTIES OUTPUT_NAME "mochi_renderer_materials")
 target_sources(superdex_mochi_renderer_materials
   PRIVATE
-    "${_anubis_root}/superdex_physics/libraries/mochi/mochi_renderer/anubis/Distortion.c"
-    "${_anubis_root}/superdex_physics/libraries/mochi/mochi_renderer/anubis/FlatLitOpaque.c"
-    "${_anubis_root}/superdex_physics/libraries/mochi/mochi_renderer/anubis/FlatLitSeeThrough.c"
-    "${_anubis_root}/superdex_physics/libraries/mochi/mochi_renderer/anubis/GroundShadow.c"
-    "${_anubis_root}/superdex_physics/libraries/mochi/mochi_renderer/anubis/HighlightComposite.c"
-    "${_anubis_root}/superdex_physics/libraries/mochi/mochi_renderer/anubis/LitOpaque.c"
-    "${_anubis_root}/superdex_physics/libraries/mochi/mochi_renderer/anubis/LitSeeThrough.c"
-    "${_anubis_root}/superdex_physics/libraries/mochi/mochi_renderer/anubis/LitVertexColor.c"
-    "${_anubis_root}/superdex_physics/libraries/mochi/mochi_renderer/anubis/Outline.c"
-    "${_anubis_root}/superdex_physics/libraries/mochi/mochi_renderer/anubis/UnlitSeeThrough.c"
-    "${_anubis_root}/superdex_physics/libraries/mochi/mochi_renderer/anubis/UnlitVertexColor.c"
-    "${_anubis_root}/superdex_physics/libraries/mochi/mochi_renderer/anubis/Wireframe.c"
-    "${_anubis_root}/superdex_physics/libraries/mochi/mochi_renderer/anubis/WireframeDepth.c"
+    "${_anubis_root}/superdex_physics/libraries/mochi/mochi_renderer/anubis_files/Distortion.c"
+    "${_anubis_root}/superdex_physics/libraries/mochi/mochi_renderer/anubis_files/FlatLitOpaque.c"
+    "${_anubis_root}/superdex_physics/libraries/mochi/mochi_renderer/anubis_files/FlatLitSeeThrough.c"
+    "${_anubis_root}/superdex_physics/libraries/mochi/mochi_renderer/anubis_files/GroundShadow.c"
+    "${_anubis_root}/superdex_physics/libraries/mochi/mochi_renderer/anubis_files/HighlightComposite.c"
+    "${_anubis_root}/superdex_physics/libraries/mochi/mochi_renderer/anubis_files/LitOpaque.c"
+    "${_anubis_root}/superdex_physics/libraries/mochi/mochi_renderer/anubis_files/LitSeeThrough.c"
+    "${_anubis_root}/superdex_physics/libraries/mochi/mochi_renderer/anubis_files/LitVertexColor.c"
+    "${_anubis_root}/superdex_physics/libraries/mochi/mochi_renderer/anubis_files/Outline.c"
+    "${_anubis_root}/superdex_physics/libraries/mochi/mochi_renderer/anubis_files/UnlitSeeThrough.c"
+    "${_anubis_root}/superdex_physics/libraries/mochi/mochi_renderer/anubis_files/UnlitVertexColor.c"
+    "${_anubis_root}/superdex_physics/libraries/mochi/mochi_renderer/anubis_files/Wireframe.c"
+    "${_anubis_root}/superdex_physics/libraries/mochi/mochi_renderer/anubis_files/WireframeDepth.c"
 )
 target_compile_options(superdex_mochi_renderer_materials
   PRIVATE

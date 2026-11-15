@@ -55,7 +55,7 @@ cc_static_library(
 cc_static_library(
     name = "mochi_renderer_materials",
     lang = "c",
-    srcs = glob([ "anubis/*.c" ]),
+    srcs = glob([ "anubis_files/*.c" ]),
     private_compiler_flags = [ "-std=c23", "-w" ],
     # The files the sources #embed.
     private_headers = glob([ "resources/*.bin" ]),

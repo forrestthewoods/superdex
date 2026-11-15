@@ -11,7 +11,7 @@ cc_static_library(
     ]) + select(
         (target_platform) => {
             # imguios_window.cpp calls XSetErrorHandler directly.
-            (linux) = Targets([ "//anubis/sys:x11" ]),
+            (linux) = Targets([ "//anubis_files/sys:x11" ]),
             default = Targets([]),
         }
     ),

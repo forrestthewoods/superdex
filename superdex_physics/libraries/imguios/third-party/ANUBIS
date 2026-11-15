@@ -86,7 +86,7 @@ cc_static_library(
     deps = select(
         (target_platform) => {
             (linux) = Targets([
-                "//anubis/sys:x11",
+                "//anubis_files/sys:x11",
             ]),
             (windows) = [],
         }

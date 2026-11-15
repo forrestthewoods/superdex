@@ -1,9 +1,9 @@
 #!/bin/sh
-# Regenerate anubis/cmake/CMakeLists.txt (the CMake export of superdex's C++)
+# Regenerate anubis_files/cmake/CMakeLists.txt (the CMake export of superdex's C++)
 # with anubis-cmake from the Anubis repo. Pass --check to fail when stale.
 set -e
 cd "$(dirname "$0")/.."
-exec anubis-cmake --namespace superdex -o anubis/cmake/CMakeLists.txt "$@" \
+exec anubis-cmake --namespace superdex -o anubis_files/cmake/CMakeLists.txt "$@" \
   -m //mode:linux_dev //mode:linux_release //mode:win_dev //mode:win_release \
   -t //superdex_robotics:superdex_robotics \
      //superdex_robotics:superdex_robotics_test \

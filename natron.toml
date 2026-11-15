@@ -168,7 +168,7 @@ sha256  = "acfde570451cfdb8689fa159a138ee805ba4e241c466432750302c86254b0984"
 # === Linux system headers (X11 / xcb / GL) ==================================
 # Headers only, from pinned Debian trixie packages; nothing is installed on
 # the host. Link-time stand-ins for the libraries are .ifs stubs built by
-# Anubis (see anubis/sys). Linux hosts only (only Linux targets use them).
+# Anubis (see anubis_files/sys). Linux hosts only (only Linux targets use them).
 [[toolchain]]
 name       = "x11_headers"
 deploy_dir = "x11"
