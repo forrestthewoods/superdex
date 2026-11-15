@@ -67,4 +67,4 @@ CXX = "clang++"
 repair-wheel-command = "delvewheel repair -w {dest_dir} -v {wheel} --ignore-existing"
 
 [tool.uv.sources]
-hatch-anubis = { path = "/home/user/anubis/python/hatch-anubis" }
+hatch-anubis = { path = "../../anubis/python/hatch-anubis" }

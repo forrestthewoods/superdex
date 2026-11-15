@@ -78,4 +78,4 @@ repair-wheel-command = """delvewheel repair -w {dest_dir} -v {wheel} --ignore-ex
   --exclude mochi_physics_double.dll --exclude mochi_pybind_core_double.dll --exclude marl.dll"""
 
 [tool.uv.sources]
-hatch-anubis = { path = "/home/user/anubis/python/hatch-anubis" }
+hatch-anubis = { path = "../../anubis/python/hatch-anubis" }

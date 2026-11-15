@@ -68,7 +68,7 @@ target = "//:physics"
 cache-keys = [{ file = "pyproject.toml" }, { env = "ANUBIS_MODE" }]
 
 [tool.uv.sources]
-hatch-anubis = { path = "/home/user/anubis/python/hatch-anubis" }
+hatch-anubis = { path = "../../anubis/python/hatch-anubis" }
 
 [tool.cibuildwheel]
 build = "cp312-*"

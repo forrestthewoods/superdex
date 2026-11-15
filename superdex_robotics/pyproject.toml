@@ -80,4 +80,4 @@ repair-wheel-command = """delvewheel repair -w {dest_dir} -v {wheel} --ignore-ex
 
 [tool.uv.sources]
 superdex-physics = {workspace = true}
-hatch-anubis = { path = "/home/user/anubis/python/hatch-anubis" }
+hatch-anubis = { path = "../../anubis/python/hatch-anubis" }
