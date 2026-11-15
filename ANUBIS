@@ -1,12 +1,11 @@
 # The native side of each Python package (uv workspace member). The
 # pyproject.toml files are plain hatchling and know nothing of this.
 #   anubis run   -m //mode:win_release -t //:venv -- python <script>
-#   anubis wheel -m //mode:win_release -t //:physics     (-> .anubis-out/wheels)
+#   anubis build -m //mode:win_release -t //:physics_wheel   (a .whl, listed by --outputs-json)
 
 # superdex_python/pyproject.toml
 py_package(
     name = "physics",
-    project = RelPath("superdex_python"),
     native_dir = "superdex/physics/_native",
     targets = Targets([ "//superdex_physics/libraries/mochi/mochi_physics:mochi_physics_py" ]),
 )
@@ -14,7 +13,6 @@ py_package(
 # superdex_robotics/pyproject.toml
 py_package(
     name = "robotics",
-    project = RelPath("superdex_robotics"),
     native_dir = "superdex/robotics/_native",
     targets = Targets([ "//superdex_robotics:superdex_robotics_py" ]),
     # Ships the shared mochi libraries; this package leaves them out.
@@ -24,7 +22,6 @@ py_package(
 # superdex_physics_fp64/pyproject.toml
 py_package(
     name = "physics_fp64",
-    project = RelPath("superdex_physics_fp64"),
     native_dir = "superdex_physics_fp64/_native",
     targets = Targets([ "//superdex_physics/libraries/mochi/mochi_physics:mochi_physics_py" ]),
     # Double precision, built next to the single-precision package
@@ -35,7 +32,6 @@ py_package(
 # superdex_robotics_fp64/pyproject.toml
 py_package(
     name = "robotics_fp64",
-    project = RelPath("superdex_robotics_fp64"),
     native_dir = "superdex_robotics_fp64/_native",
     targets = Targets([ "//superdex_robotics:superdex_robotics_py" ]),
     # Ships the shared mochi libraries; this package leaves them out.
@@ -48,7 +44,6 @@ py_package(
 # superdex_physics_debugger/pyproject.toml
 py_package(
     name = "physics_debugger",
-    project = RelPath("superdex_physics_debugger"),
     native_dir = "superdex_physics_debugger/_native",
     targets = Targets([ "//superdex_physics/libraries/mochi/mochi_debugger:mochi_debugger" ]),
 )
@@ -56,7 +51,6 @@ py_package(
 # superdex_studio/pyproject.toml
 py_package(
     name = "studio",
-    project = RelPath("superdex_studio"),
     native_dir = "superdex_studio/_native",
     targets = Targets([ "//superdex_studio:superdex_studio" ]),
 )
@@ -64,9 +58,81 @@ py_package(
 # superdex_mesh_cli/pyproject.toml
 py_package(
     name = "mesh_cli",
-    project = RelPath("superdex_mesh_cli"),
     native_dir = "superdex_mesh_cli/_native",
     targets = Targets([ "//superdex_physics/libraries/mochi/superdex_mesh_cli:superdex_mesh_cli" ]),
+)
+
+# Wheels: `anubis build -m //mode:linux_release_static -m //mode:win_release -t //:physics_wheel`.
+# hatchling (pinned by Anubis) makes the Python part from `srcs`; Anubis adds
+# the package's native files and the platform tag.
+py_wheel(
+    name = "physics_wheel",
+    package = Target(":physics"),
+    project = RelPath("superdex_python"),
+    srcs = glob(
+        includes = [ "superdex_python/pyproject.toml", "superdex_python/README.md", "superdex_python/LICENSE", "superdex_python/thirdparty_licenses/**/*", "superdex_python/superdex/**/*" ],
+        excludes = [ "**/__pycache__/**" ],
+    ),
+)
+
+py_wheel(
+    name = "robotics_wheel",
+    package = Target(":robotics"),
+    project = RelPath("superdex_robotics"),
+    srcs = glob(
+        includes = [ "superdex_robotics/pyproject.toml", "superdex_robotics/README.md", "superdex_robotics/LICENSE", "superdex_robotics/thirdparty_licenses/**/*", "superdex_robotics/superdex/**/*" ],
+        excludes = [ "**/__pycache__/**" ],
+    ),
+)
+
+py_wheel(
+    name = "physics_fp64_wheel",
+    package = Target(":physics_fp64"),
+    project = RelPath("superdex_physics_fp64"),
+    srcs = glob(
+        includes = [ "superdex_physics_fp64/pyproject.toml", "superdex_physics_fp64/README.md", "superdex_physics_fp64/LICENSE", "superdex_physics_fp64/thirdparty_licenses/**/*", "superdex_physics_fp64/superdex_physics_fp64/**/*" ],
+        excludes = [ "**/__pycache__/**" ],
+    ),
+)
+
+py_wheel(
+    name = "robotics_fp64_wheel",
+    package = Target(":robotics_fp64"),
+    project = RelPath("superdex_robotics_fp64"),
+    srcs = glob(
+        includes = [ "superdex_robotics_fp64/pyproject.toml", "superdex_robotics_fp64/README.md", "superdex_robotics_fp64/LICENSE", "superdex_robotics_fp64/thirdparty_licenses/**/*", "superdex_robotics_fp64/superdex_robotics_fp64/**/*" ],
+        excludes = [ "**/__pycache__/**" ],
+    ),
+)
+
+py_wheel(
+    name = "physics_debugger_wheel",
+    package = Target(":physics_debugger"),
+    project = RelPath("superdex_physics_debugger"),
+    srcs = glob(
+        includes = [ "superdex_physics_debugger/pyproject.toml", "superdex_physics_debugger/README.md", "superdex_physics_debugger/LICENSE", "superdex_physics_debugger/thirdparty_licenses/**/*", "superdex_physics_debugger/superdex_physics_debugger/**/*" ],
+        excludes = [ "**/__pycache__/**" ],
+    ),
+)
+
+py_wheel(
+    name = "studio_wheel",
+    package = Target(":studio"),
+    project = RelPath("superdex_studio"),
+    srcs = glob(
+        includes = [ "superdex_studio/pyproject.toml", "superdex_studio/README.md", "superdex_studio/LICENSE", "superdex_studio/thirdparty_licenses/**/*", "superdex_studio/superdex_studio/**/*" ],
+        excludes = [ "**/__pycache__/**" ],
+    ),
+)
+
+py_wheel(
+    name = "mesh_cli_wheel",
+    package = Target(":mesh_cli"),
+    project = RelPath("superdex_mesh_cli"),
+    srcs = glob(
+        includes = [ "superdex_mesh_cli/pyproject.toml", "superdex_mesh_cli/README.md", "superdex_mesh_cli/LICENSE", "superdex_mesh_cli/thirdparty_licenses/**/*", "superdex_mesh_cli/superdex_mesh_cli/**/*" ],
+        excludes = [ "**/__pycache__/**" ],
+    ),
 )
 
 # Python environments: `anubis run -m //mode:win_release -t //:venv -- python <script>`
