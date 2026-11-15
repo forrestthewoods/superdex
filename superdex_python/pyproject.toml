@@ -13,7 +13,7 @@
 # limitations under the License.
 
 [build-system]
-requires = ["hatchling>=1.26", "hatch-anubis"]
+requires = ["hatchling>=1.26"]
 build-backend = "hatchling.build"
 
 [project]
@@ -58,17 +58,9 @@ Repository = "https://github.com/facebookresearch/project_superdex"
 packages = ["superdex"]
 exclude = ["superdex/physics/internal", "superdex/physics/utils/testing/internal"]
 
-# Anubis builds the native payload; hatch-anubis puts it in the wheel
-# (and `anubis run` copies it into .venv for development).
-[tool.hatch.build.hooks.anubis]
-# The py_package in the root ANUBIS file.
-target = "//:physics"
+# Plain Python packaging. Anubis builds the native code: `anubis run` copies
+# it into .venv, `anubis wheel` adds it to the wheel (py_package in //ANUBIS).
 
-[tool.uv]
-cache-keys = [{ file = "pyproject.toml" }, { env = "ANUBIS_MODE" }]
-
-[tool.uv.sources]
-hatch-anubis = { path = "../../anubis/python/hatch-anubis" }
 
 [tool.cibuildwheel]
 build = "cp312-*"
