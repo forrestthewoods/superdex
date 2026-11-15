@@ -61,10 +61,21 @@ py_package(
     targets = Targets([ "//superdex_physics/libraries/mochi/superdex_mesh_cli:superdex_mesh_cli" ]),
 )
 
-# `anubis run -m //mode:linux_dev_static -t //:py -- python <script>`: build the
-# packages, sync .venv, copy their native files in, run.
+# Python environments: `anubis run -m //mode:win_release -t //:venv -- python <script>`
+# builds the listed packages, syncs .venv, copies their native files in, runs.
+
+# The everyday one: physics and robotics, single precision.
 py_env(
-    name = "py",
+    name = "venv",
+    project = RelPath("."),
+    packages = Targets([ ":physics", ":robotics" ]),
+    sync_args = [ "--package", "superdex-physics", "--package", "superdex-robotics", "--package", "superdex-lab" ],
+)
+
+# Every package: adds the double-precision twins, the debugger, studio and
+# mesh-cli (which builds OpenCASCADE).
+py_env(
+    name = "venv_full",
     project = RelPath("."),
     packages = Targets([ ":physics", ":robotics", ":physics_fp64", ":robotics_fp64", ":physics_debugger", ":studio", ":mesh_cli" ]),
     sync_args = [ "--package", "superdex-physics", "--package", "superdex-robotics", "--package", "superdex-physics-fp64", "--package", "superdex-robotics-fp64", "--package", "superdex-physics-debugger", "--package", "superdex-studio", "--package", "superdex-mesh-cli", "--package", "superdex-lab" ],
