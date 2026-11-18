@@ -140,7 +140,7 @@ toolchain(
             (target_platform, target_arch) => {
                 (windows, x64) = [
                     # include clang intrinsics headers first
-                    RelPath("llvm/lib/clang/21/include"),
+                    RelPath("llvm/lib/clang/23/include"),
 
                     RelPath("msvc/VC/Tools/MSVC/14.50.35717/include"),
                     RelPath("windows_kits/Include/10.0.26100.0/ucrt"),
@@ -149,7 +149,7 @@ toolchain(
                 ],
                 (linux, x64) = [
                     # clang intrinsics must come first
-                    RelPath("llvm/lib/clang/21/include"),
+                    RelPath("llvm/lib/clang/23/include"),
 
                     # target-specific headers must come before generic glibc
                     RelPath("zig/lib/libc/include/x86-linux-gnu"),
@@ -338,7 +338,7 @@ toolchain(
             (target_platform, target_arch) => {
                 (windows, x64) = [
                     # include clang intrinsics headers first
-                    RelPath("llvm/lib/clang/21/include"),
+                    RelPath("llvm/lib/clang/23/include"),
 
                     RelPath("msvc/VC/Tools/MSVC/14.50.35717/include"),
                     RelPath("windows_kits/Include/10.0.26100.0/ucrt"),
@@ -353,7 +353,7 @@ toolchain(
                     RelPath("zig/lib/libunwind/include"),
 
                     # clang intrinsics (stddef.h, immintrin.h, etc.)
-                    RelPath("llvm/lib/clang/21/include"),
+                    RelPath("llvm/lib/clang/23/include"),
 
                     # glibc/libc headers (target-specific before generic)
                     RelPath("zig/lib/libc/include/x86-linux-gnu"),
